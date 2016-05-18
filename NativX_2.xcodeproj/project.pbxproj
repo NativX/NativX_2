@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F2888C0B1CECEF0500BAD345 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2888C0A1CECEF0500BAD345 /* GoogleService-Info.plist */; };
 		F2E9457B1CEBEC280021B899 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E9457A1CEBEC280021B899 /* AppDelegate.swift */; };
 		F2E9457D1CEBEC280021B899 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E9457C1CEBEC280021B899 /* ViewController.swift */; };
 		F2E945801CEBEC280021B899 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2E9457E1CEBEC280021B899 /* Main.storyboard */; };
@@ -14,6 +15,11 @@
 		F2E945851CEBEC280021B899 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2E945831CEBEC280021B899 /* LaunchScreen.storyboard */; };
 		F2E945901CEBEC290021B899 /* NativX_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E9458F1CEBEC290021B899 /* NativX_2Tests.swift */; };
 		F2E9459B1CEBEC290021B899 /* NativX_2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E9459A1CEBEC290021B899 /* NativX_2UITests.swift */; };
+		F2E945A91CEBF42F0021B899 /* ProtectedLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E945A81CEBF42F0021B899 /* ProtectedLoginViewController.swift */; };
+		F2E945AB1CEBF8530021B899 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E945AA1CEBF8530021B899 /* LoginPageViewController.swift */; };
+		F2E945B51CEBF9AC0021B899 /* FacebookLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E945B41CEBF9AC0021B899 /* FacebookLoginViewController.swift */; };
+		F2E945B71CEBF9C80021B899 /* HomeNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E945B61CEBF9C80021B899 /* HomeNavController.swift */; };
+		F2E945BD1CECB5DB0021B899 /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E945BC1CECB5DB0021B899 /* RegisterPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F2888C0A1CECEF0500BAD345 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2E945771CEBEC280021B899 /* NativX_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativX_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2E9457A1CEBEC280021B899 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2E9457C1CEBEC280021B899 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +54,11 @@
 		F2E945961CEBEC290021B899 /* NativX_2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NativX_2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2E9459A1CEBEC290021B899 /* NativX_2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativX_2UITests.swift; sourceTree = "<group>"; };
 		F2E9459C1CEBEC290021B899 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2E945A81CEBF42F0021B899 /* ProtectedLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProtectedLoginViewController.swift; path = ../../../GitHub/NativX/NativX/ProtectedLoginViewController.swift; sourceTree = "<group>"; };
+		F2E945AA1CEBF8530021B899 /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginPageViewController.swift; path = ../../../GitHub/NativX/NativX/LoginPageViewController.swift; sourceTree = "<group>"; };
+		F2E945B41CEBF9AC0021B899 /* FacebookLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacebookLoginViewController.swift; path = "../../../Downloads/NativX-master/NativX/FacebookLoginViewController.swift"; sourceTree = "<group>"; };
+		F2E945B61CEBF9C80021B899 /* HomeNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeNavController.swift; path = "../../../Downloads/NativX-master/NativX/HomeNavController.swift"; sourceTree = "<group>"; };
+		F2E945BC1CECB5DB0021B899 /* RegisterPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterPageViewController.swift; path = "../../../Downloads/NativX-master/NativX/RegisterPageViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +109,16 @@
 		F2E945791CEBEC280021B899 /* NativX_2 */ = {
 			isa = PBXGroup;
 			children = (
+				F2E945BB1CEBF9EB0021B899 /* Facebook Login */,
+				F2E945AC1CEBF86C0021B899 /* Login Controllers */,
+				F2E945BA1CEBF9DB0021B899 /* Home */,
 				F2E9457A1CEBEC280021B899 /* AppDelegate.swift */,
 				F2E9457C1CEBEC280021B899 /* ViewController.swift */,
 				F2E9457E1CEBEC280021B899 /* Main.storyboard */,
 				F2E945811CEBEC280021B899 /* Assets.xcassets */,
 				F2E945831CEBEC280021B899 /* LaunchScreen.storyboard */,
 				F2E945861CEBEC280021B899 /* Info.plist */,
+				F2888C0A1CECEF0500BAD345 /* GoogleService-Info.plist */,
 			);
 			path = NativX_2;
 			sourceTree = "<group>";
@@ -123,6 +139,32 @@
 				F2E9459C1CEBEC290021B899 /* Info.plist */,
 			);
 			path = NativX_2UITests;
+			sourceTree = "<group>";
+		};
+		F2E945AC1CEBF86C0021B899 /* Login Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F2E945A81CEBF42F0021B899 /* ProtectedLoginViewController.swift */,
+				F2E945BC1CECB5DB0021B899 /* RegisterPageViewController.swift */,
+			);
+			name = "Login Controllers";
+			sourceTree = "<group>";
+		};
+		F2E945BA1CEBF9DB0021B899 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F2E945B61CEBF9C80021B899 /* HomeNavController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		F2E945BB1CEBF9EB0021B899 /* Facebook Login */ = {
+			isa = PBXGroup;
+			children = (
+				F2E945B41CEBF9AC0021B899 /* FacebookLoginViewController.swift */,
+				F2E945AA1CEBF8530021B899 /* LoginPageViewController.swift */,
+			);
+			name = "Facebook Login";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2E945851CEBEC280021B899 /* LaunchScreen.storyboard in Resources */,
+				F2888C0B1CECEF0500BAD345 /* GoogleService-Info.plist in Resources */,
 				F2E945821CEBEC280021B899 /* Assets.xcassets in Resources */,
 				F2E945801CEBEC280021B899 /* Main.storyboard in Resources */,
 			);
@@ -256,6 +299,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2E945B71CEBF9C80021B899 /* HomeNavController.swift in Sources */,
+				F2E945BD1CECB5DB0021B899 /* RegisterPageViewController.swift in Sources */,
+				F2E945A91CEBF42F0021B899 /* ProtectedLoginViewController.swift in Sources */,
+				F2E945AB1CEBF8530021B899 /* LoginPageViewController.swift in Sources */,
+				F2E945B51CEBF9AC0021B899 /* FacebookLoginViewController.swift in Sources */,
 				F2E9457D1CEBEC280021B899 /* ViewController.swift in Sources */,
 				F2E9457B1CEBEC280021B899 /* AppDelegate.swift in Sources */,
 			);
@@ -403,7 +451,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NativX_2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "co.Nativx.NativX-2";
+				PRODUCT_BUNDLE_IDENTIFIER = co.Nativx.NativX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -414,7 +462,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NativX_2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "co.Nativx.NativX-2";
+				PRODUCT_BUNDLE_IDENTIFIER = co.Nativx.NativX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -484,6 +532,7 @@
 				F2E945A11CEBEC290021B899 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F2E945A21CEBEC290021B899 /* Build configuration list for PBXNativeTarget "NativX_2Tests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +541,7 @@
 				F2E945A41CEBEC290021B899 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F2E945A51CEBEC290021B899 /* Build configuration list for PBXNativeTarget "NativX_2UITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +550,7 @@
 				F2E945A71CEBEC290021B899 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
