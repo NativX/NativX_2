@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F28839051CEE70BB007E90FE /* FacebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28839041CEE70BB007E90FE /* FacebookViewController.swift */; };
+		F28839071CEE715F007E90FE /* loginPgViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28839061CEE715F007E90FE /* loginPgViewController.swift */; };
+		F28839091CEE71A0007E90FE /* ProtectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28839081CEE71A0007E90FE /* ProtectedViewController.swift */; };
+		F288390B1CEE71DC007E90FE /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F288390A1CEE71DC007E90FE /* RegisterPageViewController.swift */; };
+		F288390D1CEE720D007E90FE /* HomeNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F288390C1CEE720D007E90FE /* HomeNavViewController.swift */; };
 		F2888C0B1CECEF0500BAD345 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2888C0A1CECEF0500BAD345 /* GoogleService-Info.plist */; };
 		F2888C0C1CECFDE100BAD345 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2888C0A1CECEF0500BAD345 /* GoogleService-Info.plist */; };
 		F2888C0D1CECFDE200BAD345 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2888C0A1CECEF0500BAD345 /* GoogleService-Info.plist */; };
@@ -17,11 +22,6 @@
 		F2E945851CEBEC280021B899 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2E945831CEBEC280021B899 /* LaunchScreen.storyboard */; };
 		F2E945901CEBEC290021B899 /* NativX_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E9458F1CEBEC290021B899 /* NativX_2Tests.swift */; };
 		F2E9459B1CEBEC290021B899 /* NativX_2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E9459A1CEBEC290021B899 /* NativX_2UITests.swift */; };
-		F2E945A91CEBF42F0021B899 /* ProtectedLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E945A81CEBF42F0021B899 /* ProtectedLoginViewController.swift */; };
-		F2E945AB1CEBF8530021B899 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E945AA1CEBF8530021B899 /* LoginPageViewController.swift */; };
-		F2E945B51CEBF9AC0021B899 /* FacebookLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E945B41CEBF9AC0021B899 /* FacebookLoginViewController.swift */; };
-		F2E945B71CEBF9C80021B899 /* HomeNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E945B61CEBF9C80021B899 /* HomeNavController.swift */; };
-		F2E945BD1CECB5DB0021B899 /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E945BC1CECB5DB0021B899 /* RegisterPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F28839041CEE70BB007E90FE /* FacebookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookViewController.swift; sourceTree = "<group>"; };
+		F28839061CEE715F007E90FE /* loginPgViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginPgViewController.swift; sourceTree = "<group>"; };
+		F28839081CEE71A0007E90FE /* ProtectedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectedViewController.swift; sourceTree = "<group>"; };
+		F288390A1CEE71DC007E90FE /* RegisterPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPageViewController.swift; sourceTree = "<group>"; };
+		F288390C1CEE720D007E90FE /* HomeNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavViewController.swift; sourceTree = "<group>"; };
 		F2888C0A1CECEF0500BAD345 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2E945771CEBEC280021B899 /* NativX_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativX_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2E9457A1CEBEC280021B899 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,11 +61,6 @@
 		F2E945961CEBEC290021B899 /* NativX_2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NativX_2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2E9459A1CEBEC290021B899 /* NativX_2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativX_2UITests.swift; sourceTree = "<group>"; };
 		F2E9459C1CEBEC290021B899 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F2E945A81CEBF42F0021B899 /* ProtectedLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProtectedLoginViewController.swift; path = ../../../GitHub/NativX/NativX/ProtectedLoginViewController.swift; sourceTree = "<group>"; };
-		F2E945AA1CEBF8530021B899 /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginPageViewController.swift; path = ../../../GitHub/NativX/NativX/LoginPageViewController.swift; sourceTree = "<group>"; };
-		F2E945B41CEBF9AC0021B899 /* FacebookLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacebookLoginViewController.swift; path = "../../../Downloads/NativX-master/NativX/FacebookLoginViewController.swift"; sourceTree = "<group>"; };
-		F2E945B61CEBF9C80021B899 /* HomeNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeNavController.swift; path = "../../../Downloads/NativX-master/NativX/HomeNavController.swift"; sourceTree = "<group>"; };
-		F2E945BC1CECB5DB0021B899 /* RegisterPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterPageViewController.swift; path = "../../../Downloads/NativX-master/NativX/RegisterPageViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,8 +146,8 @@
 		F2E945AC1CEBF86C0021B899 /* Login Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F2E945A81CEBF42F0021B899 /* ProtectedLoginViewController.swift */,
-				F2E945BC1CECB5DB0021B899 /* RegisterPageViewController.swift */,
+				F28839081CEE71A0007E90FE /* ProtectedViewController.swift */,
+				F288390A1CEE71DC007E90FE /* RegisterPageViewController.swift */,
 			);
 			name = "Login Controllers";
 			sourceTree = "<group>";
@@ -155,7 +155,7 @@
 		F2E945BA1CEBF9DB0021B899 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F2E945B61CEBF9C80021B899 /* HomeNavController.swift */,
+				F288390C1CEE720D007E90FE /* HomeNavViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -163,8 +163,8 @@
 		F2E945BB1CEBF9EB0021B899 /* Facebook Login */ = {
 			isa = PBXGroup;
 			children = (
-				F2E945B41CEBF9AC0021B899 /* FacebookLoginViewController.swift */,
-				F2E945AA1CEBF8530021B899 /* LoginPageViewController.swift */,
+				F28839041CEE70BB007E90FE /* FacebookViewController.swift */,
+				F28839061CEE715F007E90FE /* loginPgViewController.swift */,
 			);
 			name = "Facebook Login";
 			sourceTree = "<group>";
@@ -303,11 +303,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2E945B71CEBF9C80021B899 /* HomeNavController.swift in Sources */,
-				F2E945BD1CECB5DB0021B899 /* RegisterPageViewController.swift in Sources */,
-				F2E945A91CEBF42F0021B899 /* ProtectedLoginViewController.swift in Sources */,
-				F2E945AB1CEBF8530021B899 /* LoginPageViewController.swift in Sources */,
-				F2E945B51CEBF9AC0021B899 /* FacebookLoginViewController.swift in Sources */,
+				F28839051CEE70BB007E90FE /* FacebookViewController.swift in Sources */,
+				F28839091CEE71A0007E90FE /* ProtectedViewController.swift in Sources */,
+				F288390D1CEE720D007E90FE /* HomeNavViewController.swift in Sources */,
+				F288390B1CEE71DC007E90FE /* RegisterPageViewController.swift in Sources */,
+				F28839071CEE715F007E90FE /* loginPgViewController.swift in Sources */,
 				F2E9457D1CEBEC280021B899 /* ViewController.swift in Sources */,
 				F2E9457B1CEBEC280021B899 /* AppDelegate.swift in Sources */,
 			);

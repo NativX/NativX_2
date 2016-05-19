@@ -31,7 +31,7 @@
         <!--HomeViewController-->
         <scene sceneID="XAA-ed-DPU">
             <objects>
-                <viewController title="HomeViewController" id="pss-Fy-m16" sceneMemberID="viewController">
+                <viewController title="HomeViewController" id="pss-Fy-m16" customClass="HomeNavViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="m16-WZ-VMD"/>
                         <viewControllerLayoutGuide type="bottom" id="Xvd-LG-oKl"/>
