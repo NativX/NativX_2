@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FBSDKLoginKit
+
 class LoginPageViewController: UIViewController {
     @IBOutlet weak var noAccountTapped: UIButton!
     @IBOutlet weak var emailLoginText: UITextField!
@@ -17,6 +20,10 @@ class LoginPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
+       
+
         
         // Do any additional setup after loading the view.
     }
@@ -41,7 +48,27 @@ class LoginPageViewController: UIViewController {
             alertController.addAction(defaultAction)
             
             self.presentViewController(alertController, animated: true, completion: nil)
-        } /** else {
+        } else{
+            
+            FIRAuth.auth()?.signInWithEmail(emailLoginText.text!, password: passwordLoginText.text!, completion: {
+                
+                user, error in
+                
+                if error != nil {
+                    let alertController = UIAlertController(title: "There was a problem", message: "Your email or password was incorrect. Please try again.", preferredStyle: .Alert)
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    
+                    alertController.addAction(defaultAction)
+                    
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                }
+                else {
+                    print("user logged in")
+                    
+                }
+            })
+        }/** else {
          
          do {
          let post:NSString = "email=\(email)&password=\(password)"

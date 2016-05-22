@@ -9,17 +9,20 @@
 /* Begin PBXBuildFile section */
 		19DE9D25D0BB58C585DB6B98 /* Pods_NativX_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817652D40B2655713CB8CEE6 /* Pods_NativX_2.framework */; };
 		634D30C0140BFD53F66BB480 /* Pods_NativX_2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E0CA702F15884320B10985 /* Pods_NativX_2Tests.framework */; };
+		BD4138701CF164DF00354792 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD41386E1CF164DF00354792 /* FBSDKLoginKit.framework */; };
+		BD4138711CF164DF00354792 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD41386F1CF164DF00354792 /* FBSDKShareKit.framework */; };
 		BFEA0D3332E2E88C2B614714 /* Pods_NativX_2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F296F2D58078C7A3A2CAE7 /* Pods_NativX_2UITests.framework */; };
-		F28839051CEE70BB007E90FE /* FacebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28839041CEE70BB007E90FE /* FacebookViewController.swift */; };
-		F28839071CEE715F007E90FE /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28839061CEE715F007E90FE /* LoginPageViewController.swift */; };
-		F28839091CEE71A0007E90FE /* ProtectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28839081CEE71A0007E90FE /* ProtectedViewController.swift */; };
-		F288390B1CEE71DC007E90FE /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F288390A1CEE71DC007E90FE /* RegisterPageViewController.swift */; };
+		F26881A91CEF9D4000423597 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881A81CEF9D4000423597 /* LoginPageViewController.swift */; };
+		F26881AB1CEF9D4B00423597 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881AA1CEF9D4B00423597 /* AppDelegate.swift */; };
+		F26881AD1CEF9D6400423597 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881AC1CEF9D6400423597 /* ViewController.swift */; };
+		F26881AF1CEF9D7200423597 /* BaseGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881AE1CEF9D7200423597 /* BaseGlobal.swift */; };
+		F26881B11CEF9D8300423597 /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881B01CEF9D8300423597 /* RegisterPageViewController.swift */; };
+		F26881B31CEF9D8F00423597 /* ProtectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881B21CEF9D8F00423597 /* ProtectedViewController.swift */; };
 		F288390D1CEE720D007E90FE /* HomeNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F288390C1CEE720D007E90FE /* HomeNavViewController.swift */; };
 		F2888C0B1CECEF0500BAD345 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2888C0A1CECEF0500BAD345 /* GoogleService-Info.plist */; };
 		F2888C0C1CECFDE100BAD345 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2888C0A1CECEF0500BAD345 /* GoogleService-Info.plist */; };
 		F2888C0D1CECFDE200BAD345 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2888C0A1CECEF0500BAD345 /* GoogleService-Info.plist */; };
-		F2E9457B1CEBEC280021B899 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E9457A1CEBEC280021B899 /* AppDelegate.swift */; };
-		F2E9457D1CEBEC280021B899 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E9457C1CEBEC280021B899 /* ViewController.swift */; };
+		F2B79CEB1CF019D300A74062 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B79CEA1CF019D300A74062 /* FBSDKCoreKit.framework */; };
 		F2E945801CEBEC280021B899 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2E9457E1CEBEC280021B899 /* Main.storyboard */; };
 		F2E945821CEBEC280021B899 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2E945811CEBEC280021B899 /* Assets.xcassets */; };
 		F2E945851CEBEC280021B899 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2E945831CEBEC280021B899 /* LaunchScreen.storyboard */; };
@@ -52,17 +55,21 @@
 		3FB70172BBA9947C8123701A /* Pods-NativX_2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativX_2UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NativX_2UITests/Pods-NativX_2UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		817652D40B2655713CB8CEE6 /* Pods_NativX_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NativX_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E0CA702F15884320B10985 /* Pods_NativX_2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NativX_2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD41386E1CF164DF00354792 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		BD41386F1CF164DF00354792 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		D7AD2CA32EAD6194826F9D9D /* Pods-NativX_2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativX_2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NativX_2/Pods-NativX_2.debug.xcconfig"; sourceTree = "<group>"; };
 		E80AC9490B7CFF2020234DE7 /* Pods-NativX_2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativX_2UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NativX_2UITests/Pods-NativX_2UITests.release.xcconfig"; sourceTree = "<group>"; };
-		F28839041CEE70BB007E90FE /* FacebookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookViewController.swift; sourceTree = "<group>"; };
-		F28839061CEE715F007E90FE /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
-		F28839081CEE71A0007E90FE /* ProtectedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectedViewController.swift; sourceTree = "<group>"; };
-		F288390A1CEE71DC007E90FE /* RegisterPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPageViewController.swift; sourceTree = "<group>"; };
+		F26881A81CEF9D4000423597 /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
+		F26881AA1CEF9D4B00423597 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F26881AC1CEF9D6400423597 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F26881AE1CEF9D7200423597 /* BaseGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseGlobal.swift; sourceTree = "<group>"; };
+		F26881B01CEF9D8300423597 /* RegisterPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPageViewController.swift; sourceTree = "<group>"; };
+		F26881B21CEF9D8F00423597 /* ProtectedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectedViewController.swift; sourceTree = "<group>"; };
 		F288390C1CEE720D007E90FE /* HomeNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavViewController.swift; sourceTree = "<group>"; };
 		F2888C0A1CECEF0500BAD345 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F2B79CEA1CF019D300A74062 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		F2C380C31CF0089C00046869 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		F2E945771CEBEC280021B899 /* NativX_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativX_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2E9457A1CEBEC280021B899 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F2E9457C1CEBEC280021B899 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F2E9457F1CEBEC280021B899 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F2E945811CEBEC280021B899 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2E945841CEBEC280021B899 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,7 +87,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD4138711CF164DF00354792 /* FBSDKShareKit.framework in Frameworks */,
 				19DE9D25D0BB58C585DB6B98 /* Pods_NativX_2.framework in Frameworks */,
+				F2B79CEB1CF019D300A74062 /* FBSDKCoreKit.framework in Frameworks */,
+				BD4138701CF164DF00354792 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +116,9 @@
 		2FFBC6666E74946E873CBEA8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BD41386E1CF164DF00354792 /* FBSDKLoginKit.framework */,
+				BD41386F1CF164DF00354792 /* FBSDKShareKit.framework */,
+				F2B79CEA1CF019D300A74062 /* FBSDKCoreKit.framework */,
 				817652D40B2655713CB8CEE6 /* Pods_NativX_2.framework */,
 				B8E0CA702F15884320B10985 /* Pods_NativX_2Tests.framework */,
 				07F296F2D58078C7A3A2CAE7 /* Pods_NativX_2UITests.framework */,
@@ -151,16 +164,18 @@
 		F2E945791CEBEC280021B899 /* NativX_2 */ = {
 			isa = PBXGroup;
 			children = (
+				F2C380C31CF0089C00046869 /* BridgingHeader.h */,
 				F2E945BB1CEBF9EB0021B899 /* Facebook Login */,
 				F2E945AC1CEBF86C0021B899 /* Login Controllers */,
 				F2E945BA1CEBF9DB0021B899 /* Home */,
-				F2E9457A1CEBEC280021B899 /* AppDelegate.swift */,
-				F2E9457C1CEBEC280021B899 /* ViewController.swift */,
+				F26881AA1CEF9D4B00423597 /* AppDelegate.swift */,
+				F26881AC1CEF9D6400423597 /* ViewController.swift */,
 				F2E9457E1CEBEC280021B899 /* Main.storyboard */,
 				F2E945811CEBEC280021B899 /* Assets.xcassets */,
 				F2E945831CEBEC280021B899 /* LaunchScreen.storyboard */,
 				F2E945861CEBEC280021B899 /* Info.plist */,
 				F2888C0A1CECEF0500BAD345 /* GoogleService-Info.plist */,
+				F26881AE1CEF9D7200423597 /* BaseGlobal.swift */,
 			);
 			path = NativX_2;
 			sourceTree = "<group>";
@@ -186,8 +201,8 @@
 		F2E945AC1CEBF86C0021B899 /* Login Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F28839081CEE71A0007E90FE /* ProtectedViewController.swift */,
-				F288390A1CEE71DC007E90FE /* RegisterPageViewController.swift */,
+				F26881B21CEF9D8F00423597 /* ProtectedViewController.swift */,
+				F26881B01CEF9D8300423597 /* RegisterPageViewController.swift */,
 			);
 			name = "Login Controllers";
 			sourceTree = "<group>";
@@ -203,8 +218,7 @@
 		F2E945BB1CEBF9EB0021B899 /* Facebook Login */ = {
 			isa = PBXGroup;
 			children = (
-				F28839041CEE70BB007E90FE /* FacebookViewController.swift */,
-				F28839061CEE715F007E90FE /* LoginPageViewController.swift */,
+				F26881A81CEF9D4000423597 /* LoginPageViewController.swift */,
 			);
 			name = "Facebook Login";
 			sourceTree = "<group>";
@@ -474,13 +488,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F28839051CEE70BB007E90FE /* FacebookViewController.swift in Sources */,
-				F28839091CEE71A0007E90FE /* ProtectedViewController.swift in Sources */,
+				F26881B11CEF9D8300423597 /* RegisterPageViewController.swift in Sources */,
 				F288390D1CEE720D007E90FE /* HomeNavViewController.swift in Sources */,
-				F288390B1CEE71DC007E90FE /* RegisterPageViewController.swift in Sources */,
-				F28839071CEE715F007E90FE /* LoginPageViewController.swift in Sources */,
-				F2E9457D1CEBEC280021B899 /* ViewController.swift in Sources */,
-				F2E9457B1CEBEC280021B899 /* AppDelegate.swift in Sources */,
+				F26881B31CEF9D8F00423597 /* ProtectedViewController.swift in Sources */,
+				F26881AF1CEF9D7200423597 /* BaseGlobal.swift in Sources */,
+				F26881AB1CEF9D4B00423597 /* AppDelegate.swift in Sources */,
+				F26881AD1CEF9D6400423597 /* ViewController.swift in Sources */,
+				F26881A91CEF9D4000423597 /* LoginPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,9 +639,14 @@
 			baseConfigurationReference = D7AD2CA32EAD6194826F9D9D /* Pods-NativX_2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					$/Users/brendencoleman/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = NativX_2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = co.Nativx.NativX;
+				PRODUCT_BUNDLE_IDENTIFIER = co.NativX.NativX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -637,9 +656,14 @@
 			baseConfigurationReference = 2928EE2EBDFAEBC2E03F3727 /* Pods-NativX_2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					$/Users/brendencoleman/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = NativX_2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = co.Nativx.NativX;
+				PRODUCT_BUNDLE_IDENTIFIER = co.NativX.NativX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
