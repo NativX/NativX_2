@@ -19,9 +19,7 @@
 		F26881B11CEF9D8300423597 /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881B01CEF9D8300423597 /* RegisterPageViewController.swift */; };
 		F26881B31CEF9D8F00423597 /* ProtectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881B21CEF9D8F00423597 /* ProtectedViewController.swift */; };
 		F288390D1CEE720D007E90FE /* HomeNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F288390C1CEE720D007E90FE /* HomeNavViewController.swift */; };
-		F2888C0B1CECEF0500BAD345 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2888C0A1CECEF0500BAD345 /* GoogleService-Info.plist */; };
-		F2888C0C1CECFDE100BAD345 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2888C0A1CECEF0500BAD345 /* GoogleService-Info.plist */; };
-		F2888C0D1CECFDE200BAD345 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2888C0A1CECEF0500BAD345 /* GoogleService-Info.plist */; };
+		F2AFF8961CF0F27900391A18 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2AFF8951CF0F27900391A18 /* GoogleService-Info.plist */; };
 		F2B79CEB1CF019D300A74062 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B79CEA1CF019D300A74062 /* FBSDKCoreKit.framework */; };
 		F2E945801CEBEC280021B899 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2E9457E1CEBEC280021B899 /* Main.storyboard */; };
 		F2E945821CEBEC280021B899 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2E945811CEBEC280021B899 /* Assets.xcassets */; };
@@ -66,7 +64,7 @@
 		F26881B01CEF9D8300423597 /* RegisterPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPageViewController.swift; sourceTree = "<group>"; };
 		F26881B21CEF9D8F00423597 /* ProtectedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectedViewController.swift; sourceTree = "<group>"; };
 		F288390C1CEE720D007E90FE /* HomeNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavViewController.swift; sourceTree = "<group>"; };
-		F2888C0A1CECEF0500BAD345 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F2AFF8951CF0F27900391A18 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2B79CEA1CF019D300A74062 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F2C380C31CF0089C00046869 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		F2E945771CEBEC280021B899 /* NativX_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativX_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,7 +172,7 @@
 				F2E945811CEBEC280021B899 /* Assets.xcassets */,
 				F2E945831CEBEC280021B899 /* LaunchScreen.storyboard */,
 				F2E945861CEBEC280021B899 /* Info.plist */,
-				F2888C0A1CECEF0500BAD345 /* GoogleService-Info.plist */,
+				F2AFF8951CF0F27900391A18 /* GoogleService-Info.plist */,
 				F26881AE1CEF9D7200423597 /* BaseGlobal.swift */,
 			);
 			path = NativX_2;
@@ -336,7 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2E945851CEBEC280021B899 /* LaunchScreen.storyboard in Resources */,
-				F2888C0B1CECEF0500BAD345 /* GoogleService-Info.plist in Resources */,
+				F2AFF8961CF0F27900391A18 /* GoogleService-Info.plist in Resources */,
 				F2E945821CEBEC280021B899 /* Assets.xcassets in Resources */,
 				F2E945801CEBEC280021B899 /* Main.storyboard in Resources */,
 			);
@@ -346,7 +344,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2888C0C1CECFDE100BAD345 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +351,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2888C0D1CECFDE200BAD345 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,6 +639,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					$/Users/brendencoleman/Documents/FacebookSDK,
+					/Users/seancoleman/Desktop/NativX_2,
 				);
 				INFOPLIST_FILE = NativX_2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -660,6 +657,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					$/Users/brendencoleman/Documents/FacebookSDK,
+					/Users/seancoleman/Desktop/NativX_2,
 				);
 				INFOPLIST_FILE = NativX_2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

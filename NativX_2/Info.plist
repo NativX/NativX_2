@@ -7,12 +7,12 @@
         <dict>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>fb459860957537089</string>
+                <string>fb1166530513391991</string>
             </array>
         </dict>
     </array>
     <key>FacebookAppID</key>
-    <string>459860957537089</string>
+    <string>1166530513391991</string>
     <key>FacebookDisplayName</key>
     <string>NativX</string>
     <key>LSApplicationQueriesSchemes</key>

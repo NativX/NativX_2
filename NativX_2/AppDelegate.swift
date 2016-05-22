@@ -62,13 +62,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        
-
 
  
     }
 
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError?) {
+    func loginButton(FoginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError?) {
         if let error = error {
             print(error.localizedDescription)
             return
@@ -77,16 +75,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
 
-        func didCompleteWithResult (application: UIApplication) {
+    func didCompleteWithResult (application: UIApplication) {
         let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
             // get a credential for each user that signs in
             
             FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
                 // authenticate facebook login with firebase
             }
-    }
+        }
         try! FIRAuth.auth()!.signOut()
         //call user to sign out from facebook
 
-}
-}
+        }
+    }
