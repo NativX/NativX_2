@@ -68,7 +68,7 @@
 		F2AFF8951CF0F27900391A18 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2B79CEA1CF019D300A74062 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F2C380C31CF0089C00046869 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
-		F2E5957F1CF4ED570092D47B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		F2E5957F1CF4ED570092D47B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = NativX_2/Podfile; sourceTree = "<group>"; };
 		F2E945771CEBEC280021B899 /* NativX_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativX_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2E9457F1CEBEC280021B899 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F2E945811CEBEC280021B899 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -142,6 +142,7 @@
 		F2E9456E1CEBEC280021B899 = {
 			isa = PBXGroup;
 			children = (
+				F2E5957F1CF4ED570092D47B /* Podfile */,
 				F2E945791CEBEC280021B899 /* NativX_2 */,
 				F2E9458E1CEBEC290021B899 /* NativX_2Tests */,
 				F2E945991CEBEC290021B899 /* NativX_2UITests */,
@@ -164,7 +165,6 @@
 		F2E945791CEBEC280021B899 /* NativX_2 */ = {
 			isa = PBXGroup;
 			children = (
-				F2E5957F1CF4ED570092D47B /* Podfile */,
 				F2C380C31CF0089C00046869 /* BridgingHeader.h */,
 				F2E945BB1CEBF9EB0021B899 /* Facebook Login */,
 				F2E945AC1CEBF86C0021B899 /* Login Controllers */,
