@@ -73,7 +73,8 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
                     return
                 }
                 
-                // TODO: fix this
+                // Update email when they sign in with Facebook
+                // Ignore the caution
                 let userEmail = results["email"] as? String
                 print(userEmail)
                 let user = FIRAuth.auth()?.currentUser
