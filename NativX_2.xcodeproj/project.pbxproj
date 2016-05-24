@@ -21,6 +21,7 @@
 		F288390D1CEE720D007E90FE /* HomeNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F288390C1CEE720D007E90FE /* HomeNavViewController.swift */; };
 		F2AFF8961CF0F27900391A18 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2AFF8951CF0F27900391A18 /* GoogleService-Info.plist */; };
 		F2B79CEB1CF019D300A74062 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B79CEA1CF019D300A74062 /* FBSDKCoreKit.framework */; };
+		F2E595801CF4ED570092D47B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F2E5957F1CF4ED570092D47B /* Podfile */; };
 		F2E945801CEBEC280021B899 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2E9457E1CEBEC280021B899 /* Main.storyboard */; };
 		F2E945821CEBEC280021B899 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2E945811CEBEC280021B899 /* Assets.xcassets */; };
 		F2E945851CEBEC280021B899 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2E945831CEBEC280021B899 /* LaunchScreen.storyboard */; };
@@ -67,6 +68,7 @@
 		F2AFF8951CF0F27900391A18 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2B79CEA1CF019D300A74062 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F2C380C31CF0089C00046869 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		F2E5957F1CF4ED570092D47B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		F2E945771CEBEC280021B899 /* NativX_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativX_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2E9457F1CEBEC280021B899 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F2E945811CEBEC280021B899 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		F2E945791CEBEC280021B899 /* NativX_2 */ = {
 			isa = PBXGroup;
 			children = (
+				F2E5957F1CF4ED570092D47B /* Podfile */,
 				F2C380C31CF0089C00046869 /* BridgingHeader.h */,
 				F2E945BB1CEBF9EB0021B899 /* Facebook Login */,
 				F2E945AC1CEBF86C0021B899 /* Login Controllers */,
@@ -334,6 +337,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2E595801CF4ED570092D47B /* Podfile in Resources */,
 				F2E945851CEBEC280021B899 /* LaunchScreen.storyboard in Resources */,
 				F2AFF8961CF0F27900391A18 /* GoogleService-Info.plist in Resources */,
 				F2E945821CEBEC280021B899 /* Assets.xcassets in Resources */,
