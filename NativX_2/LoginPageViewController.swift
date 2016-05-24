@@ -79,11 +79,16 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
                 let user = FIRAuth.auth()?.currentUser
                 user?.updateEmail(userEmail!) { error in
                     if error != nil {
+                        
                         print("email not updated")
+                        
                     } else {
-                        print("email updated")                    }
+                        
+                        print("email updated")
+                        
+                    }
                 }
-                })
+            })
         }
     }
     
