@@ -12,6 +12,7 @@ import FirebaseDatabase
 import FBSDKCoreKit
 import FBSDKLoginKit
 import TwitterKit
+import Fabric
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Configure Facebook Login
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        // Configure Twitter Login
+    Twitter.sharedInstance().startWithConsumerKey("2FeaO2uQtMapdKfyYow4UWIBY", consumerSecret: "g0cwSiBhGhHhviwYY49mxAbe3KJevnvD1ziOLqDhy8J8jfAs61")
+        
+        Fabric.with([Twitter.self])
         
         // Override point for customization after application launch.
         return true

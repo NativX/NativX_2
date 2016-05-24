@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -97,7 +97,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cok-F9-xiZ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cok-F9-xiZ">
                                 <rect key="frame" x="24" y="350" width="552" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -144,28 +144,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmu-ia-eM3">
-                                <rect key="frame" x="25" y="83" width="550" height="39"/>
-                                <color key="backgroundColor" red="0.078369852996759026" green="0.81362456234543523" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Twitter Button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="HIx-WI-vkc" firstAttribute="leading" secondItem="Txp-un-0UB" secondAttribute="leadingMargin" constant="3" id="4SD-pC-KBq"/>
-                            <constraint firstItem="zmu-ia-eM3" firstAttribute="leading" secondItem="Txp-un-0UB" secondAttribute="leadingMargin" constant="5" id="4sF-Pf-l3X"/>
                             <constraint firstItem="tKQ-m7-6rS" firstAttribute="top" secondItem="yew-jg-a5m" secondAttribute="bottom" constant="18" id="83g-uJ-cN7"/>
                             <constraint firstItem="yew-jg-a5m" firstAttribute="centerX" secondItem="O36-vr-DIL" secondAttribute="centerX" id="Atx-uy-8W3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zmu-ia-eM3" secondAttribute="trailing" constant="5" id="BOx-n8-j2T"/>
                             <constraint firstItem="tKQ-m7-6rS" firstAttribute="centerX" secondItem="yew-jg-a5m" secondAttribute="centerX" id="Ekj-sU-Bxb"/>
                             <constraint firstItem="yew-jg-a5m" firstAttribute="top" secondItem="HIx-WI-vkc" secondAttribute="bottom" constant="21" id="G6K-5v-98P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="O36-vr-DIL" secondAttribute="trailing" constant="5" id="GjJ-nL-Pj5"/>
                             <constraint firstItem="cok-F9-xiZ" firstAttribute="top" secondItem="wDx-KW-XP9" secondAttribute="bottom" constant="8" symbolic="YES" id="ISG-iL-jqR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZGx-tq-clL" secondAttribute="trailing" constant="4" id="IW9-i7-VcB"/>
                             <constraint firstAttribute="bottom" secondItem="yew-jg-a5m" secondAttribute="bottom" constant="81" id="Ims-dC-f1V"/>
-                            <constraint firstItem="tKQ-m7-6rS" firstAttribute="centerX" secondItem="zmu-ia-eM3" secondAttribute="centerX" id="MFP-qc-J4e"/>
                             <constraint firstAttribute="bottom" secondItem="HIx-WI-vkc" secondAttribute="bottom" constant="140" id="Psr-yW-jVz"/>
                             <constraint firstItem="Ypj-VD-dlb" firstAttribute="top" secondItem="cok-F9-xiZ" secondAttribute="bottom" constant="21" id="R5f-yv-4GT"/>
                             <constraint firstItem="cok-F9-xiZ" firstAttribute="trailing" secondItem="ZGx-tq-clL" secondAttribute="trailing" id="UyM-g6-a5R"/>
@@ -182,7 +172,6 @@
                         <outlet property="loginButton" destination="yew-jg-a5m" id="RAn-k7-wA3"/>
                         <outlet property="passwordLoginText" destination="HIx-WI-vkc" id="f2e-7R-UOt"/>
                         <outlet property="register" destination="tKQ-m7-6rS" id="JyU-YP-Peq"/>
-                        <outlet property="twitterLogin" destination="zmu-ia-eM3" id="Mri-VM-kk4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a1b-xo-aXr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -381,7 +370,7 @@
                                     <constraint firstAttribute="width" constant="347" id="rXQ-71-jCg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>

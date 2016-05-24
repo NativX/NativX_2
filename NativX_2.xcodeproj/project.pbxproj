@@ -234,6 +234,7 @@
 				F2E945751CEBEC280021B899 /* Resources */,
 				23E3B313FA9429A9677EAB02 /* 📦 Embed Pods Frameworks */,
 				38851DB35A902FBE8A65740E /* 📦 Copy Pods Resources */,
+				F2AFF8971CF4A82000391A18 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -477,6 +478,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NativX_2Tests/Pods-NativX_2Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F2AFF8971CF4A82000391A18 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" c326b5e949278efa927cf513861171790adfda06 3447692453a470c69c30617b91495a9d0a406c44ca40c2c6eb7577b278934566";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -635,11 +649,37 @@
 			baseConfigurationReference = D7AD2CA32EAD6194826F9D9D /* Pods-NativX_2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					$/Users/brendencoleman/Documents/FacebookSDK,
 					/Users/seancoleman/Desktop/NativX_2,
+					/Users/seancoleman/Desktop/NativX_2/Pods/TwitterKit/Frameworks,
+					"$(PROJECT_DIR)/Pods/Fabric",
+					"$(PROJECT_DIR)/Pods/Fabric/iOS",
+					"$(PROJECT_DIR)/Pods/FirebaseAnalytics/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseAppIndexing/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseAuth/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseCrash/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseDatabase/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseInstanceID/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseMessaging/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseStorage/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseUI/FirebaseUIFrameworks/Auth/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseUI/FirebaseUIFrameworks/Database/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseUI/FirebaseUIFrameworks/Facebook/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseUI/FirebaseUIFrameworks/Google/Frameworks",
+					"$(PROJECT_DIR)/Pods/GoogleAppUtilities/Frameworks",
+					"$(PROJECT_DIR)/Pods/GoogleAuthUtilities/Frameworks",
+					"$(PROJECT_DIR)/Pods/GoogleInterchangeUtilities/Frameworks",
+					"$(PROJECT_DIR)/Pods/GoogleIPhoneUtilities/Frameworks",
+					"$(PROJECT_DIR)/Pods/GoogleNetworkingUtilities/Frameworks",
+					"$(PROJECT_DIR)/Pods/GoogleSignIn/Frameworks",
+					"$(PROJECT_DIR)/Pods/GoogleSymbolUtilities/Frameworks",
+					"$(PROJECT_DIR)/Pods/GoogleUtilities/Frameworks",
+					"$(PROJECT_DIR)/Pods/TwitterCore/iOS",
+					"$(PROJECT_DIR)/Pods/TwitterKit",
 				);
 				INFOPLIST_FILE = NativX_2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -658,6 +698,31 @@
 					"$(PROJECT_DIR)",
 					$/Users/brendencoleman/Documents/FacebookSDK,
 					/Users/seancoleman/Desktop/NativX_2,
+					/Users/seancoleman/Desktop/NativX_2/Pods/TwitterKit/Frameworks,
+					"$(PROJECT_DIR)/Pods/Fabric",
+					"$(PROJECT_DIR)/Pods/Fabric/iOS",
+					"$(PROJECT_DIR)/Pods/FirebaseAnalytics/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseAppIndexing/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseAuth/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseCrash/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseDatabase/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseInstanceID/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseMessaging/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseStorage/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseUI/FirebaseUIFrameworks/Auth/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseUI/FirebaseUIFrameworks/Database/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseUI/FirebaseUIFrameworks/Facebook/Frameworks",
+					"$(PROJECT_DIR)/Pods/FirebaseUI/FirebaseUIFrameworks/Google/Frameworks",
+					"$(PROJECT_DIR)/Pods/GoogleAppUtilities/Frameworks",
+					"$(PROJECT_DIR)/Pods/GoogleAuthUtilities/Frameworks",
+					"$(PROJECT_DIR)/Pods/GoogleInterchangeUtilities/Frameworks",
+					"$(PROJECT_DIR)/Pods/GoogleIPhoneUtilities/Frameworks",
+					"$(PROJECT_DIR)/Pods/GoogleNetworkingUtilities/Frameworks",
+					"$(PROJECT_DIR)/Pods/GoogleSignIn/Frameworks",
+					"$(PROJECT_DIR)/Pods/GoogleSymbolUtilities/Frameworks",
+					"$(PROJECT_DIR)/Pods/GoogleUtilities/Frameworks",
+					"$(PROJECT_DIR)/Pods/TwitterCore/iOS",
+					"$(PROJECT_DIR)/Pods/TwitterKit",
 				);
 				INFOPLIST_FILE = NativX_2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

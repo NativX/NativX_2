@@ -19,15 +19,35 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var register: UIButton!
     @IBOutlet weak var FBloginButton: FBSDKLoginButton!
-    @IBOutlet weak var twitterLogin: TWTRLogInButton!
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // get public profile, email, and user friends from Facebook
         self.FBloginButton.delegate = self
-        self.FBloginButton.readPermissions = ["public_profile", "email"]
+        self.FBloginButton.readPermissions = ["public_profile", "email", "user_friends"]
+        
+        // set up twitter login button
+        let logInButton = TWTRLogInButton(logInCompletion: { session, error in
+            if (session != nil) {
+                print("signed in as \(session!.userName)");
+            } else {
+                print("error: \(error!.localizedDescription)");
+            }
+        })
+        
+        // position the twitter button
+        let X_Position:CGFloat? = 25.0 //use your X position here
+        let Y_Position:CGFloat? = 83.0 //use your Y position here
+        
+        logInButton.frame = CGRectMake(X_Position!, Y_Position!, logInButton.frame.width, logInButton.frame.height)
+        self.view.addSubview(logInButton)
+        
 
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
