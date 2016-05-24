@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import FBSDKLoginKit
 import FBSDKCoreKit
-
+import TwitterKit
 
 
 class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
@@ -19,6 +19,7 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var register: UIButton!
     @IBOutlet weak var FBloginButton: FBSDKLoginButton!
+    @IBOutlet weak var twitterLogin: TWTRLogInButton!
     
     
     override func viewDidLoad() {
@@ -32,6 +33,38 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // Twitter login
+    let twitterLogIn = TWTRLogInButton(logInCompletion: { session, error in
+        if (session != nil) {
+            print("signed in as \(session!.userName)");
+        } else {
+            print("error: \(error!.localizedDescription)");
+        }
+    })
+    
+   /* @IBAction func twittterLoginAction(sender: AnyObject) {
+            Twitter.sharedInstance().logInWithCompletion() { (session, error) in
+                if let session = session {
+                    // [START headless_twitter_auth]
+                    let credential = FIRTwitterAuthProvider.credentialWithToken(session.authToken, secret: session.authTokenSecret)
+                    // [END headless_twitter_auth]
+                    self.firebaseLogin(credential)
+                } else {
+                    let alertController = UIAlertController(title: "There was a problem.", message: "Twitter Login Authentication Failed", preferredStyle: .Alert)
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    
+                    alertController.addAction(defaultAction)
+                    
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                    
+                }
+            }
+        } */
+    
+
+    
     
     // Conform FBLoginButtonDelegate with following two functions
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
@@ -97,6 +130,28 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
         try! FIRAuth.auth()!.signOut()
         print("User Logged Out")
     }
+    
+
+   /* @IBAction func twitterLoginAction(sender: AnyObject) {
+        _ = TWTRLogInButton(logInCompletion: { session, error in
+         if (session != nil) {
+         let authToken = session!.authToken
+         let authTokenSecret = session!.authTokenSecret
+         let credential = FIRTwitterAuthProvider.credentialWithToken(authToken, secret: authTokenSecret)
+         self.firebaseLogin(credential)
+         } else {
+            let alertController = UIAlertController(title: "There was a problem.", message: "Twitter Login Authorization Failed", preferredStyle: .Alert)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+     
+            alertController.addAction(defaultAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+         }
+         })
+        
+    } */
+
     
     @IBAction func LoginTapped(sender: UIButton) {
         
