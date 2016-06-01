@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // logout button
     @IBAction func logOutTap(sender: UIButton) {
         try! FIRAuth.auth()!.signOut()
         
