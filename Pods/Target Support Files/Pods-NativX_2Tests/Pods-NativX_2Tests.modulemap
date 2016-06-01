@@ -1,6 +1,0 @@
-framework module Pods_NativX_2Tests {
-  umbrella header "Pods-NativX_2Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}
