@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+
 
 class ProtectedViewController: UIViewController {
     
@@ -23,25 +25,12 @@ class ProtectedViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         
-        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
-        
-        if (isLoggedIn != 1) {
-            self.performSegueWithIdentifier("goto_login", sender: self)
-        } else {
+        if ((FIRAuth.auth()?.currentUser) != nil) {
             self.performSegueWithIdentifier("goto_home", sender: self)
+        } else {
+            self.performSegueWithIdentifier("goto_login", sender: self)
         }
         
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+
 }

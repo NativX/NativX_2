@@ -18,6 +18,7 @@
 		F26881AF1CEF9D7200423597 /* BaseGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881AE1CEF9D7200423597 /* BaseGlobal.swift */; };
 		F26881B11CEF9D8300423597 /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881B01CEF9D8300423597 /* RegisterPageViewController.swift */; };
 		F26881B31CEF9D8F00423597 /* ProtectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881B21CEF9D8F00423597 /* ProtectedViewController.swift */; };
+		F276924E1CFE863B0039CEBE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F276924D1CFE863B0039CEBE /* HomeViewController.swift */; };
 		F288390D1CEE720D007E90FE /* HomeNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F288390C1CEE720D007E90FE /* HomeNavViewController.swift */; };
 		F2AFF8961CF0F27900391A18 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2AFF8951CF0F27900391A18 /* GoogleService-Info.plist */; };
 		F2B79CEB1CF019D300A74062 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B79CEA1CF019D300A74062 /* FBSDKCoreKit.framework */; };
@@ -64,6 +65,7 @@
 		F26881AE1CEF9D7200423597 /* BaseGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseGlobal.swift; sourceTree = "<group>"; };
 		F26881B01CEF9D8300423597 /* RegisterPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPageViewController.swift; sourceTree = "<group>"; };
 		F26881B21CEF9D8F00423597 /* ProtectedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectedViewController.swift; sourceTree = "<group>"; };
+		F276924D1CFE863B0039CEBE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F288390C1CEE720D007E90FE /* HomeNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavViewController.swift; sourceTree = "<group>"; };
 		F2AFF8951CF0F27900391A18 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2B79CEA1CF019D300A74062 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				F288390C1CEE720D007E90FE /* HomeNavViewController.swift */,
+				F276924D1CFE863B0039CEBE /* HomeViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				F26881B11CEF9D8300423597 /* RegisterPageViewController.swift in Sources */,
 				F288390D1CEE720D007E90FE /* HomeNavViewController.swift in Sources */,
 				F26881B31CEF9D8F00423597 /* ProtectedViewController.swift in Sources */,
+				F276924E1CFE863B0039CEBE /* HomeViewController.swift in Sources */,
 				F26881AF1CEF9D7200423597 /* BaseGlobal.swift in Sources */,
 				F26881AB1CEF9D4B00423597 /* AppDelegate.swift in Sources */,
 				F26881AD1CEF9D6400423597 /* ViewController.swift in Sources */,

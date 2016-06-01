@@ -10,7 +10,7 @@ import Firebase
 import FBSDKLoginKit
 import FBSDKCoreKit
 import TwitterKit
-
+import Fabric
 
 class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var noAccountTapped: UIButton!
@@ -19,8 +19,39 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var register: UIButton!
     @IBOutlet weak var FBloginButton: FBSDKLoginButton!
+    @IBOutlet weak var twitterLogin: UIButton!
 
     
+    // function used to link their unique UserID with other social media or login
+    func firebaseLogin(credential: FIRAuthCredential) {
+        
+        if let user = FIRAuth.auth()?.currentUser {
+            // [START link_credential]
+            user.linkWithCredential(credential) { (user, error) in
+                // [START_EXCLUDE]
+                if error != nil {
+                    print("user linked")
+                    return
+                }
+                
+                // [END_EXCLUDE]
+            }
+            // [END link_credential]
+        } else {
+            // [START signin_credential]
+            print("user signed in")
+            FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+                // [START_EXCLUDE]
+                if error != nil {
+                    return
+                }
+                
+                // [END_EXCLUDE]
+            }
+            // [END signin_credential]
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,22 +59,6 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
         // get public profile, email, and user friends from Facebook
         self.FBloginButton.delegate = self
         self.FBloginButton.readPermissions = ["public_profile", "email", "user_friends"]
-        
-        // set up twitter login button
-        let logInButton = TWTRLogInButton(logInCompletion: { session, error in
-            if (session != nil) {
-                print("signed in as \(session!.userName)");
-            } else {
-                print("error: \(error!.localizedDescription)");
-            }
-        })
-        
-        // position the twitter button
-        let X_Position:CGFloat? = 25.0 //use your X position here
-        let Y_Position:CGFloat? = 83.0 //use your Y position here
-        
-        logInButton.frame = CGRectMake(X_Position!, Y_Position!, logInButton.frame.width, logInButton.frame.height)
-        self.view.addSubview(logInButton)
         
 
     }
@@ -54,37 +69,31 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    // Twitter login
-    let twitterLogIn = TWTRLogInButton(logInCompletion: { session, error in
-        if (session != nil) {
-            print("signed in as \(session!.userName)");
-        } else {
-            print("error: \(error!.localizedDescription)");
-        }
-    })
-    
-   /* @IBAction func twittterLoginAction(sender: AnyObject) {
-            Twitter.sharedInstance().logInWithCompletion() { (session, error) in
-                if let session = session {
-                    // [START headless_twitter_auth]
-                    let credential = FIRTwitterAuthProvider.credentialWithToken(session.authToken, secret: session.authTokenSecret)
-                    // [END headless_twitter_auth]
-                    self.firebaseLogin(credential)
-                } else {
-                    let alertController = UIAlertController(title: "There was a problem.", message: "Twitter Login Authentication Failed", preferredStyle: .Alert)
-                    
-                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                    
-                    alertController.addAction(defaultAction)
-                    
-                    self.presentViewController(alertController, animated: true, completion: nil)
-                    
-                }
-            }
-        } */
-    
 
-    
+    // Twitter Login
+    @IBAction func twitterLoginTapped(sender: UIButton) {
+        Twitter.sharedInstance().logInWithCompletion { session, error in
+            // Firebase login
+            if (session != nil) {
+                let credential = FIRTwitterAuthProvider.credentialWithToken(session!.authToken, secret: session!.authTokenSecret)
+                self.firebaseLogin(credential)
+                print("signed in as \(session!.userName)");
+                self.performSegueWithIdentifier("goToHome", sender: self)
+            // Handle error
+            } else {
+                
+                let alertController = UIAlertController(title: "There was a problem.", message: "Twitter Login Authentication Failed", preferredStyle: .Alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                
+                alertController.addAction(defaultAction)
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+                print("error: \(error!.localizedDescription)");
+            }
+        }
+        
+    }
     
     // Conform FBLoginButtonDelegate with following two functions
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
@@ -114,7 +123,6 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
 
         }
         else {
-            print("User Logged In")
             let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
             self.firebaseLogin(credential)
             
@@ -127,7 +135,6 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
                 }
                 
                 // Update email when they sign in with Facebook
-                // Ignore the caution
                 let userEmail = results["email"] as? String
                 print(userEmail)
                 let user = FIRAuth.auth()?.currentUser
@@ -143,6 +150,7 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
                     }
                 }
             })
+            self.performSegueWithIdentifier("goToHome", sender: self)
         }
     }
     
@@ -151,26 +159,6 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
         print("User Logged Out")
     }
     
-
-   /* @IBAction func twitterLoginAction(sender: AnyObject) {
-        _ = TWTRLogInButton(logInCompletion: { session, error in
-         if (session != nil) {
-         let authToken = session!.authToken
-         let authTokenSecret = session!.authTokenSecret
-         let credential = FIRTwitterAuthProvider.credentialWithToken(authToken, secret: authTokenSecret)
-         self.firebaseLogin(credential)
-         } else {
-            let alertController = UIAlertController(title: "There was a problem.", message: "Twitter Login Authorization Failed", preferredStyle: .Alert)
-            
-            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-     
-            alertController.addAction(defaultAction)
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
-         }
-         })
-        
-    } */
 
     
     @IBAction func LoginTapped(sender: UIButton) {
@@ -205,43 +193,14 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
                     self.presentViewController(alertController, animated: true, completion: nil)
                 }
                 else {
+                    // print(FIRAuth.fetchProvidersForEmail(email))
                     print("user logged in")
                     
-                }
-            })
-        }
-
-    }
-    
-    
-    func firebaseLogin(credential: FIRAuthCredential) {
-
-            if let user = FIRAuth.auth()?.currentUser {
-                // [START link_credential]
-                user.linkWithCredential(credential) { (user, error) in
-                    // [START_EXCLUDE]
-                    if error != nil {
-                        
-                        return
                     }
-
-                    // [END_EXCLUDE]
-                }
-                // [END link_credential]
-            } else {
-                // [START signin_credential]
-                FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
-                    // [START_EXCLUDE]
-                    if error != nil {
-
-                        return
-                    }
-                  
-                    // [END_EXCLUDE]
-                }
-                // [END signin_credential]
+                })
             }
-        
+
         }
+    
     }
 

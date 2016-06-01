@@ -1,16 +1,16 @@
 //
-//  HomeNavViewController.swift
+//  HomeViewController.swift
 //  NativX_2
 //
-//  Created by Sean Coleman on 5/19/16.
+//  Created by Sean Coleman on 5/31/16.
 //  Copyright © 2016 Sean Coleman. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-
-class HomeNavController: UIViewController {
+class HomeViewController: UIViewController {
+    @IBOutlet weak var logOutButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,5 +23,11 @@ class HomeNavController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func logOutTap(sender: UIButton) {
+        try! FIRAuth.auth()!.signOut()
+        
+        print("logged out")
+        self.performSegueWithIdentifier("logOutToHome", sender: self)
+    }
 
 }
