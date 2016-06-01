@@ -661,9 +661,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					$/Users/brendencoleman/Documents/FacebookSDK,
-					/Users/seancoleman/Desktop/NativX_2,
-					/Users/seancoleman/Desktop/NativX_2/Pods/TwitterKit/Frameworks,
 					"$(PROJECT_DIR)/Pods/Fabric",
 					"$(PROJECT_DIR)/Pods/Fabric/iOS",
 					"$(PROJECT_DIR)/Pods/FirebaseAnalytics/Frameworks",
@@ -704,9 +701,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					$/Users/brendencoleman/Documents/FacebookSDK,
-					/Users/seancoleman/Desktop/NativX_2,
-					/Users/seancoleman/Desktop/NativX_2/Pods/TwitterKit/Frameworks,
 					"$(PROJECT_DIR)/Pods/Fabric",
 					"$(PROJECT_DIR)/Pods/Fabric/iOS",
 					"$(PROJECT_DIR)/Pods/FirebaseAnalytics/Frameworks",
