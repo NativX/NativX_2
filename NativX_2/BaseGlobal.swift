@@ -16,6 +16,8 @@ let BASE_URL = "https://project-4293806605945612732.firebaseio.com/"
 // database reference
 let ref = FIRDatabase.database().reference()
 
+
+
 // current user information
 /* var CURRENT_USER: FIRDatabase
 {

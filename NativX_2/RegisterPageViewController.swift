@@ -34,6 +34,17 @@ class RegisterPageViewController: UIViewController {
     }
     // To store signup information
     
+    // Error Handling Function
+    func alertUser (title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
+        alertController.addAction(defaultAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
     @IBAction func signupTapped(sender: UIButton) {
         // Variables for reference + storage
         let email:NSString = textEmail.text!
@@ -45,38 +56,25 @@ class RegisterPageViewController: UIViewController {
         
         // Check for empty fields
         if ( email.isEqualToString("") || password.isEqualToString("") || first.isEqualToString("") || last.isEqualToString("")) {
-            let alertController = UIAlertController(title: "Sign In Failed!", message: "You must have left something blank!", preferredStyle: .Alert)
+ 
+            alertUser ("Registration Failed", message: "You must have left something blank")
             
-            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-            
-            alertController.addAction(defaultAction)
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
         }
             
             // Case that passwords do not match
         else if ( !password.isEqual(confirm_password) ) {
             
-            let alertController = UIAlertController(title: "Sign In Failed!", message: "Passwords Do Not Match", preferredStyle: .Alert)
-            
-            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-            
-            alertController.addAction(defaultAction)
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
+            alertUser("Registration Failed", message: "Passwords Do Not Match")
         }
         else {
             FIRAuth.auth()?.createUserWithEmail(textEmail.text! , password: textPassword.text!, completion: {
                 user, error in
                 
                 if error != nil {
-                    let alertController = UIAlertController(title: "There was a problem", message: "Your email is either invalid or already in use. Please try again", preferredStyle: .Alert)
                     
-                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    self.alertUser("There was a problem", message: "The email you entered is either invalid or already in use. Please try again")
                     
-                    alertController.addAction(defaultAction)
-                    
-                    self.presentViewController(alertController, animated: true, completion: nil)                }
+                }
                 else {
                     print("User Created")
                     FIRAuth.auth()?.signInWithEmail(self.textEmail.text!, password: self.textPassword.text!, completion: {
@@ -84,13 +82,8 @@ class RegisterPageViewController: UIViewController {
                         user, error in
                         
                         if error != nil {
-                            let alertController = UIAlertController(title: "There was a problem", message: "Your email or password was incorrect. Please try again.", preferredStyle: .Alert)
-                            
-                            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                            
-                            alertController.addAction(defaultAction)
-                            
-                            self.presentViewController(alertController, animated: true, completion: nil)
+
+                            self.alertUser("There was a problem", message: "The email or password you entered was incorrect. Please try again")
                         }
                         else {
                             print("user logged in")
@@ -98,6 +91,6 @@ class RegisterPageViewController: UIViewController {
                     })
                 }
             })
-        }
+            }
         }
     }

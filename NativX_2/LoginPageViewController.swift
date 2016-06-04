@@ -53,6 +53,18 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
         
     }
     
+    // Error Handling Function
+    func alertUser (title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
+        alertController.addAction(defaultAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -82,13 +94,7 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
             // Handle error
             } else {
                 
-                let alertController = UIAlertController(title: "There was a problem.", message: "Twitter Login Authentication Failed", preferredStyle: .Alert)
-                
-                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                
-                alertController.addAction(defaultAction)
-                
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.alertUser("There was a problem", message: "Twitter Login Authentication Failed")
                 print("error: \(error!.localizedDescription)");
             }
         }
@@ -100,26 +106,14 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
         if ((error) != nil)
         {
             // Process error
-            // Handle cancellations
-            let alertController = UIAlertController(title: "There was a problem.", message: "Facebook Login process error", preferredStyle: .Alert)
-            
-            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-            
-            alertController.addAction(defaultAction)
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.alertUser("There was a problem", message: "Facebook Login Process Error. Please try again")
             
 
         }
         else if result.isCancelled {
+            
             // Handle cancellations
-            let alertController = UIAlertController(title: "There was a problem.", message: "Facebook Login cancelled", preferredStyle: .Alert)
-            
-            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-            
-            alertController.addAction(defaultAction)
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.alertUser("There was a problem", message: "Facebook Login Cancelled. Please try again.")
 
         }
         else {
@@ -169,13 +163,8 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
         // left something blank
         if (email.isEqualToString("") || password.isEqualToString("") ) {
             
-            let alertController = UIAlertController(title: "Sign In Failed!", message: "Please Enter a Valid Email and Password", preferredStyle: .Alert)
+            self.alertUser("Sign In Failed", message: "Please Enter a Valid Email and Password")
             
-            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-            
-            alertController.addAction(defaultAction)
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
         }
         else {
             
@@ -184,13 +173,9 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
                 user, error in
                 
                 if error != nil {
-                    let alertController = UIAlertController(title: "There was a problem", message: "Your email or password was incorrect. Please try again.", preferredStyle: .Alert)
                     
-                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    self.alertUser("There was a problem", message: "The Email or Passwaord you entered was incorrect. Please try again.")
                     
-                    alertController.addAction(defaultAction)
-                    
-                    self.presentViewController(alertController, animated: true, completion: nil)
                 }
                 else {
                     // print(FIRAuth.fetchProvidersForEmail(email))
