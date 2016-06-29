@@ -23,7 +23,7 @@ let ref = FIRDatabase.database().reference()
 {
     let userID = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
     
-   let currentUser = FIRDatabaseReference.setValue.childByAppendingPath("users").childByAppendingPath(userID)
+    let currentUser = FIRDatabaseReference.setValue.childByAppendingPath("users").childByAppendingPath(userID)
     
     return currentUser!
 } */

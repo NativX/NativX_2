@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         // Configure Twitter Login
-    Twitter.sharedInstance().startWithConsumerKey("2FeaO2uQtMapdKfyYow4UWIBY", consumerSecret: "g0cwSiBhGhHhviwYY49mxAbe3KJevnvD1ziOLqDhy8J8jfAs61")
+        Twitter.sharedInstance().startWithConsumerKey("2FeaO2uQtMapdKfyYow4UWIBY", consumerSecret: "g0cwSiBhGhHhviwYY49mxAbe3KJevnvD1ziOLqDhy8J8jfAs61")
         
         Fabric.with([Twitter.self])
         
