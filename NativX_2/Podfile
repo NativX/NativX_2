@@ -17,11 +17,7 @@ pod 'FBSDKLoginKit'
 pod 'GoogleSignIn'
 pod 'Fabric'
 pod 'TwitterKit'
-pod 'IMFCore'
-pod 'IMFPush'
-pod 'CloudantToolkit'
-pod 'IMFGoogleAuthentication'
-pod 'IMFFacebookAuthentication'
+
 
   # Pods for NativX_2
 
