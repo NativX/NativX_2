@@ -34,16 +34,6 @@ class RegisterPageViewController: UIViewController {
     }
     // To store signup information
     
-    // Error Handling Function
-    func alertUser (title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        
-        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        
-        alertController.addAction(defaultAction)
-        
-        self.presentViewController(alertController, animated: true, completion: nil)
-    }
     
     @IBAction func signupTapped(sender: UIButton) {
         // Variables for reference + storage
@@ -61,7 +51,7 @@ class RegisterPageViewController: UIViewController {
             
         }
             
-            // Case that passwords do not match
+        // Case that passwords do not match
         else if ( !password.isEqual(confirm_password) ) {
             
             alertUser("Registration Failed", message: "Passwords Do Not Match")
@@ -76,21 +66,25 @@ class RegisterPageViewController: UIViewController {
                     
                 }
                 else {
-                    print("User Created")
                     FIRAuth.auth()?.signInWithEmail(self.textEmail.text!, password: self.textPassword.text!, completion: {
                         
-                        user, error in
+                            user, error in
                         
-                        if error != nil {
+                            if error != nil {
 
-                            self.alertUser("There was a problem", message: "The email or password you entered was incorrect. Please try again")
-                        }
-                        else {
-                            print("user logged in")
-                        }
-                    })
-                }
-            })
+                                self.alertUser("There was a problem", message: "The email or password you entered was incorrect. Please try again")
+                            }
+                            else {
+                                print("user logged in")
+                                self.ref.child("users").setValue(user!.uid)
+                                let basic = ["first": first, "last": last, "email": email, "password": password]
+                                self.ref.child("users").child(user!.uid).setValue(basic)
+                            
+                            }
+                        })
+                    }
+                })
             }
+        self.performSegueWithIdentifier("toLinkSocial", sender: self)
         }
     }

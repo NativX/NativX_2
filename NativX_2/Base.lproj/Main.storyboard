@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -40,17 +42,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logged in, TODO Home Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRF-Wc-7HH">
-                                <rect key="frame" x="195" y="275" width="209" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATu-6P-42x">
+                                <rect key="frame" x="25" y="100" width="142" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="209" id="k7U-iA-vY3"/>
+                                    <constraint firstAttribute="width" constant="142" id="Ejv-td-1IG"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncg-r5-3BQ">
-                                <rect key="frame" x="264" y="334" width="72" height="17"/>
+                                <state key="normal" title="Back to Login"/>
+                                <connections>
+                                    <segue destination="R9B-f7-gby" kind="presentation" id="ecI-Nu-jnr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncg-r5-3BQ">
+                                <rect key="frame" x="477" y="108" width="72" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="VQH-SI-HiJ"/>
                                 </constraints>
@@ -59,27 +62,37 @@
                                     <action selector="logOutTap:" destination="pss-Fy-m16" eventType="touchUpInside" id="jqC-PP-4c5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATu-6P-42x">
-                                <rect key="frame" x="25" y="100" width="142" height="30"/>
-                                <state key="normal" title="Back to Login"/>
-                                <connections>
-                                    <segue destination="R9B-f7-gby" kind="presentation" id="ecI-Nu-jnr"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzC-z9-BIj">
+                                <rect key="frame" x="277" y="400" width="46" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="UserIcon" translatesAutoresizingMaskIntoConstraints="NO" id="WJy-61-hhA">
+                                <rect key="frame" x="225" y="225" width="150" height="150"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZRF-Wc-7HH" firstAttribute="centerX" secondItem="ncg-r5-3BQ" secondAttribute="centerX" id="VQn-Qk-MA8"/>
-                            <constraint firstItem="Xvd-LG-oKl" firstAttribute="top" secondItem="ncg-r5-3BQ" secondAttribute="bottom" constant="249" id="dnG-kv-Qzo"/>
-                            <constraint firstItem="ZRF-Wc-7HH" firstAttribute="centerY" secondItem="a6X-uv-ek9" secondAttribute="centerY" id="e6m-Bf-Kmi"/>
-                            <constraint firstItem="ZRF-Wc-7HH" firstAttribute="centerX" secondItem="a6X-uv-ek9" secondAttribute="centerX" id="hd7-S3-5JS"/>
-                            <constraint firstItem="ncg-r5-3BQ" firstAttribute="top" secondItem="ZRF-Wc-7HH" secondAttribute="bottom" constant="8" symbolic="YES" id="nSB-wT-5e5"/>
-                            <constraint firstItem="ZRF-Wc-7HH" firstAttribute="top" secondItem="m16-WZ-VMD" secondAttribute="bottom" constant="211" id="qnK-rg-xlC"/>
+                            <constraint firstItem="WJy-61-hhA" firstAttribute="centerY" secondItem="a6X-uv-ek9" secondAttribute="centerY" id="0Tw-zY-sqp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ncg-r5-3BQ" secondAttribute="trailing" constant="31" id="5m3-B2-6jg"/>
+                            <constraint firstItem="ATu-6P-42x" firstAttribute="leading" secondItem="a6X-uv-ek9" secondAttribute="leadingMargin" constant="5" id="7ZJ-Z1-nOQ"/>
+                            <constraint firstItem="WJy-61-hhA" firstAttribute="centerX" secondItem="a6X-uv-ek9" secondAttribute="centerX" id="8k1-tJ-FUl"/>
+                            <constraint firstItem="ncg-r5-3BQ" firstAttribute="top" secondItem="m16-WZ-VMD" secondAttribute="bottom" constant="44" id="Adn-16-Juj"/>
+                            <constraint firstItem="ATu-6P-42x" firstAttribute="baseline" secondItem="ncg-r5-3BQ" secondAttribute="baseline" id="Y28-M4-hUu"/>
+                            <constraint firstItem="ncg-r5-3BQ" firstAttribute="baseline" secondItem="ATu-6P-42x" secondAttribute="firstBaseline" id="buL-ui-oH3"/>
+                            <constraint firstItem="ATu-6P-42x" firstAttribute="centerY" secondItem="ncg-r5-3BQ" secondAttribute="centerY" id="cL6-zd-yKM"/>
+                            <constraint firstItem="Xvd-LG-oKl" firstAttribute="top" secondItem="ncg-r5-3BQ" secondAttribute="bottom" constant="477" id="dnG-kv-Qzo"/>
+                            <constraint firstItem="gzC-z9-BIj" firstAttribute="top" secondItem="WJy-61-hhA" secondAttribute="bottom" constant="25" id="kmj-bL-M9H"/>
+                            <constraint firstItem="WJy-61-hhA" firstAttribute="centerX" secondItem="gzC-z9-BIj" secondAttribute="centerX" id="vKg-Ox-bxd"/>
+                            <constraint firstItem="ATu-6P-42x" firstAttribute="baseline" secondItem="ncg-r5-3BQ" secondAttribute="firstBaseline" id="zBw-fm-rRw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home Page" id="cgy-4Z-MaR"/>
                     <connections>
                         <outlet property="logOutButton" destination="ncg-r5-3BQ" id="X6L-n0-lcm"/>
+                        <outlet property="userImage" destination="WJy-61-hhA" id="Kyz-EC-rcF"/>
+                        <outlet property="userName" destination="gzC-z9-BIj" id="su2-sS-kpI"/>
                         <segue destination="R9B-f7-gby" kind="presentation" identifier="logOutToHome" id="Kkl-Za-gfz"/>
                     </connections>
                 </viewController>
@@ -343,6 +356,7 @@
                                 </state>
                                 <connections>
                                     <action selector="signupTapped:" destination="RLT-t4-67h" eventType="touchUpInside" id="3fk-fY-i3b"/>
+                                    <segue destination="hsk-tJ-hr0" kind="presentation" identifier="toLinkSocial" id="tLr-Lt-vyU"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9qb-Tm-W1y">
@@ -420,10 +434,10 @@
             </objects>
             <point key="canvasLocation" x="-74" y="1595"/>
         </scene>
-        <!--View Controller-->
+        <!--Link Social-->
         <scene sceneID="BlH-Aa-7Yl">
             <objects>
-                <viewController id="hsk-tJ-hr0" sceneMemberID="viewController">
+                <viewController id="hsk-tJ-hr0" customClass="LinkSocial" customModule="NativX_2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1oh-V4-wS4"/>
                         <viewControllerLayoutGuide type="bottom" id="Gpb-4W-54B"/>
@@ -432,27 +446,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TODO-&gt;Integrate Sociale Media Page After Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWz-jc-Krm">
-                                <rect key="frame" x="76" y="241" width="398" height="38"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="347" id="rXQ-71-jCg"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wX2-gQ-pWF" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="214" y="270" width="72" height="59"/>
+                                <state key="normal" title="Facebook" image="FACEBOOK"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hi, User First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZj-ci-UlT">
+                                <rect key="frame" x="58" y="70" width="270" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Link Your Social Media" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWU-VG-vaU">
+                                <rect key="frame" x="188" y="185" width="225" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFB-z9-K4i">
+                                <rect key="frame" x="334" y="248" width="105" height="103"/>
+                                <state key="normal" title="Twitter" image="TWITTER"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="jWz-jc-Krm" firstAttribute="centerX" secondItem="nTQ-7Q-evz" secondAttribute="centerX" id="8gy-wO-3Tu"/>
-                            <constraint firstItem="Gpb-4W-54B" firstAttribute="top" secondItem="jWz-jc-Krm" secondAttribute="bottom" constant="320" id="Dch-ji-x2f"/>
-                            <constraint firstItem="jWz-jc-Krm" firstAttribute="top" secondItem="1oh-V4-wS4" secondAttribute="bottom" constant="222" id="afC-m2-X7d"/>
-                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="FBloginButton" destination="wX2-gQ-pWF" id="ngF-XK-6A9"/>
+                        <outlet property="greeting" destination="WZj-ci-UlT" id="hJH-d3-Cau"/>
+                        <outlet property="twitterLogin" destination="OFB-z9-K4i" id="m6P-YO-DDc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rsh-nd-wyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="850" y="1595"/>
+            <point key="canvasLocation" x="853" y="1622"/>
         </scene>
         <!--HomeNavController-->
         <scene sceneID="fys-rS-w8M">
@@ -474,10 +499,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="FACEBOOK" width="42" height="42"/>
+        <image name="TWITTER" width="66" height="66"/>
+        <image name="UserIcon" width="150" height="150"/>
         <image name="twtr-icn-logo.png" width="16" height="13"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ecI-Nu-jnr"/>
         <segue reference="gCq-MP-69X"/>
-        <segue reference="nBh-40-Azw"/>
     </inferredMetricsTieBreakers>
 </document>
