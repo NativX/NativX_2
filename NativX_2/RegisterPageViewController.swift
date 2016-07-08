@@ -33,61 +33,58 @@ class RegisterPageViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    // To store signup information
-
-
-    
+   
     @IBAction func signUp (sender: AnyObject) {
             
-            // Variables for reference + storage
-            let email:NSString = textEmail.text!
-            let password:NSString = textPassword.text!
-            let confirm_password:NSString = textConfirmPassword.text!
-            let first:NSString = textFirstName.text!
-            let last: NSString = textLastName.text!
-            
-            // Check for empty fields
-            if ( email.isEqualToString("") || password.isEqualToString("") || first.isEqualToString("") || last.isEqualToString("")) {
+        // Variables for reference + storage
+        let email:NSString = textEmail.text!
+        let password:NSString = textPassword.text!
+        let confirm_password:NSString = textConfirmPassword.text!
+        let first:NSString = textFirstName.text!
+        let last: NSString = textLastName.text!
+        
+        // Check for empty fields
+        if ( email.isEqualToString("") || password.isEqualToString("") || first.isEqualToString("") || last.isEqualToString("")) {
                 
-                alertUser ("Registration Failed", message: "You must have left something blank")
+            alertUser ("Registration Failed", message: "You must have left something blank")
                 
-            }
+        }
                 
-            // Case that passwords do not match
-            else if ( !password.isEqual(confirm_password) ) {
+        // Case that passwords do not match
+        else if ( !password.isEqual(confirm_password) ) {
                 
-                alertUser("Registration Failed", message: "Passwords Do Not Match")
-            }
-            else {
-                FIRAuth.auth()?.createUserWithEmail(textEmail.text!, password: textPassword.text!, completion: {
+            alertUser("Registration Failed", message: "Passwords Do Not Match")
+        }
+        else {
+            FIRAuth.auth()?.createUserWithEmail(textEmail.text!, password: textPassword.text!, completion: {
                     user, error in
                     
-                    if error != nil {
+                if error != nil {
                         
-                        self.alertUser("There was a problem", message: "The email you entered is either invalid or already in use. Please try again")
+                    self.alertUser("There was a problem", message: "The email you entered is either invalid or already in use. Please try again")
                         
                         
-                    }
-                    else {
-                        FIRAuth.auth()?.signInWithEmail(self.textEmail.text!, password: self.textPassword.text!, completion: {
+                }
+                else {
+                    FIRAuth.auth()?.signInWithEmail(self.textEmail.text!, password: self.textPassword.text!, completion: {
                             
-                            user, error in
-                            
-                            if error != nil {
-                                self.alertUser("There was a problem", message: "The email or password you entered was incorrect. Please try again")
-                            }
-                            else {
-                                print("user logged in")
-                                self.ref.child("users").setValue(user!.uid)
-                                let basic = ["first": first, "last": last, "email": email, "password": password]
-                                self.ref.child("users").child(user!.uid).setValue(basic)
-                                self.performSegueWithIdentifier("toLinkSocial", sender: self)
-                            }
-                        })
-                    }
-                })
-            }
+                        user, error in
+                        
+                        if error != nil {
+                            self.alertUser("There was a problem", message: "The email or password you entered was incorrect. Please try again")
+                        }
+                        else {
+                            print("user logged in")
+                            self.ref.child("users").setValue(user!.uid)
+                            let basic = ["first": first, "last": last, "email": email, "password": password]
+                            self.ref.child("users").child(user!.uid).setValue(basic)
+                            self.performSegueWithIdentifier("toLinkSocial", sender:self)
+                        }
+                    })
+                }
+            })
         }
+    }
 
 }
 
