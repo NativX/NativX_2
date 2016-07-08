@@ -15,11 +15,11 @@ import Fabric
 
 
 class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate{
-    @IBOutlet weak var noAccountTapped: UIButton!
+    
+
     @IBOutlet weak var emailLoginText: UITextField!
     @IBOutlet weak var passwordLoginText: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var register: UIButton!
     @IBOutlet weak var FBloginButton: FBSDKLoginButton!
     @IBOutlet weak var twitterLogin: UIButton!
     
@@ -87,7 +87,7 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate{
             FIRAuth.auth()?.signInWithEmail(emailLoginText.text!, password: passwordLoginText.text!, completion: {
                 user, error in
                 if error != nil {
-                    self.alertUser("There was a problem", message: "The Email or Passwaord you entered was incorrect. Please try again.")
+                    self.alertUser("There was a problem", message: "The Email or Password you entered was incorrect. Please try again.")
                 }
                     
                 else {

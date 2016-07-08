@@ -21,7 +21,6 @@
 		F276924E1CFE863B0039CEBE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F276924D1CFE863B0039CEBE /* HomeViewController.swift */; };
 		F288390D1CEE720D007E90FE /* HomeNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F288390C1CEE720D007E90FE /* HomeNavViewController.swift */; };
 		F28F003C1D2D670800884C2E /* LoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28F003B1D2D670800884C2E /* LoginHelper.swift */; };
-		F28F003E1D2D79D600884C2E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F28F003D1D2D79D600884C2E /* Images.xcassets */; };
 		F28F00411D2D7A9000884C2E /* DataDervice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28F00401D2D7A9000884C2E /* DataDervice.swift */; };
 		F28F00431D2E91DC00884C2E /* LinkSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28F00421D2E91DC00884C2E /* LinkSocial.swift */; };
 		F2AFF8961CF0F27900391A18 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2AFF8951CF0F27900391A18 /* GoogleService-Info.plist */; };
@@ -72,7 +71,6 @@
 		F276924D1CFE863B0039CEBE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F288390C1CEE720D007E90FE /* HomeNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavViewController.swift; sourceTree = "<group>"; };
 		F28F003B1D2D670800884C2E /* LoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginHelper.swift; sourceTree = "<group>"; };
-		F28F003D1D2D79D600884C2E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F28F00401D2D7A9000884C2E /* DataDervice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDervice.swift; sourceTree = "<group>"; };
 		F28F00421D2E91DC00884C2E /* LinkSocial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkSocial.swift; sourceTree = "<group>"; };
 		F2AFF8951CF0F27900391A18 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -156,7 +154,6 @@
 				F2AFF8951CF0F27900391A18 /* GoogleService-Info.plist */,
 				F2E945861CEBEC280021B899 /* Info.plist */,
 				F2E945811CEBEC280021B899 /* Assets.xcassets */,
-				F28F003D1D2D79D600884C2E /* Images.xcassets */,
 				F2C380C31CF0089C00046869 /* BridgingHeader.h */,
 				F26881AA1CEF9D4B00423597 /* AppDelegate.swift */,
 				F26881AC1CEF9D6400423597 /* ViewController.swift */,
@@ -371,7 +368,6 @@
 				F2E595801CF4ED570092D47B /* Podfile in Resources */,
 				F2E945851CEBEC280021B899 /* LaunchScreen.storyboard in Resources */,
 				F2AFF8961CF0F27900391A18 /* GoogleService-Info.plist in Resources */,
-				F28F003E1D2D79D600884C2E /* Images.xcassets in Resources */,
 				F2E945821CEBEC280021B899 /* Assets.xcassets in Resources */,
 				F2E945801CEBEC280021B899 /* Main.storyboard in Resources */,
 			);

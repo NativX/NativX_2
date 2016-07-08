@@ -160,16 +160,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKQ-m7-6rS">
-                                <rect key="frame" x="168" y="540" width="264" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="JkM-0H-3QX"/>
-                                </constraints>
-                                <state key="normal" title="Don't Have an Account? Register Now!"/>
-                                <connections>
-                                    <segue destination="RLT-t4-67h" kind="presentation" id="btN-OR-nBB"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ags-C7-gDp">
                                 <rect key="frame" x="20" y="140" width="560" height="40"/>
                                 <color key="backgroundColor" red="0.078369853000000003" green="0.81362456230000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -213,6 +203,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKQ-m7-6rS">
+                                <rect key="frame" x="168" y="540" width="264" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="JkM-0H-3QX"/>
+                                </constraints>
+                                <state key="normal" title="Don't Have an Account? Register Now!"/>
+                                <connections>
+                                    <segue destination="RLT-t4-67h" kind="presentation" id="bLF-Lc-bJC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -247,7 +247,6 @@
                         <outlet property="emailLoginText" destination="cok-F9-xiZ" id="w65-uP-kFd"/>
                         <outlet property="loginButton" destination="yew-jg-a5m" id="RAn-k7-wA3"/>
                         <outlet property="passwordLoginText" destination="HIx-WI-vkc" id="f2e-7R-UOt"/>
-                        <outlet property="register" destination="tKQ-m7-6rS" id="JyU-YP-Peq"/>
                         <outlet property="twitterLogin" destination="ags-C7-gDp" id="HFM-xg-Bx6"/>
                         <segue destination="d2V-qT-rPB" kind="presentation" identifier="goToHome" id="gCq-MP-69X"/>
                     </connections>
@@ -331,9 +330,6 @@
                                     <constraint firstAttribute="height" constant="30" id="sSn-qr-cne"/>
                                 </constraints>
                                 <state key="normal" title="Already Have An Account? Login!"/>
-                                <connections>
-                                    <segue destination="R9B-f7-gby" kind="presentation" id="nBh-40-Azw"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register for NativX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFC-3L-4of">
                                 <rect key="frame" x="213" y="60" width="175" height="27"/>
@@ -344,8 +340,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrC-Lr-9gK">
-                                <rect key="frame" x="191" y="480" width="219" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrC-Lr-9gK">
+                                <rect key="frame" x="191" y="479" width="219" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="219" id="f5o-m7-6a0"/>
@@ -355,8 +351,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="signupTapped:" destination="RLT-t4-67h" eventType="touchUpInside" id="3fk-fY-i3b"/>
-                                    <segue destination="hsk-tJ-hr0" kind="presentation" identifier="toLinkSocial" id="tLr-Lt-vyU"/>
+                                    <action selector="signUp:" destination="RLT-t4-67h" eventType="touchUpInside" id="kpa-TT-TV4"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9qb-Tm-W1y">
@@ -364,8 +359,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tag-zM-iFh">
-                                <rect key="frame" x="73" y="425" width="454" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tag-zM-iFh">
+                                <rect key="frame" x="73" y="424" width="454" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="aet-pS-Mfo"/>
                                 </constraints>
@@ -428,6 +423,7 @@
                         <outlet property="textFirstName" destination="9qb-Tm-W1y" id="saC-oi-6ii"/>
                         <outlet property="textLastName" destination="W0c-Rn-Bwa" id="XuG-9M-3Pi"/>
                         <outlet property="textPassword" destination="zkU-tL-aND" id="44x-TU-gka"/>
+                        <segue destination="hsk-tJ-hr0" kind="presentation" identifier="toLinkSocial" id="9LF-iu-hvD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cTI-mf-PWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -446,28 +442,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hi, User First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZj-ci-UlT">
-                                <rect key="frame" x="58" y="70" width="270" height="52"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi, User First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZj-ci-UlT">
+                                <rect key="frame" x="58" y="70" width="257" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Link Your Social Media" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWU-VG-vaU">
-                                <rect key="frame" x="188" y="184" width="225" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFB-z9-K4i">
+                                <rect key="frame" x="355" y="263" width="59" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="59" id="OIp-Uj-QJB"/>
+                                </constraints>
+                                <state key="normal" title="Twitter" image="TWITTER"/>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qD3-zq-JJx">
+                                <rect key="frame" x="187" y="272" width="121" height="42"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Oq6-Q9-7GF">
+                                        <rect key="frame" x="0.0" y="0.0" width="121" height="42"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wX2-gQ-pWF" customClass="FBSDKLoginButton">
+                                                <rect key="frame" x="0.0" y="0.0" width="121" height="42"/>
+                                                <state key="normal" title="Facebook" image="FACEBOOK"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link Your Social Media:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWU-VG-vaU">
+                                <rect key="frame" x="187" y="181" width="227" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFB-z9-K4i">
-                                <rect key="frame" x="239" y="344" width="122" height="66"/>
-                                <state key="normal" title="Twitter" image="TWITTER"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wX2-gQ-pWF" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="240" y="266" width="44" height="53"/>
-                                <state key="normal" title="Facebook" image="FACEBOOK"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qD3-zq-JJx" firstAttribute="leading" secondItem="kWU-VG-vaU" secondAttribute="leading" id="1Ka-YV-UNM"/>
+                            <constraint firstItem="WZj-ci-UlT" firstAttribute="top" secondItem="1oh-V4-wS4" secondAttribute="bottom" constant="50" id="5gr-Nv-WW0"/>
+                            <constraint firstItem="kWU-VG-vaU" firstAttribute="centerX" secondItem="nTQ-7Q-evz" secondAttribute="centerX" id="9dH-x5-eux"/>
+                            <constraint firstItem="qD3-zq-JJx" firstAttribute="centerY" secondItem="OFB-z9-K4i" secondAttribute="centerY" id="QxJ-Gx-uUh"/>
+                            <constraint firstItem="OFB-z9-K4i" firstAttribute="trailing" secondItem="kWU-VG-vaU" secondAttribute="trailing" id="SjY-ZN-Czt"/>
+                            <constraint firstItem="WZj-ci-UlT" firstAttribute="leading" secondItem="nTQ-7Q-evz" secondAttribute="leadingMargin" constant="38" id="VIY-RF-Wwt"/>
+                            <constraint firstItem="kWU-VG-vaU" firstAttribute="top" secondItem="nTQ-7Q-evz" secondAttribute="top" constant="181" id="amt-vf-0lL"/>
+                            <constraint firstItem="Gpb-4W-54B" firstAttribute="top" secondItem="OFB-z9-K4i" secondAttribute="bottom" constant="277" id="eaU-RU-7cW"/>
+                            <constraint firstItem="qD3-zq-JJx" firstAttribute="top" secondItem="kWU-VG-vaU" secondAttribute="bottom" constant="64" id="pBm-SY-6SA"/>
+                            <constraint firstItem="OFB-z9-K4i" firstAttribute="top" secondItem="kWU-VG-vaU" secondAttribute="bottom" constant="55" id="pIo-ap-3Dt"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="FBloginButton" destination="wX2-gQ-pWF" id="ngF-XK-6A9"/>
@@ -477,7 +498,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rsh-nd-wyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="853" y="1622"/>
+            <point key="canvasLocation" x="843" y="1595"/>
         </scene>
         <!--HomeNavController-->
         <scene sceneID="fys-rS-w8M">
@@ -505,7 +526,7 @@
         <image name="twtr-icn-logo.png" width="16" height="13"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ecI-Nu-jnr"/>
+        <segue reference="erN-az-ha1"/>
         <segue reference="gCq-MP-69X"/>
     </inferredMetricsTieBreakers>
 </document>

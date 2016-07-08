@@ -17,6 +17,8 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var greeting: UILabel!
     @IBOutlet weak var FBloginButton: FBSDKLoginButton!
     @IBOutlet weak var twitterLogin: UIButton!
+    
+    var receivedFirst: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,10 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
         // Do any additional setup after loading the view.
         self.FBloginButton.delegate = self
         self.FBloginButton.readPermissions = ["public_profile", "email", "user_friends"]
+        
+        // Update Greeting
+        
+        self.greeting.text = "Hi, \receivedFirst ."
     }
 
     override func didReceiveMemoryWarning() {

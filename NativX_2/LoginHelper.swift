@@ -16,6 +16,7 @@ import Fabric
 
 extension UIViewController {
     
+    
     // Firebase Link Social Media Function
     func firebaseLogin(credential: FIRAuthCredential) {
         // User is Signed in
@@ -23,7 +24,7 @@ extension UIViewController {
             // Link Credential
             user.linkWithCredential(credential) { (user, error) in
                 if error != nil {
-                    print("user linked")
+                    print("user is not linked")
                     return
                 }
             }
@@ -58,7 +59,6 @@ extension UIViewController {
             }
             // Update email when they sign in with Facebook
             let userEmail = results["email"] as? String
-            print(userEmail)
             let user = FIRAuth.auth()?.currentUser
             user?.updateEmail(userEmail!) { error in
                 //ERROR
@@ -90,5 +90,14 @@ extension UIViewController {
         }
     }
     
-    
+    func getFBUserData(){
+        // Use FB Graph request to update email on Firebase
+        FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).startWithCompletionHandler({ (connection, results, requestError) -> Void in
+            //ERROR
+            if requestError != nil {
+                print(requestError)
+                return
+            }
+        })
+    }
 }

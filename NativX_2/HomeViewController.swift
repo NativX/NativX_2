@@ -47,8 +47,8 @@ class HomeViewController: UIViewController {
                     print("yes")
                     let name = profile.displayName
                     self.userName.text = name
-                    let url = (profile.photoURL)?.absoluteString
-                    self.load_image(url!)
+                    // let url = (profile.photoURL)?.absoluteString
+                    // self.load_image(url!)
                 }
             } else {
                 // No user is signed in.
