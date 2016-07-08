@@ -56,10 +56,7 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
             let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
             self.firebaseLogin(credential)
             // TODO: Pull FB information
-            
-            
-            self.performSegueWithIdentifier("goToHome", sender: self)
-        }
+            FBloginButton.setImage(UIImage(named: "ContentDeliveryCheckmark"), forState: UIControlState.Normal)        }
     }
     
     // Facebook Logout
