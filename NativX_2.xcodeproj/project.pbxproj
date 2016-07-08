@@ -19,6 +19,7 @@
 		F26881B11CEF9D8300423597 /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881B01CEF9D8300423597 /* RegisterPageViewController.swift */; };
 		F26881B31CEF9D8F00423597 /* ProtectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881B21CEF9D8F00423597 /* ProtectedViewController.swift */; };
 		F276924E1CFE863B0039CEBE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F276924D1CFE863B0039CEBE /* HomeViewController.swift */; };
+		F27AD6EA1D303527006F6C44 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27AD6E91D303527006F6C44 /* DataHelper.swift */; };
 		F288390D1CEE720D007E90FE /* HomeNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F288390C1CEE720D007E90FE /* HomeNavViewController.swift */; };
 		F28F003C1D2D670800884C2E /* LoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28F003B1D2D670800884C2E /* LoginHelper.swift */; };
 		F28F00411D2D7A9000884C2E /* DataDervice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28F00401D2D7A9000884C2E /* DataDervice.swift */; };
@@ -69,6 +70,7 @@
 		F26881B01CEF9D8300423597 /* RegisterPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPageViewController.swift; sourceTree = "<group>"; };
 		F26881B21CEF9D8F00423597 /* ProtectedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectedViewController.swift; sourceTree = "<group>"; };
 		F276924D1CFE863B0039CEBE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F27AD6E91D303527006F6C44 /* DataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
 		F288390C1CEE720D007E90FE /* HomeNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavViewController.swift; sourceTree = "<group>"; };
 		F28F003B1D2D670800884C2E /* LoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginHelper.swift; sourceTree = "<group>"; };
 		F28F00401D2D7A9000884C2E /* DataDervice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDervice.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				F26881AE1CEF9D7200423597 /* Constants.swift */,
+				F27AD6E91D303527006F6C44 /* DataHelper.swift */,
 				F2AFF8951CF0F27900391A18 /* GoogleService-Info.plist */,
 				F2E945861CEBEC280021B899 /* Info.plist */,
 				F2E945811CEBEC280021B899 /* Assets.xcassets */,
@@ -539,6 +542,7 @@
 				F26881AF1CEF9D7200423597 /* Constants.swift in Sources */,
 				F26881AB1CEF9D4B00423597 /* AppDelegate.swift in Sources */,
 				F26881AD1CEF9D6400423597 /* ViewController.swift in Sources */,
+				F27AD6EA1D303527006F6C44 /* DataHelper.swift in Sources */,
 				F26881A91CEF9D4000423597 /* LoginPageViewController.swift in Sources */,
 				F28F003C1D2D670800884C2E /* LoginHelper.swift in Sources */,
 			);

@@ -12,14 +12,15 @@ import FBSDKLoginKit
 import FBSDKCoreKit
 import TwitterKit
 import Fabric
+import FirebaseDatabase
 
 class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var greeting: UILabel!
     @IBOutlet weak var FBloginButton: FBSDKLoginButton!
     @IBOutlet weak var twitterLogin: UIButton!
     
-    var receivedFirst: String!
-
+    let ref = FIRDatabase.database().reference()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,8 +29,14 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
         self.FBloginButton.readPermissions = ["public_profile", "email", "user_friends"]
         
         // Update Greeting
-        
-        self.greeting.text = "Hi, \receivedFirst ."
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        ref.child("users").child(userID!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            // Get user value
+            let first = snapshot.value!["first"] as! String
+            self.greeting.text = " Hi, \(first)."
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,7 +69,10 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
             let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
             self.firebaseLogin(credential)
             // TODO: Pull FB information
-            FBloginButton.setImage(UIImage(named: "ContentDeliveryCheckmark"), forState: UIControlState.Normal)        }
+            
+            
+            FBloginButton.setImage(UIImage(named: "ContentDeliveryCheckmark"), forState: UIControlState.Normal)
+        }
     }
     
     // Facebook Logout

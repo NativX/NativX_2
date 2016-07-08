@@ -442,52 +442,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi, User First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZj-ci-UlT">
-                                <rect key="frame" x="58" y="70" width="257" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFB-z9-K4i">
-                                <rect key="frame" x="355" y="263" width="59" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="59" id="OIp-Uj-QJB"/>
-                                </constraints>
-                                <state key="normal" title="Twitter" image="TWITTER"/>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qD3-zq-JJx">
-                                <rect key="frame" x="187" y="272" width="121" height="42"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Oq6-Q9-7GF">
-                                        <rect key="frame" x="0.0" y="0.0" width="121" height="42"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wX2-gQ-pWF" customClass="FBSDKLoginButton">
-                                                <rect key="frame" x="0.0" y="0.0" width="121" height="42"/>
-                                                <state key="normal" title="Facebook" image="FACEBOOK"/>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link Your Social Media:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWU-VG-vaU">
                                 <rect key="frame" x="187" y="181" width="227" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wX2-gQ-pWF" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="176" y="273" width="48" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="114" id="PVx-yt-uSt"/>
+                                </constraints>
+                                <state key="normal" title="Facebook" image="FACEBOOK"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFB-z9-K4i">
+                                <rect key="frame" x="355" y="242" width="102" height="113"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="102" id="SRu-mi-H59"/>
+                                </constraints>
+                                <state key="normal" title="Twitter" image="TWITTER"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi, User First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZj-ci-UlT">
+                                <rect key="frame" x="59" y="70" width="257" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qD3-zq-JJx" firstAttribute="leading" secondItem="kWU-VG-vaU" secondAttribute="leading" id="1Ka-YV-UNM"/>
-                            <constraint firstItem="WZj-ci-UlT" firstAttribute="top" secondItem="1oh-V4-wS4" secondAttribute="bottom" constant="50" id="5gr-Nv-WW0"/>
-                            <constraint firstItem="kWU-VG-vaU" firstAttribute="centerX" secondItem="nTQ-7Q-evz" secondAttribute="centerX" id="9dH-x5-eux"/>
-                            <constraint firstItem="qD3-zq-JJx" firstAttribute="centerY" secondItem="OFB-z9-K4i" secondAttribute="centerY" id="QxJ-Gx-uUh"/>
-                            <constraint firstItem="OFB-z9-K4i" firstAttribute="trailing" secondItem="kWU-VG-vaU" secondAttribute="trailing" id="SjY-ZN-Czt"/>
-                            <constraint firstItem="WZj-ci-UlT" firstAttribute="leading" secondItem="nTQ-7Q-evz" secondAttribute="leadingMargin" constant="38" id="VIY-RF-Wwt"/>
-                            <constraint firstItem="kWU-VG-vaU" firstAttribute="top" secondItem="nTQ-7Q-evz" secondAttribute="top" constant="181" id="amt-vf-0lL"/>
-                            <constraint firstItem="Gpb-4W-54B" firstAttribute="top" secondItem="OFB-z9-K4i" secondAttribute="bottom" constant="277" id="eaU-RU-7cW"/>
-                            <constraint firstItem="qD3-zq-JJx" firstAttribute="top" secondItem="kWU-VG-vaU" secondAttribute="bottom" constant="64" id="pBm-SY-6SA"/>
-                            <constraint firstItem="OFB-z9-K4i" firstAttribute="top" secondItem="kWU-VG-vaU" secondAttribute="bottom" constant="55" id="pIo-ap-3Dt"/>
+                            <constraint firstItem="OFB-z9-K4i" firstAttribute="baseline" secondItem="wX2-gQ-pWF" secondAttribute="firstBaseline" id="4s0-Dx-NkK"/>
+                            <constraint firstItem="wX2-gQ-pWF" firstAttribute="bottom" secondItem="OFB-z9-K4i" secondAttribute="bottom" id="BWw-yn-uSX"/>
+                            <constraint firstItem="WZj-ci-UlT" firstAttribute="top" secondItem="1oh-V4-wS4" secondAttribute="bottom" constant="50" id="ESe-LF-CTI"/>
+                            <constraint firstItem="wX2-gQ-pWF" firstAttribute="baseline" secondItem="OFB-z9-K4i" secondAttribute="firstBaseline" id="FUH-XD-bU2"/>
+                            <constraint firstItem="OFB-z9-K4i" firstAttribute="top" secondItem="kWU-VG-vaU" secondAttribute="bottom" constant="34" id="FeP-T2-REs"/>
+                            <constraint firstItem="kWU-VG-vaU" firstAttribute="centerX" secondItem="nTQ-7Q-evz" secondAttribute="centerX" id="V9Z-Pc-GH6"/>
+                            <constraint firstItem="Gpb-4W-54B" firstAttribute="top" secondItem="wX2-gQ-pWF" secondAttribute="bottom" constant="245" id="VuJ-iq-ffX"/>
+                            <constraint firstItem="wX2-gQ-pWF" firstAttribute="leading" secondItem="nTQ-7Q-evz" secondAttribute="leading" constant="148" id="X0W-ET-pmh"/>
+                            <constraint firstItem="kWU-VG-vaU" firstAttribute="top" secondItem="1oh-V4-wS4" secondAttribute="bottom" constant="161" id="XTW-rh-I75"/>
+                            <constraint firstItem="OFB-z9-K4i" firstAttribute="leading" secondItem="wX2-gQ-pWF" secondAttribute="trailing" constant="93" id="b6V-5N-WAD"/>
+                            <constraint firstItem="WZj-ci-UlT" firstAttribute="leading" secondItem="nTQ-7Q-evz" secondAttribute="leadingMargin" constant="39" id="gFU-Cs-dHr"/>
+                            <constraint firstItem="wX2-gQ-pWF" firstAttribute="centerY" secondItem="OFB-z9-K4i" secondAttribute="centerY" id="yjS-df-WBQ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -527,6 +522,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="erN-az-ha1"/>
-        <segue reference="gCq-MP-69X"/>
+        <segue reference="md0-wU-7qn"/>
     </inferredMetricsTieBreakers>
 </document>

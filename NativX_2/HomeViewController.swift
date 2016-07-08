@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     
+    
     func load_image(urlString:String)
     {
         let imgURL: NSURL = NSURL(string: urlString)!
@@ -40,13 +41,24 @@ class HomeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+            
+            // User is signed in
             if let user = user {
-                // User is signed in
+                
+                // Update Greeting
+                let userID = FIRAuth.auth()?.currentUser?.uid
+                    ref.child("users").child(userID!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                    // Get user value
+                    let first = snapshot.value!["first"] as! String
+                    self.userName.text = " Hi, \(first)."
+                }) { (error) in
+                    print(error.localizedDescription)
+                }
+                
+                
+
                 for profile in user.providerData {
                     
-                    print("yes")
-                    let name = profile.displayName
-                    self.userName.text = name
                     // let url = (profile.photoURL)?.absoluteString
                     // self.load_image(url!)
                 }
