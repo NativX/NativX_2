@@ -32,8 +32,9 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
         let userID = FIRAuth.auth()?.currentUser?.uid
         ref.child("users").child(userID!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             // Get user value
-            let first = snapshot.value!["first"] as! String
-            self.greeting.text = " Hi, \(first)."
+            if let first = snapshot.value!["first"] {
+            self.greeting.text = " Hi, \(first!)."
+            }
         }) { (error) in
             print(error.localizedDescription)
         }
@@ -68,17 +69,29 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
         else {
             let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
             self.firebaseLogin(credential)
-            // TODO: Pull FB information
+
             
-            
-            FBloginButton.setImage(UIImage(named: "ContentDeliveryCheckmark"), forState: UIControlState.Normal)
+            // Make sure user is signed in
+            FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+                if user != nil {
+                    // User is signed in.
+                    self.FBloginButton.setImage(UIImage(named: "ContentDeliveryCheckmark"), forState: UIControlState.Normal)
+                    
+                    // Pull facebook data
+                    
+                } else {
+                    // No user is signed in.
+                }
+            }
         }
     }
     
     // Facebook Logout
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        
         try! FIRAuth.auth()!.signOut()
         print("User Logged Out")
+        
     }
     
 

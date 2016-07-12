@@ -28,6 +28,7 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate{
         // get public profile, email, and user friends from Facebook
         self.FBloginButton.delegate = self
         self.FBloginButton.readPermissions = ["public_profile", "email", "user_friends"]
+        self.twitterLogin.imageView 
         
     }
     
@@ -57,9 +58,19 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate{
         // SUCCESS
         else {
             let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
+            
             self.firebaseLogin(credential)
             self.facebookEmailLink()
-            self.performSegueWithIdentifier("goToHome", sender: self)
+            FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+                if user != nil {
+                    // User is signed in.
+                    self.performSegueWithIdentifier("goToHome", sender: self)
+                } else {
+                    // No user is signed in.
+                    // TODO: Spinner
+                }
+            }
+            
         }
     }
     

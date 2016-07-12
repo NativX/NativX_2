@@ -8,64 +8,37 @@
 
 import UIKit
 import Firebase
+import FBSDKCoreKit
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     
-    
-    func load_image(urlString:String)
-    {
-        let imgURL: NSURL = NSURL(string: urlString)!
-        let request: NSURLRequest = NSURLRequest(URL: imgURL)
-        
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(request){
-            (data, response, error) -> Void in
-            
-            if (error == nil && data != nil)
-            {
-                func display_image()
-                {
-                    self.userImage.image = UIImage(data: data!)
-                }
-                
-                dispatch_async(dispatch_get_main_queue(), display_image)
-            }
-        }
-    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+        
+        if let user = FIRAuth.auth()?.currentUser {
             
-            // User is signed in
-            if let user = user {
-                
-                // Update Greeting
-                let userID = FIRAuth.auth()?.currentUser?.uid
-                    ref.child("users").child(userID!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-                    // Get user value
-                    let first = snapshot.value!["first"] as! String
-                    self.userName.text = " Hi, \(first)."
-                }) { (error) in
-                    print(error.localizedDescription)
-                }
-                
-                
-
-                for profile in user.providerData {
-                    
-                    // let url = (profile.photoURL)?.absoluteString
-                    // self.load_image(url!)
-                }
-            } else {
-                // No user is signed in.
-                print("nope")
+            // User is signed in.
+            
+            if let name = user.displayName {
+                self.userName.text = "Hi \(name)."
             }
+            else {
+                self.userName.text = "Welcome to NativX."
+            }
+            
+            
+            if let photoUrl = user.photoURL {
+                let data = NSData(contentsOfURL: photoUrl)
+                self.userImage.image = UIImage(data: data!)
+            }
+
+        } else {
+            // No user is signed in.
+            print("Home screen and no user")
         }
     }
 
@@ -77,8 +50,7 @@ class HomeViewController: UIViewController {
     // logout button
     @IBAction func logOutTap(sender: UIButton) {
         try! FIRAuth.auth()!.signOut()
-        
-        print("logged out")
+        FBSDKAccessToken.setCurrentAccessToken(nil)
         self.performSegueWithIdentifier("logOutToHome", sender: self)
     }
 

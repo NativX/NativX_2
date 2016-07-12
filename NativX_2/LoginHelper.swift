@@ -14,6 +14,7 @@ import TwitterKit
 import Fabric
 
 
+
 extension UIViewController {
     
     
@@ -33,6 +34,7 @@ extension UIViewController {
             print("user signed in")
             FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
                 if error != nil {
+                    self.alertUser("Sign in Failed", message: "Something went wrong. Please try again,")
                     return
                 }
             }
@@ -46,6 +48,7 @@ extension UIViewController {
         let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
         alertController.addAction(defaultAction)
         self.presentViewController(alertController, animated: true, completion: nil)
+        
     }
     
     // Firebase Link FB Login with Email Function
@@ -57,9 +60,11 @@ extension UIViewController {
                 print(requestError)
                 return
             }
+            
             // Update email when they sign in with Facebook
             let userEmail = results["email"] as? String
             let user = FIRAuth.auth()?.currentUser
+            
             user?.updateEmail(userEmail!) { error in
                 //ERROR
                 if error != nil {
@@ -78,14 +83,18 @@ extension UIViewController {
         Twitter.sharedInstance().logInWithCompletion { session, error in
             // Firebase login
             if (session != nil) {
+                
                 let credential = FIRTwitterAuthProvider.credentialWithToken(session!.authToken, secret: session!.authTokenSecret)
                 self.firebaseLogin(credential)
                 print("signed in as \(session!.userName)");
                 self.performSegueWithIdentifier("goToHome", sender: self)
-                // Handle error
+                
+            // Handle error
             } else {
+                
                 self.alertUser("There was a problem", message: "Twitter Login Authentication Failed")
                 print("error: \(error!.localizedDescription)");
+                
             }
         }
     }

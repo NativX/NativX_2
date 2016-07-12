@@ -145,7 +145,7 @@
                                     <constraint firstAttribute="width" constant="102" id="YrZ-as-0Mg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Login">
+                                <state key="normal" title="Sign in">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -160,16 +160,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ags-C7-gDp">
-                                <rect key="frame" x="20" y="140" width="560" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ags-C7-gDp">
+                                <rect key="frame" x="20" y="141" width="560" height="40"/>
                                 <color key="backgroundColor" red="0.078369853000000003" green="0.81362456230000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Eoz-wO-X7b"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Login with Twitter  " image="twtr-icn-logo.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <state key="normal" image="twtr-icn-logo-white.png" backgroundImage="sign-in-with-twitter-gray"/>
                                 <connections>
                                     <action selector="twitterLoginTapped:" destination="R9B-f7-gby" eventType="touchUpInside" id="OrN-UY-pHd"/>
                                 </connections>
@@ -184,17 +181,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGx-tq-clL" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="20" y="222" width="560" height="40"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="hKu-25-L3q"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Login with Facebook">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cok-F9-xiZ">
                                 <rect key="frame" x="24" y="350" width="552" height="30"/>
                                 <constraints>
@@ -212,6 +198,17 @@
                                 <connections>
                                     <segue destination="RLT-t4-67h" kind="presentation" id="bLF-Lc-bJC"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGx-tq-clL" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="20" y="222" width="560" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="hKu-25-L3q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Log in with Facebook">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -330,6 +327,9 @@
                                     <constraint firstAttribute="height" constant="30" id="sSn-qr-cne"/>
                                 </constraints>
                                 <state key="normal" title="Already Have An Account? Login!"/>
+                                <connections>
+                                    <segue destination="R9B-f7-gby" kind="presentation" id="Y9a-K6-3dC"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register for NativX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFC-3L-4of">
                                 <rect key="frame" x="213" y="60" width="175" height="27"/>
@@ -448,15 +448,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wX2-gQ-pWF" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="176" y="273" width="48" height="53"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="114" id="PVx-yt-uSt"/>
-                                </constraints>
-                                <state key="normal" title="Facebook" image="FACEBOOK"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFB-z9-K4i">
-                                <rect key="frame" x="355" y="242" width="102" height="113"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFB-z9-K4i">
+                                <rect key="frame" x="353" y="264" width="76" height="71"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="SRu-mi-H59"/>
                                 </constraints>
@@ -468,6 +461,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wX2-gQ-pWF" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="178" y="273" width="48" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="114" id="PVx-yt-uSt"/>
+                                </constraints>
+                                <state key="normal" title="Facebook" image="FACEBOOK"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -493,7 +493,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rsh-nd-wyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="843" y="1595"/>
+            <point key="canvasLocation" x="834" y="1616"/>
         </scene>
         <!--HomeNavController-->
         <scene sceneID="fys-rS-w8M">
@@ -518,10 +518,11 @@
         <image name="FACEBOOK" width="42" height="42"/>
         <image name="TWITTER" width="66" height="66"/>
         <image name="UserIcon" width="150" height="150"/>
-        <image name="twtr-icn-logo.png" width="16" height="13"/>
+        <image name="sign-in-with-twitter-gray" width="52" height="9"/>
+        <image name="twtr-icn-logo-white.png" width="16" height="13"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="erN-az-ha1"/>
-        <segue reference="md0-wU-7qn"/>
+        <segue reference="gCq-MP-69X"/>
+        <segue reference="ecI-Nu-jnr"/>
     </inferredMetricsTieBreakers>
 </document>

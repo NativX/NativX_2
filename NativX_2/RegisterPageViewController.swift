@@ -74,11 +74,25 @@ class RegisterPageViewController: UIViewController {
                             self.alertUser("There was a problem", message: "The email or password you entered was incorrect. Please try again")
                         }
                         else {
-                            print("user logged in")
-                            self.ref.child("users").setValue(user!.uid)
+                            
+                            guard let uid = user?.uid else {
+                                return
+                            }
+                            
+                            // Add Basic Info to Database
+                            let usersRef = self.ref.child("users").child(uid)
                             let basic = ["first": first, "last": last, "email": email, "password": password]
-                            self.ref.child("users").child(user!.uid).setValue(basic)
+                            usersRef.updateChildValues(basic, withCompletionBlock: {
+                                    (err, ref) in
+                                
+                                if err != nil {
+                                    print (err)
+                                    return
+                                }
+                            })
+                
                             self.performSegueWithIdentifier("toLinkSocial", sender:self)
+                            
                         }
                     })
                 }
