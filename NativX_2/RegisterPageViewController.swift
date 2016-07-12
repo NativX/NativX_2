@@ -21,7 +21,6 @@ class RegisterPageViewController: UIViewController {
     @IBOutlet weak var textEmail: UITextField!
     @IBOutlet weak var textConfirmPassword: UITextField!
     
-    let ref = FIRDatabase.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,8 +79,10 @@ class RegisterPageViewController: UIViewController {
                             }
                             
                             // Add Basic Info to Database
-                            let usersRef = self.ref.child("users").child(uid)
-                            let basic = ["first": first, "last": last, "email": email, "password": password]
+                            let usersRef = ref.child("users").child(uid)
+                            let basic = ["first": first,
+                                         "email": email]
+                            
                             usersRef.updateChildValues(basic, withCompletionBlock: {
                                     (err, ref) in
                                 

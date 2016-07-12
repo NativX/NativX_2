@@ -12,6 +12,8 @@ import Firebase
 // database url
 let BASE_URL = "https://project-4293806605945612732.firebaseio.com/"
 
+// facebook permissions
+let perm = ["public_profile", "email", "user_about_me", "user_likes", "user_tagged_places", "user_location", "user_hometown", "user_events", "user_birthday", "user_status"]
 
 // database reference
 let ref = FIRDatabase.database().reference()

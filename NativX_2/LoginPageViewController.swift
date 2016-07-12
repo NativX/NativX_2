@@ -23,12 +23,13 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate{
     @IBOutlet weak var FBloginButton: FBSDKLoginButton!
     @IBOutlet weak var twitterLogin: UIButton!
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // get public profile, email, and user friends from Facebook
         self.FBloginButton.delegate = self
-        self.FBloginButton.readPermissions = ["public_profile", "email", "user_friends"]
-        self.twitterLogin.imageView 
+        self.FBloginButton.readPermissions = perm
         
     }
     
@@ -61,7 +62,25 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate{
             
             self.firebaseLogin(credential)
             self.facebookEmailLink()
-            FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+            
+            // Pull facebook data
+            
+            let params = ["fields" : "about, age_range, bio, birthday, gender, hometown, sports"]
+            FBSDKGraphRequest(graphPath: "me", parameters: params).startWithCompletionHandler({ (connection, results, requestError) -> Void in
+                //ERROR
+                if requestError != nil {
+                    print(requestError)
+                    return
+                }
+                // PULL FB DATA
+                else {
+                    let about = results
+                    print (about)
+                }
+
+            })
+            
+                FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
                 if user != nil {
                     // User is signed in.
                     self.performSegueWithIdentifier("goToHome", sender: self)

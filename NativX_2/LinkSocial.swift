@@ -19,14 +19,13 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var FBloginButton: FBSDKLoginButton!
     @IBOutlet weak var twitterLogin: UIButton!
     
-    let ref = FIRDatabase.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.FBloginButton.delegate = self
-        self.FBloginButton.readPermissions = ["public_profile", "email", "user_friends"]
+        self.FBloginButton.readPermissions = ["public_profile", "email", "user_friends", "gender", "locale", "age_range", "time_zone"]
         
         // Update Greeting
         let userID = FIRAuth.auth()?.currentUser?.uid
@@ -70,7 +69,6 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
             let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
             self.firebaseLogin(credential)
 
-            
             // Make sure user is signed in
             FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
                 if user != nil {
@@ -78,9 +76,21 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
                     self.FBloginButton.setImage(UIImage(named: "ContentDeliveryCheckmark"), forState: UIControlState.Normal)
                     
                     // Pull facebook data
+                    FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "gender, locale, age_range, time_zone"]).startWithCompletionHandler({ (connection, results, requestError) -> Void in
+                        //ERROR
+                        if requestError != nil {
+                            print(requestError)
+                            return
+                        }
+                        else {
+                            let results = ["fields"]
+                            print (results)
+                        }
+                    })
                     
                 } else {
                     // No user is signed in.
+                    self.alertUser("Something went wrong.", message: "Facebook linkage failed")
                 }
             }
         }
