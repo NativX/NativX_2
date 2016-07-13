@@ -16,7 +16,6 @@ import Fabric
 
 extension UIViewController {
     
-    
     // Firebase Link Social Media Function
     func firebaseLogin(credential: FIRAuthCredential) {
         // User is Signed in
@@ -98,13 +97,59 @@ extension UIViewController {
         }
     }
     
-    func getFBUserData(){
-        // Use FB Graph request to update email on Firebase
-        FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).startWithCompletionHandler({ (connection, results, requestError) -> Void in
+    func FBUserDataToFirbase () {
+        // Pull facebook data
+        let params = ["fields" : "about, age_range, email, bio, birthday, gender, hometown, interested_in.limit(100), groups.limit(100), music.limit(100)"]
+        FBSDKGraphRequest(graphPath: "me", parameters: params).startWithCompletionHandler({ (connection, results, requestError) -> Void in
             //ERROR
             if requestError != nil {
                 print(requestError)
                 return
+            }
+            // PULL FB DATA
+            else {
+                let bio = results!.valueForKey("bio")!
+                print (bio)
+                
+                /*
+                print(" \(results["age_range"]) \n\n")
+                print(" \(results["email"]) \n\n")
+                print(" \(results["birthday"]) \n\n")
+                print(" \(results["gender"]) \n\n")
+                print(" \(results["hometown"]) \n\n")
+                print(" \(results["interested_in"]) \n\n")
+                print(" \(results["books"]) \n\n") */
+  
+            }
+        })
+    }
+    
+    func getFBUserLikes () {
+        FBSDKGraphRequest(graphPath: "me/likes", parameters: ["fields" : "id, name"]).startWithCompletionHandler({ (connection, results, requestError) -> Void in
+            //ERROR
+            if requestError != nil {
+                print(requestError)
+                return
+            }
+            // PULL FB DATA
+            else {
+                let books = results!.valueForKey("data")!
+                print (books)
+            }
+        })
+    }
+    
+    func getFBUserPosts () {
+        FBSDKGraphRequest(graphPath: "me/posts", parameters: ["fields" : "message"]).startWithCompletionHandler({ (connection, results, requestError) -> Void in
+            //ERROR
+            if requestError != nil {
+                print(requestError)
+                return
+            }
+            // PULL FB DATA
+            else {
+                let posts = results!.valueForKey("data")!
+                print (posts)
             }
         })
     }

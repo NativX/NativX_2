@@ -17,6 +17,29 @@ import Fabric
 
 extension UIViewController {
     
+    // FB Data to Firebase
+    static var bio : String? = ""
     
+    static var age : String? = ""
+    
+    static var birthday : String? = ""
+    
+    static var gender : String? = ""
+    
+    static var hometown : String? = ""
+    
+    static var interested_in : String? = ""
+    
+    static var groups : String? = ""
+    
+    static var music : String? = ""
+    
+    // FB Data to Watson
+    
+    static var likes : String? = ""
+    
+    static var posts: String? = ""
+    
+    // Twitter Data to Watson
 
 }

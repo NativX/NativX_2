@@ -22,7 +22,6 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate{
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var FBloginButton: FBSDKLoginButton!
     @IBOutlet weak var twitterLogin: UIButton!
-    
 
     
     override func viewDidLoad() {
@@ -59,28 +58,11 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate{
         // SUCCESS
         else {
             let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
-            
             self.firebaseLogin(credential)
             self.facebookEmailLink()
+            self.FBUserDataToFirbase()
             
-            // Pull facebook data
-            
-            let params = ["fields" : "about, age_range, bio, birthday, gender, hometown, sports"]
-            FBSDKGraphRequest(graphPath: "me", parameters: params).startWithCompletionHandler({ (connection, results, requestError) -> Void in
-                //ERROR
-                if requestError != nil {
-                    print(requestError)
-                    return
-                }
-                // PULL FB DATA
-                else {
-                    let about = results
-                    print (about)
-                }
-
-            })
-            
-                FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+            FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
                 if user != nil {
                     // User is signed in.
                     self.performSegueWithIdentifier("goToHome", sender: self)
