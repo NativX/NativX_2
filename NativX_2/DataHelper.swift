@@ -17,7 +17,7 @@ import Fabric
 
 extension UIViewController {
     
-    // FB Data to Firebase
+    /* // FB Data to Firebase
     static var bio : String? = ""
     
     static var age : String? = ""
@@ -40,6 +40,6 @@ extension UIViewController {
     
     static var posts: String? = ""
     
-    // Twitter Data to Watson
+    // Twitter Data to Watson */
 
 }

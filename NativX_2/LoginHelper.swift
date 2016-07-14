@@ -98,50 +98,151 @@ extension UIViewController {
     }
     
     func FBUserDataToFirbase () {
-        // Pull facebook data
-        let params = ["fields" : "about, age_range, email, bio, birthday, gender, hometown, interested_in.limit(100), groups.limit(100), music.limit(100)"]
+        
+        let params = ["fields" : "about, age_range, email, bio, birthday, gender, hometown, interested_in.limit(100), groups.limit(100), events.limit(20), music.limit(50)"]
+        
         FBSDKGraphRequest(graphPath: "me", parameters: params).startWithCompletionHandler({ (connection, results, requestError) -> Void in
             //ERROR
             if requestError != nil {
                 print(requestError)
                 return
             }
-            // PULL FB DATA
+            // PULL FB DATA + FIREBASE PUSH
             else {
-                let bio = results!.valueForKey("bio")!
-                print (bio)
                 
-                /*
-                print(" \(results["age_range"]) \n\n")
-                print(" \(results["email"]) \n\n")
-                print(" \(results["birthday"]) \n\n")
-                print(" \(results["gender"]) \n\n")
-                print(" \(results["hometown"]) \n\n")
-                print(" \(results["interested_in"]) \n\n")
-                print(" \(results["books"]) \n\n") */
-  
+                /* TODO Move this to Watson to read
+                if let bio: AnyObject? = results!.valueForKey("bio")! {
+                    print (bio!)
+                }
+                ****/
+                
+                // Check for logged in fire user
+                FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+                    if user != nil {
+                        guard let uid = user?.uid else {
+                            return
+                        }
+                        let fbBasicRef = ref.child("users").child(uid).child("Facebook Basic")
+                        
+                        let userRef = ref.child("users").child(uid)
+                        
+                        // AGE
+                        if let age_range: AnyObject? = results!.valueForKey("age_range")!.valueForKey("min")! {
+                            let age_fir = ["age" : age_range!]
+                            fbBasicRef.updateChildValues(age_fir, withCompletionBlock: {
+                                (err, ref) in
+                                
+                                if err != nil {
+                                    print (err)
+                                    return
+                                }
+                            })
+                        }
+                        
+                        // BIRTHDAY
+                        if let bday: AnyObject? = results!.valueForKey("birthday")! {
+                            let bday_fir = ["birthday" : bday!]
+                            fbBasicRef.updateChildValues(bday_fir, withCompletionBlock: {
+                                (err, ref) in
+                                
+                                if err != nil {
+                                    print (err)
+                                    return
+                                }
+                            })
+                        }
+                        
+                        // GENDER
+                        if let gender: AnyObject? = results!.valueForKey("gender")! {
+                            let gender_fir = ["gender" : gender!]
+                            fbBasicRef.updateChildValues(gender_fir, withCompletionBlock: {
+                                (err, ref) in
+                                
+                                if err != nil {
+                                    print (err)
+                                    return
+                                }
+                            })
+                        }
+                        
+                        // MUSIC LIKES
+                        if let music: AnyObject? = results!.valueForKey("music")!.valueForKey("data")!.valueForKey("name")! {
+                            let music_fir = ["Facebook Music" : music!]
+                            userRef.updateChildValues(music_fir, withCompletionBlock: {
+                                (err, ref) in
+                                
+                                if err != nil {
+                                    print (err)
+                                    return
+                                }
+                            })
+                        }
+                        
+                        // EVENTS ATTENDED
+                        if let events: AnyObject? = results!.valueForKey("events")!.valueForKey("data")!.valueForKey("name")! {
+                            let events_fir = ["Facebook Events" : events!]
+                            userRef.updateChildValues(events_fir, withCompletionBlock: {
+                                (err, ref) in
+                                
+                                if err != nil {
+                                    print (err)
+                                    return
+                                }
+                            })
+
+                        }
+
+                    } else {
+                        // No user is signed in.
+                        // TODO: Spinner
+                    }
+                }
+
             }
         })
     }
     
+    // PULL FB Likes + Push to database
     func getFBUserLikes () {
-        FBSDKGraphRequest(graphPath: "me/likes", parameters: ["fields" : "id, name"]).startWithCompletionHandler({ (connection, results, requestError) -> Void in
-            //ERROR
+        FBSDKGraphRequest(graphPath: "me/likes", parameters: ["fields" : "name"]).startWithCompletionHandler({ (connection, results, requestError) -> Void in
+            // ERROR
             if requestError != nil {
                 print(requestError)
                 return
             }
-            // PULL FB DATA
+            // SUCCESS
             else {
-                let books = results!.valueForKey("data")!
-                print (books)
+                FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+                    if user != nil {
+                        // User is signed in.
+                        guard let uid = user?.uid else {
+                            return
+                        }
+                        let fbLikesRef = ref.child("users").child(uid)
+                        let likes = results!.valueForKey("data")!.valueForKey("name")!
+                        let likes_fir = ["Facebook Likes": likes]
+                        fbLikesRef.updateChildValues(likes_fir, withCompletionBlock: {
+                            (err, ref) in
+                            
+                            if err != nil {
+                                print (err)
+                                return
+                            }
+                        })
+                    } else {
+                        // No user is signed in.
+                        // TODO: Spinner
+                    }
+                }
+
             }
         })
     }
     
+    // PULL FB POSTS FOR Watson
     func getFBUserPosts () {
         FBSDKGraphRequest(graphPath: "me/posts", parameters: ["fields" : "message"]).startWithCompletionHandler({ (connection, results, requestError) -> Void in
-            //ERROR
+            // ERROR
             if requestError != nil {
                 print(requestError)
                 return

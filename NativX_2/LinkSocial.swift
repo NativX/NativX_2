@@ -48,9 +48,6 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
     @IBAction func twitterLoginTapped(sender: UIButton) {
         self.twitterLoginController()
         // TODO: Pull Twitter Data
-        
-        
-        
     }
     
     // Conform FBLoginButtonDelegate with following two functions
@@ -76,17 +73,8 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
                     self.FBloginButton.setImage(UIImage(named: "ContentDeliveryCheckmark"), forState: UIControlState.Normal)
                     
                     // Pull facebook data
-                    FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "gender, locale, age_range, time_zone"]).startWithCompletionHandler({ (connection, results, requestError) -> Void in
-                        //ERROR
-                        if requestError != nil {
-                            print(requestError)
-                            return
-                        }
-                        else {
-                            let results = ["fields"]
-                            print (results)
-                        }
-                    })
+                    self.FBUserDataToFirbase()
+                    self.getFBUserLikes ()
                     
                 } else {
                     // No user is signed in.
@@ -103,6 +91,4 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
         print("User Logged Out")
         
     }
-    
-
 }
