@@ -12,6 +12,7 @@
 		BD4138701CF164DF00354792 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD41386E1CF164DF00354792 /* FBSDKLoginKit.framework */; };
 		BD4138711CF164DF00354792 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD41386F1CF164DF00354792 /* FBSDKShareKit.framework */; };
 		BFEA0D3332E2E88C2B614714 /* Pods_NativX_2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F296F2D58078C7A3A2CAE7 /* Pods_NativX_2UITests.framework */; };
+		F20EF0761D3A175600BCB660 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = F20EF0751D3A175600BCB660 /* Cartfile */; };
 		F26881A91CEF9D4000423597 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881A81CEF9D4000423597 /* LoginPageViewController.swift */; };
 		F26881AB1CEF9D4B00423597 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881AA1CEF9D4B00423597 /* AppDelegate.swift */; };
 		F26881AD1CEF9D6400423597 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881AC1CEF9D6400423597 /* ViewController.swift */; };
@@ -63,6 +64,7 @@
 		BD41386F1CF164DF00354792 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		D7AD2CA32EAD6194826F9D9D /* Pods-NativX_2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativX_2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NativX_2/Pods-NativX_2.debug.xcconfig"; sourceTree = "<group>"; };
 		E80AC9490B7CFF2020234DE7 /* Pods-NativX_2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativX_2UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NativX_2UITests/Pods-NativX_2UITests.release.xcconfig"; sourceTree = "<group>"; };
+		F20EF0751D3A175600BCB660 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		F26881A81CEF9D4000423597 /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		F26881AA1CEF9D4B00423597 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F26881AC1CEF9D6400423597 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		F2E9456E1CEBEC280021B899 = {
 			isa = PBXGroup;
 			children = (
+				F20EF0751D3A175600BCB660 /* Cartfile */,
 				F2E5957F1CF4ED570092D47B /* Podfile */,
 				F2E945791CEBEC280021B899 /* NativX_2 */,
 				F2E9458E1CEBEC290021B899 /* NativX_2Tests */,
@@ -360,6 +363,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F20EF0761D3A175600BCB660 /* Cartfile in Resources */,
 				F2E595801CF4ED570092D47B /* Podfile in Resources */,
 				F2E945851CEBEC280021B899 /* LaunchScreen.storyboard in Resources */,
 				F2AFF8961CF0F27900391A18 /* GoogleService-Info.plist in Resources */,
