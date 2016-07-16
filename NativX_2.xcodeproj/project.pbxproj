@@ -13,6 +13,18 @@
 		BD4138711CF164DF00354792 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD41386F1CF164DF00354792 /* FBSDKShareKit.framework */; };
 		BFEA0D3332E2E88C2B614714 /* Pods_NativX_2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F296F2D58078C7A3A2CAE7 /* Pods_NativX_2UITests.framework */; };
 		F20EF0761D3A175600BCB660 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = F20EF0751D3A175600BCB660 /* Cartfile */; };
+		F20EF07B1D3A29CD00BCB660 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F20EF07A1D3A29CD00BCB660 /* Alamofire.framework */; };
+		F20EF07D1D3A29DD00BCB660 /* Freddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F20EF07C1D3A29DD00BCB660 /* Freddy.framework */; };
+		F20EF07F1D3A29E500BCB660 /* RestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F20EF07E1D3A29E500BCB660 /* RestKit.framework */; };
+		F20EF0811D3A29EE00BCB660 /* PersonalityInsightsV2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F20EF0801D3A29EE00BCB660 /* PersonalityInsightsV2.framework */; };
+		F20EF0831D3A2A4400BCB660 /* PersonalityInsightsV2.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F20EF0801D3A29EE00BCB660 /* PersonalityInsightsV2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F20EF0841D3A2A4400BCB660 /* RestKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F20EF07E1D3A29E500BCB660 /* RestKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F20EF0851D3A2A4400BCB660 /* Freddy.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F20EF07C1D3A29DD00BCB660 /* Freddy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F20EF0861D3A2A4400BCB660 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F20EF07A1D3A29CD00BCB660 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F20EF0891D3A2AD300BCB660 /* PersonalityInsights.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20EF0881D3A2AD300BCB660 /* PersonalityInsights.swift */; };
+		F20EF08C1D3A2B1A00BCB660 /* ContentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20EF08B1D3A2B1A00BCB660 /* ContentItem.swift */; };
+		F20EF08E1D3A2B4D00BCB660 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20EF08D1D3A2B4D00BCB660 /* Profile.swift */; };
+		F20EF0901D3A2B9C00BCB660 /* TraitTreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20EF08F1D3A2B9C00BCB660 /* TraitTreeNode.swift */; };
 		F26881A91CEF9D4000423597 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881A81CEF9D4000423597 /* LoginPageViewController.swift */; };
 		F26881AB1CEF9D4B00423597 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881AA1CEF9D4B00423597 /* AppDelegate.swift */; };
 		F26881AD1CEF9D6400423597 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881AC1CEF9D6400423597 /* ViewController.swift */; };
@@ -52,6 +64,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F20EF0821D3A2A2900BCB660 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F20EF0831D3A2A4400BCB660 /* PersonalityInsightsV2.framework in CopyFiles */,
+				F20EF0841D3A2A4400BCB660 /* RestKit.framework in CopyFiles */,
+				F20EF0851D3A2A4400BCB660 /* Freddy.framework in CopyFiles */,
+				F20EF0861D3A2A4400BCB660 /* Alamofire.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		07F296F2D58078C7A3A2CAE7 /* Pods_NativX_2UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NativX_2UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		243DE7ED49FD09EC83F3D0DA /* Pods-NativX_2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativX_2Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NativX_2Tests/Pods-NativX_2Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -65,6 +93,14 @@
 		D7AD2CA32EAD6194826F9D9D /* Pods-NativX_2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativX_2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NativX_2/Pods-NativX_2.debug.xcconfig"; sourceTree = "<group>"; };
 		E80AC9490B7CFF2020234DE7 /* Pods-NativX_2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativX_2UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NativX_2UITests/Pods-NativX_2UITests.release.xcconfig"; sourceTree = "<group>"; };
 		F20EF0751D3A175600BCB660 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		F20EF07A1D3A29CD00BCB660 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		F20EF07C1D3A29DD00BCB660 /* Freddy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Freddy.framework; path = Carthage/Build/iOS/Freddy.framework; sourceTree = "<group>"; };
+		F20EF07E1D3A29E500BCB660 /* RestKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RestKit.framework; path = Carthage/Build/iOS/RestKit.framework; sourceTree = "<group>"; };
+		F20EF0801D3A29EE00BCB660 /* PersonalityInsightsV2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PersonalityInsightsV2.framework; path = Carthage/Build/iOS/PersonalityInsightsV2.framework; sourceTree = "<group>"; };
+		F20EF0881D3A2AD300BCB660 /* PersonalityInsights.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalityInsights.swift; sourceTree = "<group>"; };
+		F20EF08B1D3A2B1A00BCB660 /* ContentItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentItem.swift; sourceTree = "<group>"; };
+		F20EF08D1D3A2B4D00BCB660 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		F20EF08F1D3A2B9C00BCB660 /* TraitTreeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraitTreeNode.swift; sourceTree = "<group>"; };
 		F26881A81CEF9D4000423597 /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		F26881AA1CEF9D4B00423597 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F26881AC1CEF9D6400423597 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,7 +137,11 @@
 			files = (
 				BD4138711CF164DF00354792 /* FBSDKShareKit.framework in Frameworks */,
 				19DE9D25D0BB58C585DB6B98 /* Pods_NativX_2.framework in Frameworks */,
+				F20EF07F1D3A29E500BCB660 /* RestKit.framework in Frameworks */,
 				F2B79CEB1CF019D300A74062 /* FBSDKCoreKit.framework in Frameworks */,
+				F20EF07B1D3A29CD00BCB660 /* Alamofire.framework in Frameworks */,
+				F20EF07D1D3A29DD00BCB660 /* Freddy.framework in Frameworks */,
+				F20EF0811D3A29EE00BCB660 /* PersonalityInsightsV2.framework in Frameworks */,
 				BD4138701CF164DF00354792 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,6 +168,10 @@
 		2FFBC6666E74946E873CBEA8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F20EF0801D3A29EE00BCB660 /* PersonalityInsightsV2.framework */,
+				F20EF07E1D3A29E500BCB660 /* RestKit.framework */,
+				F20EF07C1D3A29DD00BCB660 /* Freddy.framework */,
+				F20EF07A1D3A29CD00BCB660 /* Alamofire.framework */,
 				BD41386E1CF164DF00354792 /* FBSDKLoginKit.framework */,
 				BD41386F1CF164DF00354792 /* FBSDKShareKit.framework */,
 				F2B79CEA1CF019D300A74062 /* FBSDKCoreKit.framework */,
@@ -151,6 +195,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F20EF0871D3A2AA800BCB660 /* PersonalityInsights */ = {
+			isa = PBXGroup;
+			children = (
+				F20EF0881D3A2AD300BCB660 /* PersonalityInsights.swift */,
+				F20EF08A1D3A2AFF00BCB660 /* Models */,
+			);
+			name = PersonalityInsights;
+			sourceTree = "<group>";
+		};
+		F20EF08A1D3A2AFF00BCB660 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F20EF08B1D3A2B1A00BCB660 /* ContentItem.swift */,
+				F20EF08D1D3A2B4D00BCB660 /* Profile.swift */,
+				F20EF08F1D3A2B9C00BCB660 /* TraitTreeNode.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		F28F00381D2D457200884C2E /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +227,7 @@
 				F26881AA1CEF9D4B00423597 /* AppDelegate.swift */,
 				F26881AC1CEF9D6400423597 /* ViewController.swift */,
 				F2E945831CEBEC280021B899 /* LaunchScreen.storyboard */,
+				F20EF0871D3A2AA800BCB660 /* PersonalityInsights */,
 				F2E945BB1CEBF9EB0021B899 /* Login Progression */,
 				F2E945BA1CEBF9DB0021B899 /* Home */,
 			);
@@ -224,7 +288,6 @@
 			isa = PBXGroup;
 			children = (
 				F26881B21CEF9D8F00423597 /* ProtectedViewController.swift */,
-				F28F003B1D2D670800884C2E /* LoginHelper.swift */,
 				F26881A81CEF9D4000423597 /* LoginPageViewController.swift */,
 				F28F00421D2E91DC00884C2E /* LinkSocial.swift */,
 				F26881B01CEF9D8300423597 /* RegisterPageViewController.swift */,
@@ -244,6 +307,7 @@
 		F2E945BB1CEBF9EB0021B899 /* Login Progression */ = {
 			isa = PBXGroup;
 			children = (
+				F28F003B1D2D670800884C2E /* LoginHelper.swift */,
 				F2E9457E1CEBEC280021B899 /* Main.storyboard */,
 				F2E945AC1CEBF86C0021B899 /* Login Controllers */,
 			);
@@ -261,6 +325,7 @@
 				F2E945731CEBEC280021B899 /* Sources */,
 				F2E945741CEBEC280021B899 /* Frameworks */,
 				F2E945751CEBEC280021B899 /* Resources */,
+				F20EF0821D3A2A2900BCB660 /* CopyFiles */,
 				23E3B313FA9429A9677EAB02 /* 📦 Embed Pods Frameworks */,
 				38851DB35A902FBE8A65740E /* 📦 Copy Pods Resources */,
 				F2AFF8971CF4A82000391A18 /* ShellScript */,
@@ -532,8 +597,11 @@
 			files = (
 				F26881B11CEF9D8300423597 /* RegisterPageViewController.swift in Sources */,
 				F288390D1CEE720D007E90FE /* HomeNavViewController.swift in Sources */,
+				F20EF0901D3A2B9C00BCB660 /* TraitTreeNode.swift in Sources */,
 				F26881B31CEF9D8F00423597 /* ProtectedViewController.swift in Sources */,
+				F20EF08E1D3A2B4D00BCB660 /* Profile.swift in Sources */,
 				F276924E1CFE863B0039CEBE /* HomeViewController.swift in Sources */,
+				F20EF08C1D3A2B1A00BCB660 /* ContentItem.swift in Sources */,
 				F28F00431D2E91DC00884C2E /* LinkSocial.swift in Sources */,
 				F26881AF1CEF9D7200423597 /* Constants.swift in Sources */,
 				F26881AB1CEF9D4B00423597 /* AppDelegate.swift in Sources */,
@@ -541,6 +609,7 @@
 				F27AD6EA1D303527006F6C44 /* DataHelper.swift in Sources */,
 				F26881A91CEF9D4000423597 /* LoginPageViewController.swift in Sources */,
 				F28F003C1D2D670800884C2E /* LoginHelper.swift in Sources */,
+				F20EF0891D3A2AD300BCB660 /* PersonalityInsights.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -713,6 +782,7 @@
 					"$(PROJECT_DIR)/Pods/GoogleUtilities/Frameworks",
 					"$(PROJECT_DIR)/Pods/TwitterCore/iOS",
 					"$(PROJECT_DIR)/Pods/TwitterKit",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = NativX_2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -753,6 +823,7 @@
 					"$(PROJECT_DIR)/Pods/GoogleUtilities/Frameworks",
 					"$(PROJECT_DIR)/Pods/TwitterCore/iOS",
 					"$(PROJECT_DIR)/Pods/TwitterKit",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = NativX_2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

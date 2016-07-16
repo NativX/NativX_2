@@ -12,9 +12,9 @@ import FBSDKLoginKit
 import FBSDKCoreKit
 import TwitterKit
 import Fabric
+import PersonalityInsightsV2
 
-
-class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate{
+class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
     
 
     @IBOutlet weak var emailLoginText: UITextField!
@@ -23,12 +23,21 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate{
     @IBOutlet weak var FBloginButton: FBSDKLoginButton!
     @IBOutlet weak var twitterLogin: UIButton!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // get public profile, email, and user friends from Facebook
         self.FBloginButton.delegate = self
         self.FBloginButton.readPermissions = perm
+        
+        let username = "764ad7bc-5d1d-4e68-8969-37a4a43e3009"
+        let password = "sA6IrVsa6dgL"
+        let personalityInsights = PersonalityInsights(username: username, password: password)
+        
+        let text = sean
+        let failure = { (error: NSError) in print(error) }
+        personalityInsights.getProfile(text: text, failure: failure) { profile in
+            print(profile)
+        }
         
     }
     
@@ -42,6 +51,7 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate{
     // Twitter Login
     @IBAction func twitterLoginTapped(sender: UIButton) {
         self.twitterLoginController()
+        
     }
     
     // Conform FBLoginButtonDelegate with following two functions
