@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Foundation
+import UIKit
 import Firebase
 import FBSDKLoginKit
 import FBSDKCoreKit
@@ -15,31 +15,43 @@ import TwitterKit
 import Fabric
 
 
-extension UIViewController {
+class FirebaseData: NSObject  {
     
-    /* // FB Data to Firebase
-    static var bio : String? = ""
+    // FB Data to Firebase
     
-    static var age : String? = ""
+    var bio : String?
     
-    static var birthday : String? = ""
+    var age : String?
     
-    static var gender : String? = ""
+    var birthday : String?
     
-    static var hometown : String? = ""
+    var gender : String?
     
-    static var interested_in : String? = ""
+    var hometown : String?
     
-    static var groups : String? = ""
+    var interested_in : NSObject?
     
-    static var music : String? = ""
+    var groups : NSObject?
     
-    // FB Data to Watson
-    
-    static var likes : String? = ""
-    
-    static var posts: String? = ""
-    
-    // Twitter Data to Watson */
+    var music : NSObject?
 
+}
+
+class PersonalityText: NSObject {
+    
+    var facebookBio : String
+    
+    var facebookPosts : String
+    
+    var tweets : String
+    
+    var aggregatedText : String
+    
+    init (facebookBio: String, facebookPosts : String, tweets : String, aggregatedText : String) {
+        self.facebookBio = facebookBio
+        self.facebookPosts = facebookPosts
+        self.tweets = tweets
+        self.aggregatedText = facebookBio + facebookPosts + tweets
+    }
+    
 }

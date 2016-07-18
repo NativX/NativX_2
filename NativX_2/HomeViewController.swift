@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import FBSDKCoreKit
+import Fabric
+import TwitterKit
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var logOutButton: UIButton!
@@ -32,8 +34,10 @@ class HomeViewController: UIViewController {
             
             
             if let photoUrl = user.photoURL {
-                let data = NSData(contentsOfURL: photoUrl)
-                self.userImage.image = UIImage(data: data!)
+                if let data = NSData(contentsOfURL: photoUrl){
+                    self.userImage.image = UIImage(data: data)
+                }
+
             }
 
         } else {
@@ -49,8 +53,18 @@ class HomeViewController: UIViewController {
     
     // logout button
     @IBAction func logOutTap(sender: UIButton) {
+        // Firebase Logout
         try! FIRAuth.auth()!.signOut()
+        
+        // Facebook Logout
         FBSDKAccessToken.setCurrentAccessToken(nil)
+        
+        // Twitter Logout
+        let store = Twitter.sharedInstance().sessionStore
+
+        if let userID = store.session()?.userID {
+            store.logOutUserID(userID)
+        }
         self.performSegueWithIdentifier("logOutToHome", sender: self)
     }
 

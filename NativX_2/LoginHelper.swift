@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import Firebase
 import FBSDKLoginKit
 import FBSDKCoreKit
@@ -81,12 +82,11 @@ extension UIViewController {
         Twitter.sharedInstance().logInWithCompletion { session, error in
             // Firebase login
             if (session != nil) {
-                
+                print("twitterlogged")
                 let credential = FIRTwitterAuthProvider.credentialWithToken(session!.authToken, secret: session!.authTokenSecret)
                 self.firebaseLogin(credential)
-                print("signed in as \(session!.userName)");
+                print("signed in as \(session!.userName)")
                 self.performSegueWithIdentifier("goToHome", sender: self)
-                
             // Handle error
             } else {
                 
@@ -97,6 +97,52 @@ extension UIViewController {
         }
     }
     
+    func userTweets (tweetsString : String) {
+        print ("Tweets not updated")
+    }
+    // Twitter Link Social and use Tweets for Watson
+    func twitterLinkSocialController () {
+        Twitter.sharedInstance().logInWithCompletion { session, error in
+            // Firebase login
+            if (session != nil) {
+                print("twitterlogged")
+                let credential = FIRTwitterAuthProvider.credentialWithToken(session!.authToken, secret: session!.authTokenSecret)
+                self.firebaseLogin(credential)
+                print("signed in as \(session!.userName)")
+                let userID = Twitter.sharedInstance().sessionStore.session()?.userID
+                let client = TWTRAPIClient(userID: userID)
+                let statusesShowEndpoint = "https://api.twitter.com/1.1/statuses/user_timeline.json"
+                let params = ["user_id" : userID!, "count" : "200"]
+                var clientError : NSError?
+                
+                let request = client.URLRequestWithMethod("GET", URL: statusesShowEndpoint, parameters: params, error: &clientError)
+                
+                client.sendTwitterRequest(request) { (response, data, connectionError) -> Void in
+                    if connectionError != nil {
+                        print("Error: \(connectionError)")
+                    }
+                    
+                    do {
+                        let json = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
+                        
+                        let tweets = json.valueForKey("text")!
+                        let tweetsString = (tweets as! [String]).joinWithSeparator(". ")
+                        print (tweetsString)
+                    } catch let jsonError as NSError {
+                        print("json error: \(jsonError.localizedDescription)")
+                    }
+                }
+                self.performSegueWithIdentifier("goToHome", sender: self)
+                // Handle error
+            } else {
+                
+                self.alertUser("There was a problem", message: "Twitter Login Authentication Failed")
+                print("error: \(error!.localizedDescription)");
+                
+            }
+        }
+    }
+
     func FBUserDataToFirbase () {
         
         let params = ["fields" : "about, age_range, email, bio, birthday, gender, hometown, interested_in.limit(100), groups.limit(100), events.limit(20), music.limit(50)"]
@@ -109,12 +155,6 @@ extension UIViewController {
             }
             // PULL FB DATA + FIREBASE PUSH
             else {
-                
-                /* TODO Move this to Watson to read
-                if let bio: AnyObject? = results!.valueForKey("bio")! {
-                    print (bio!)
-                }
-                ****/
                 
                 // Check for logged in fire user
                 FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
@@ -197,7 +237,6 @@ extension UIViewController {
                         // TODO: Spinner
                     }
                 }
-
             }
         })
     }
@@ -239,7 +278,13 @@ extension UIViewController {
         })
     }
     
-    // PULL FB POSTS FOR Watson
+    func userPosts (post: String){
+        
+        print("Error, Facebook Post Variable did not Update")
+        
+    }
+
+    
     func getFBUserPosts () {
         FBSDKGraphRequest(graphPath: "me/posts", parameters: ["fields" : "message"]).startWithCompletionHandler({ (connection, results, requestError) -> Void in
             // ERROR
@@ -249,8 +294,33 @@ extension UIViewController {
             }
             // PULL FB DATA
             else {
-                let posts = results!.valueForKey("data")!
-                print (posts)
+                let posts = results!.valueForKey("data")!.valueForKey("message") as? NSArray
+                let postArray : NSArray = posts!
+                let filteredPosts = postArray.filter({!($0 is NSNull)})
+                let postText = (filteredPosts as! [String]).joinWithSeparator(". ")
+                self.userPosts(postText)
+            }
+        })
+    }
+    
+    func userBio (bio : String) {
+        print ("ERROR BIO NOT UPDATED")
+    }
+    
+    func getFBUserBio () {
+        FBSDKGraphRequest(graphPath: "me", parameters: ["fields" : "bio"]).startWithCompletionHandler({ (connection, results, requestError) -> Void in
+            // ERROR
+            if requestError != nil {
+                print(requestError)
+                return
+            }
+            // PULL FB DATA
+            else {
+                if let bio: AnyObject? = results!.valueForKey("bio")! {
+                    let bio = bio as? String
+                    self.userBio(bio!)
+                }
+
             }
         })
     }

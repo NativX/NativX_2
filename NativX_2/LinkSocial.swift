@@ -19,13 +19,33 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var FBloginButton: FBSDKLoginButton!
     @IBOutlet weak var twitterLogin: UIButton!
     
+    // Aggregate facebook and twitter info to pass into Watson
+    var posts: String = ""
+    var bio: String = ""
+    var tweets: String = ""
     
+    override func userPosts (post: String){
+        self.posts = post
+    }
+    override func userBio (bio : String) {
+        self.bio = bio
+    }
+    
+    override func userTweets (tweets : String) {
+        self.tweets = tweets
+    }
+    
+    @IBAction func continueTapped(sender: AnyObject) {
+        print (posts)
+        print (bio)
+        print (tweets)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.FBloginButton.delegate = self
-        self.FBloginButton.readPermissions = ["public_profile", "email", "user_friends", "gender", "locale", "age_range", "time_zone"]
+        self.FBloginButton.readPermissions = perm
         
         // Update Greeting
         let userID = FIRAuth.auth()?.currentUser?.uid
@@ -46,8 +66,9 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
     
     // Twitter Login
     @IBAction func twitterLoginTapped(sender: UIButton) {
-        self.twitterLoginController()
-        // TODO: Pull Twitter Data
+        self.twitterLinkSocialController()
+        self.twitterLogin.setImage(UIImage(named: "ContentDeliveryCheckmark"), forState: UIControlState.Normal)
+        
     }
     
     // Conform FBLoginButtonDelegate with following two functions
@@ -75,6 +96,7 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
                     // Pull facebook data
                     self.FBUserDataToFirbase()
                     self.getFBUserLikes ()
+                    self.getFBUserPosts()
                     
                 } else {
                     // No user is signed in.
