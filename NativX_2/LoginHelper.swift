@@ -127,13 +127,12 @@ extension UIViewController {
                         
                         let tweets = json.valueForKey("text")!
                         let tweetsString = (tweets as! [String]).joinWithSeparator(". ")
-                        print (tweetsString)
+                        self.userTweets(tweetsString)
                     } catch let jsonError as NSError {
                         print("json error: \(jsonError.localizedDescription)")
                     }
                 }
-                self.performSegueWithIdentifier("goToHome", sender: self)
-                // Handle error
+            // Handle error
             } else {
                 
                 self.alertUser("There was a problem", message: "Twitter Login Authentication Failed")
@@ -316,11 +315,9 @@ extension UIViewController {
             }
             // PULL FB DATA
             else {
-                if let bio: AnyObject? = results!.valueForKey("bio")! {
-                    let bio = bio as? String
-                    self.userBio(bio!)
-                }
-
+                let bio: AnyObject? = results!.valueForKey("bio")!
+                let bioForWatson = String(bio!)
+                self.userBio(bioForWatson)
             }
         })
     }

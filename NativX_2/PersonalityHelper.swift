@@ -17,10 +17,6 @@ import PersonalityInsightsV2
 
 extension UIViewController {
     
-    // Bio, Posts, Tweets to be run through Watson
-    func socialTextToWatson (fbUserID : String, twitterUserID: String) -> String {
-        return ""
-    }
     
     // Personality insights
     func personalityInsights (text: String?) {

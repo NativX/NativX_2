@@ -449,13 +449,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFB-z9-K4i">
-                                <rect key="frame" x="203" y="264" width="76" height="71"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="76" id="SRu-mi-H59"/>
-                                </constraints>
-                                <state key="normal" title="Twitter" image="TWITTER"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi, User First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZj-ci-UlT">
                                 <rect key="frame" x="55" y="70" width="257" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -475,6 +468,16 @@
                                 <connections>
                                     <action selector="continueTapped:" destination="hsk-tJ-hr0" eventType="touchUpInside" id="A0j-eD-HDm"/>
                                     <segue destination="pss-Fy-m16" kind="presentation" identifier="linkToHome" id="E8u-R9-PgY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFB-z9-K4i">
+                                <rect key="frame" x="203" y="264" width="76" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="76" id="SRu-mi-H59"/>
+                                </constraints>
+                                <state key="normal" title="Twitter" image="TWITTER"/>
+                                <connections>
+                                    <action selector="twitterLoginTapped:" destination="hsk-tJ-hr0" eventType="touchUpInside" id="jTV-Nl-idq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -497,7 +500,7 @@
                     <connections>
                         <outlet property="FBloginButton" destination="wX2-gQ-pWF" id="ngF-XK-6A9"/>
                         <outlet property="greeting" destination="WZj-ci-UlT" id="hJH-d3-Cau"/>
-                        <outlet property="twitterLogin" destination="OFB-z9-K4i" id="m6P-YO-DDc"/>
+                        <outlet property="twitterLogin" destination="OFB-z9-K4i" id="oRR-eb-1Vf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rsh-nd-wyy" userLabel="First Responder" sceneMemberID="firstResponder"/>

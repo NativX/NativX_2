@@ -18,6 +18,7 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var greeting: UILabel!
     @IBOutlet weak var FBloginButton: FBSDKLoginButton!
     @IBOutlet weak var twitterLogin: UIButton!
+
     
     // Aggregate facebook and twitter info to pass into Watson
     var posts: String = ""
@@ -27,18 +28,17 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
     override func userPosts (post: String){
         self.posts = post
     }
-    override func userBio (bio : String) {
-        self.bio = bio
+    override func userBio (userBio : String) {
+        self.bio = userBio
     }
     
-    override func userTweets (tweets : String) {
-        self.tweets = tweets
+    override func userTweets (userTweets : String) {
+        self.tweets = userTweets
     }
     
     @IBAction func continueTapped(sender: AnyObject) {
-        print (posts)
-        print (bio)
-        print (tweets)
+        let socialTextForWatson = (posts + bio + tweets)
+        personalityInsights(socialTextForWatson)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +57,13 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
         }) { (error) in
             print(error.localizedDescription)
         }
+        
+        // TODO: add a listener?
+        let twitterUserID = Twitter.sharedInstance().sessionStore.session()?.userID
+        if twitterUserID != nil {
+            // User is signed in.
+            self.twitterLogin.setImage(UIImage(named: "ContentDeliveryCheckmark"), forState: UIControlState.Normal)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,12 +71,11 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    // Twitter Login
     @IBAction func twitterLoginTapped(sender: UIButton) {
         self.twitterLinkSocialController()
-        self.twitterLogin.setImage(UIImage(named: "ContentDeliveryCheckmark"), forState: UIControlState.Normal)
-        
+
     }
+
     
     // Conform FBLoginButtonDelegate with following two functions
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
@@ -97,6 +103,7 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
                     self.FBUserDataToFirbase()
                     self.getFBUserLikes ()
                     self.getFBUserPosts()
+                    self.getFBUserBio ()
                     
                 } else {
                     // No user is signed in.
