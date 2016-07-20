@@ -39,6 +39,7 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
     @IBAction func continueTapped(sender: AnyObject) {
         let socialTextForWatson = (posts + bio + tweets)
         personalityInsights(socialTextForWatson)
+        self.performSegueWithIdentifier("linkToHome", sender: self)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

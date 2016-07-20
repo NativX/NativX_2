@@ -26,6 +26,7 @@
 		F20EF08E1D3A2B4D00BCB660 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20EF08D1D3A2B4D00BCB660 /* Profile.swift */; };
 		F20EF0901D3A2B9C00BCB660 /* TraitTreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20EF08F1D3A2B9C00BCB660 /* TraitTreeNode.swift */; };
 		F20EF0961D3A82E800BCB660 /* PersonalityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20EF0951D3A82E800BCB660 /* PersonalityHelper.swift */; };
+		F26035C51D3FE258003EAE64 /* ViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26035C41D3FE258003EAE64 /* ViewHelper.swift */; };
 		F26881A91CEF9D4000423597 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881A81CEF9D4000423597 /* LoginPageViewController.swift */; };
 		F26881AB1CEF9D4B00423597 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881AA1CEF9D4B00423597 /* AppDelegate.swift */; };
 		F26881AD1CEF9D6400423597 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881AC1CEF9D6400423597 /* ViewController.swift */; };
@@ -103,6 +104,7 @@
 		F20EF08D1D3A2B4D00BCB660 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F20EF08F1D3A2B9C00BCB660 /* TraitTreeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraitTreeNode.swift; sourceTree = "<group>"; };
 		F20EF0951D3A82E800BCB660 /* PersonalityHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalityHelper.swift; sourceTree = "<group>"; };
+		F26035C41D3FE258003EAE64 /* ViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewHelper.swift; sourceTree = "<group>"; };
 		F26881A81CEF9D4000423597 /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		F26881AA1CEF9D4B00423597 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F26881AC1CEF9D6400423597 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			children = (
 				F28F003B1D2D670800884C2E /* LoginHelper.swift */,
 				F20EF0951D3A82E800BCB660 /* PersonalityHelper.swift */,
+				F26035C41D3FE258003EAE64 /* ViewHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 				F20EF0901D3A2B9C00BCB660 /* TraitTreeNode.swift in Sources */,
 				F26881B31CEF9D8F00423597 /* ProtectedViewController.swift in Sources */,
 				F20EF08E1D3A2B4D00BCB660 /* Profile.swift in Sources */,
+				F26035C51D3FE258003EAE64 /* ViewHelper.swift in Sources */,
 				F276924E1CFE863B0039CEBE /* HomeViewController.swift in Sources */,
 				F20EF08C1D3A2B1A00BCB660 /* ContentItem.swift in Sources */,
 				F28F00431D2E91DC00884C2E /* LinkSocial.swift in Sources */,

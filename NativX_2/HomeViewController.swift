@@ -17,14 +17,18 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     
-        
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        personalInfo()
+        navigationItem.title = "Home"
+
+    }
+
+    func personalInfo () {
         if let user = FIRAuth.auth()?.currentUser {
             
             // User is signed in.
-            
             if let name = user.displayName {
                 self.userName.text = "Hi \(name)."
             }
@@ -32,23 +36,16 @@ class HomeViewController: UIViewController {
                 self.userName.text = "Welcome to NativX."
             }
             
-            
             if let photoUrl = user.photoURL {
                 if let data = NSData(contentsOfURL: photoUrl){
                     self.userImage.image = UIImage(data: data)
                 }
-
             }
-
-        } else {
+        }
+        else {
             // No user is signed in.
             print("Home screen and no user")
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // logout button

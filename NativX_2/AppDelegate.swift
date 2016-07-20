@@ -33,6 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Fabric.with([Twitter.self])
         
+        UINavigationBar.appearance().barTintColor = nativxColor
+        application.statusBarStyle = .LightContent
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+
+        
         // Override point for customization after application launch.
         return true
     }

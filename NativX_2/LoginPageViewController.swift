@@ -21,26 +21,50 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var passwordLoginText: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var FBloginButton: FBSDKLoginButton!
-    @IBOutlet weak var twitterLogin: UIButton!
-
+    @IBOutlet weak var twitterLogin: TWTRLogInButton!
+    
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // background 
+        // self.view.addBackground ("background")
+        
         // get public profile, email, and user friends from Facebook
         self.FBloginButton.delegate = self
         self.FBloginButton.readPermissions = perm
+        
+        let textOutlineColor = UIColor.lightGrayColor()
+        
+        // Sign in Button
+        loginButton.layer.cornerRadius = 5
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = nativxGrey.CGColor
+        
+        // Twitter Button
+        twitterLogin.layer.borderWidth = 1
+        twitterLogin.layer.borderColor = UIColor.darkGrayColor().CGColor
+        twitterLogin.layer.cornerRadius = 5
+        twitterLogin.frame.size.width = 50
+        
+        
+        // Facebook Button
+        FBloginButton.layer.cornerRadius = 5
+        
+        // Email + Password Text
+        emailLoginText.layer.borderWidth = 1
+        emailLoginText.layer.cornerRadius = 5
+        emailLoginText.layer.borderColor = textOutlineColor.CGColor
+        passwordLoginText.layer.borderWidth = 1
+        passwordLoginText.layer.cornerRadius = 5
+        passwordLoginText.layer.borderColor = textOutlineColor.CGColor
 
-    }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
     
 
     // Twitter Login
-    @IBAction func twitterLoginTapped(sender: UIButton) {
+    @IBAction func twitterLoginTapped(sender: TWTRLogInButton) {
         twitterLoginController()
     }
     
@@ -79,13 +103,7 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
     }
     
-    // Facebook Logout
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        try! FIRAuth.auth()!.signOut()
-        print("User Logged Out")
-    }
     
-
     // Email Login
     @IBAction func LoginTapped(sender: UIButton) {
         
@@ -115,5 +133,11 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
         }
     
+    // Facebook Logout
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        try! FIRAuth.auth()!.signOut()
+        print("User Logged Out")
     }
+    
+}
 
