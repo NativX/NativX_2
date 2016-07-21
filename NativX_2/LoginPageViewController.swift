@@ -28,7 +28,7 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
         super.viewDidLoad()
         
         // background 
-        // self.view.addBackground ("background")
+        self.view.addBackground ("background1")
         
         // get public profile, email, and user friends from Facebook
         self.FBloginButton.delegate = self
@@ -51,10 +51,23 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
         // Facebook Button
         FBloginButton.layer.cornerRadius = 5
         
-        // Email + Password Text
+        // Email
+        
+        let padding: Int = 20
+        
         emailLoginText.layer.borderWidth = 1
         emailLoginText.layer.cornerRadius = 5
         emailLoginText.layer.borderColor = textOutlineColor.CGColor
+        let imageView = UIImageView()
+        imageView.frame = CGRect(x: padding, y: 0, width: 30 , height: 30)
+        view.addSubview(imageView)
+        let emailImage = UIImage(named: "email")
+        imageView.image = emailImage
+        emailLoginText.leftViewMode = UITextFieldViewMode.Always
+        emailLoginText.leftView = imageView
+
+
+        // Password
         passwordLoginText.layer.borderWidth = 1
         passwordLoginText.layer.cornerRadius = 5
         passwordLoginText.layer.borderColor = textOutlineColor.CGColor
@@ -71,8 +84,7 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
     // Conform FBLoginButtonDelegate with following two functions
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         // ERROR
-        if ((error) != nil)
-        {
+        if ((error) != nil){
             self.alertUser("There was a problem", message: "Facebook Login Process Error. Please try again")
         }
         // CANCELLED
@@ -82,13 +94,11 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
         // SUCCESS
         else {
             let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
-            
             firebaseLogin(credential)
             facebookEmailLink()
             FBUserDataToFirbase()
             getFBUserLikes ()
             getFBUserBio ()
-            
             
             FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
                 if user != nil {
@@ -99,7 +109,6 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
                     // TODO: Spinner
                 }
             }
-            
         }
     }
     
@@ -112,9 +121,7 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         // left something blank
         if (email.isEqualToString("") || password.isEqualToString("") ) {
-            
             self.alertUser("Sign In Failed", message: "Please Enter a Valid Email and Password")
-            
         }
         else {
             // Firebase email auth
@@ -123,13 +130,11 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
                 if error != nil {
                     self.alertUser("There was a problem", message: "The Email or Password you entered was incorrect. Please try again.")
                 }
-                    
                 else {
                     // print(FIRAuth.fetchProvidersForEmail(email))
                     print("user logged in")
                     }
                 })
-            
             }
         }
     

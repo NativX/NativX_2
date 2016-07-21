@@ -67,22 +67,15 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func twitterLoginTapped(sender: UIButton) {
         self.twitterLinkSocialController()
-
     }
 
     
     // Conform FBLoginButtonDelegate with following two functions
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         // ERROR
-        if ((error) != nil)
-        {
+        if ((error) != nil){
             self.alertUser("There was a problem", message: "Facebook Login Process Error. Please try again")
         }
             // CANCELLED
@@ -116,7 +109,6 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
     
     // Facebook Logout
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        
         try! FIRAuth.auth()!.signOut()
         print("User Logged Out")
         

@@ -27,6 +27,7 @@
 		F20EF0901D3A2B9C00BCB660 /* TraitTreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20EF08F1D3A2B9C00BCB660 /* TraitTreeNode.swift */; };
 		F20EF0961D3A82E800BCB660 /* PersonalityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20EF0951D3A82E800BCB660 /* PersonalityHelper.swift */; };
 		F26035C51D3FE258003EAE64 /* ViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26035C41D3FE258003EAE64 /* ViewHelper.swift */; };
+		F26035CB1D405153003EAE64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F26035CA1D405153003EAE64 /* LaunchScreen.storyboard */; };
 		F26881A91CEF9D4000423597 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881A81CEF9D4000423597 /* LoginPageViewController.swift */; };
 		F26881AB1CEF9D4B00423597 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881AA1CEF9D4B00423597 /* AppDelegate.swift */; };
 		F26881AD1CEF9D6400423597 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881AC1CEF9D6400423597 /* ViewController.swift */; };
@@ -44,7 +45,6 @@
 		F2E595801CF4ED570092D47B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F2E5957F1CF4ED570092D47B /* Podfile */; };
 		F2E945801CEBEC280021B899 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2E9457E1CEBEC280021B899 /* Main.storyboard */; };
 		F2E945821CEBEC280021B899 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2E945811CEBEC280021B899 /* Assets.xcassets */; };
-		F2E945851CEBEC280021B899 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2E945831CEBEC280021B899 /* LaunchScreen.storyboard */; };
 		F2E945901CEBEC290021B899 /* NativX_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E9458F1CEBEC290021B899 /* NativX_2Tests.swift */; };
 		F2E9459B1CEBEC290021B899 /* NativX_2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E9459A1CEBEC290021B899 /* NativX_2UITests.swift */; };
 /* End PBXBuildFile section */
@@ -105,6 +105,7 @@
 		F20EF08F1D3A2B9C00BCB660 /* TraitTreeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraitTreeNode.swift; sourceTree = "<group>"; };
 		F20EF0951D3A82E800BCB660 /* PersonalityHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalityHelper.swift; sourceTree = "<group>"; };
 		F26035C41D3FE258003EAE64 /* ViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewHelper.swift; sourceTree = "<group>"; };
+		F26035CA1D405153003EAE64 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F26881A81CEF9D4000423597 /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		F26881AA1CEF9D4B00423597 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F26881AC1CEF9D6400423597 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +125,6 @@
 		F2E945771CEBEC280021B899 /* NativX_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativX_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2E9457F1CEBEC280021B899 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F2E945811CEBEC280021B899 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F2E945841CEBEC280021B899 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F2E945861CEBEC280021B899 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2E9458B1CEBEC290021B899 /* NativX_2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NativX_2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2E9458F1CEBEC290021B899 /* NativX_2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativX_2Tests.swift; sourceTree = "<group>"; };
@@ -241,7 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				F2E9457E1CEBEC280021B899 /* Main.storyboard */,
-				F2E945831CEBEC280021B899 /* LaunchScreen.storyboard */,
+				F26035CA1D405153003EAE64 /* LaunchScreen.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -459,8 +459,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F20EF0761D3A175600BCB660 /* Cartfile in Resources */,
+				F26035CB1D405153003EAE64 /* LaunchScreen.storyboard in Resources */,
 				F2E595801CF4ED570092D47B /* Podfile in Resources */,
-				F2E945851CEBEC280021B899 /* LaunchScreen.storyboard in Resources */,
 				F2AFF8961CF0F27900391A18 /* GoogleService-Info.plist in Resources */,
 				F27AD6EC1D32BFB9006F6C44 /* Images.xcassets in Resources */,
 				F2E945821CEBEC280021B899 /* Assets.xcassets in Resources */,
@@ -683,14 +683,6 @@
 				F2E9457F1CEBEC280021B899 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F2E945831CEBEC280021B899 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F2E945841CEBEC280021B899 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -8,44 +8,12 @@
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
-                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NativXTravelIcon" translatesAutoresizingMaskIntoConstraints="NO" id="NEM-Cu-ReV">
-                                <rect key="frame" x="167" y="147" width="266" height="212"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="266" id="HqN-Uf-Bo3"/>
-                                    <constraint firstAttribute="height" constant="212" id="ojp-LI-16s"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plan Fast. Experience More." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52T-zq-gW2">
-                                <rect key="frame" x="163" y="386" width="275" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="NEM-Cu-ReV" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="XBN-TP-ddB"/>
-                            <constraint firstItem="52T-zq-gW2" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="cRh-eL-EMQ"/>
-                            <constraint firstItem="NEM-Cu-ReV" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="127" id="g5W-fQ-gZ3"/>
-                            <constraint firstItem="52T-zq-gW2" firstAttribute="top" secondItem="NEM-Cu-ReV" secondAttribute="bottom" constant="27" id="pVr-KZ-RMP"/>
-                        </constraints>
-                    </view>
-                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
             </objects>
-            <point key="canvasLocation" x="626" y="373"/>
+            <point key="canvasLocation" x="75.5" y="444.5"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="NativXTravelIcon" width="194" height="149"/>
-    </resources>
 </document>

@@ -8,13 +8,8 @@
 import UIKit
 import Firebase
 
-// this view controller needs to have email, facebook, and twitter login functionality
-// we need to save it to a database of our choice
-
 class RegisterPageViewController: UIViewController {
     
-    
-
     @IBOutlet weak var textFirstName: UITextField!
     @IBOutlet weak var textLastName: UITextField!
     @IBOutlet weak var textPassword: UITextField!
@@ -42,16 +37,13 @@ class RegisterPageViewController: UIViewController {
         let first:NSString = textFirstName.text!
         let last: NSString = textLastName.text!
         
-        // Check for empty fields
+        // empty fields
         if ( email.isEqualToString("") || password.isEqualToString("") || first.isEqualToString("") || last.isEqualToString("")) {
-                
             alertUser ("Registration Failed", message: "You must have left something blank")
-                
         }
                 
-        // Case that passwords do not match
+        // passwords do not match
         else if ( !password.isEqual(confirm_password) ) {
-                
             alertUser("Registration Failed", message: "Passwords Do Not Match")
         }
         else {
@@ -59,10 +51,7 @@ class RegisterPageViewController: UIViewController {
                     user, error in
                     
                 if error != nil {
-                        
                     self.alertUser("There was a problem", message: "The email you entered is either invalid or already in use. Please try again")
-                        
-                        
                 }
                 else {
                     FIRAuth.auth()?.signInWithEmail(self.textEmail.text!, password: self.textPassword.text!, completion: {
@@ -73,11 +62,9 @@ class RegisterPageViewController: UIViewController {
                             self.alertUser("There was a problem", message: "The email or password you entered was incorrect. Please try again")
                         }
                         else {
-                            
                             guard let uid = user?.uid else {
                                 return
                             }
-                            
                             // Add Basic Info to Database
                             let usersRef = ref.child("users").child(uid)
                             let basic = ["first": first,
@@ -91,16 +78,13 @@ class RegisterPageViewController: UIViewController {
                                     return
                                 }
                             })
-                
                             self.performSegueWithIdentifier("toLinkSocial", sender:self)
-                            
                         }
                     })
                 }
             })
         }
     }
-
 }
 
 

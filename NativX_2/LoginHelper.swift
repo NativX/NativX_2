@@ -42,12 +42,10 @@ extension UIViewController {
     
     // Error Handling Alert Function
     func alertUser (title: String, message: String) {
-        
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
         alertController.addAction(defaultAction)
         self.presentViewController(alertController, animated: true, completion: nil)
-        
     }
     
     // Firebase Link FB Login with Email Function
@@ -89,10 +87,8 @@ extension UIViewController {
                 self.performSegueWithIdentifier("goToHome", sender: self)
             // Handle error
             } else {
-                
                 self.alertUser("There was a problem", message: "Twitter Login Authentication Failed")
                 print("error: \(error!.localizedDescription)");
-                
             }
         }
     }
@@ -100,6 +96,7 @@ extension UIViewController {
     func userTweets (tweetsString : String) {
         print ("Tweets not updated")
     }
+    
     // Twitter Link Social and use Tweets for Watson
     func twitterLinkSocialController () {
         Twitter.sharedInstance().logInWithCompletion { session, error in
@@ -121,7 +118,6 @@ extension UIViewController {
                     if connectionError != nil {
                         print("Error: \(connectionError)")
                     }
-                    
                     do {
                         let json = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
                         
@@ -141,11 +137,9 @@ extension UIViewController {
             }
         }
     }
-
+    
     func FBUserDataToFirbase () {
-        
         let params = ["fields" : "about, age_range, email, bio, birthday, gender, hometown, interested_in.limit(100), groups.limit(100), events.limit(20), music.limit(50)"]
-        
         FBSDKGraphRequest(graphPath: "me", parameters: params).startWithCompletionHandler({ (connection, results, requestError) -> Void in
             //ERROR
             if requestError != nil {
@@ -154,7 +148,6 @@ extension UIViewController {
             }
             // PULL FB DATA + FIREBASE PUSH
             else {
-                
                 // Check for logged in fire user
                 FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
                     if user != nil {

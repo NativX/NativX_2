@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "FinalNativXSmall.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "FinalNativXMedium.png",
+      "filename" : "email.png",
       "scale" : "2x"
     },
     {

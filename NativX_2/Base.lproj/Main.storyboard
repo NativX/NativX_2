@@ -17,10 +17,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0021065117801046807" green="0.0020056409608104854" blue="0.00060468007828656442" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <segue destination="R9B-f7-gby" kind="presentation" identifier="goto_login" id="erN-az-ha1"/>
                         <segue destination="d2V-qT-rPB" kind="presentation" identifier="goto_home" id="md0-wU-7qn"/>
@@ -43,7 +44,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncg-r5-3BQ">
-                                <rect key="frame" x="256" y="108" width="72" height="15"/>
+                                <rect key="frame" x="257" y="108" width="72" height="82"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="VQH-SI-HiJ"/>
                                 </constraints>
@@ -83,7 +84,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OwY-ER-bTV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1361.5" y="770.5"/>
+            <point key="canvasLocation" x="1671.5" y="757.5"/>
         </scene>
         <!--LoginPageViewController-->
         <scene sceneID="EoP-Ow-mSE">
@@ -97,7 +98,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <userGuides>
-                            <userLayoutGuide location="175" affinity="minY"/>
+                            <userLayoutGuide location="99" affinity="minY"/>
                         </userGuides>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXJ-9O-mW8">
@@ -166,6 +167,10 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lYh-ZA-67S">
+                                <rect key="frame" x="20" y="484" width="140" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b1S-f1-De0">
                                 <rect key="frame" x="215" y="484" width="140" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -185,6 +190,9 @@
                                     <action selector="twitterLoginTapped:" destination="R9B-f7-gby" eventType="touchUpInside" id="OrN-UY-pHd"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NativXMain" translatesAutoresizingMaskIntoConstraints="NO" id="zrB-P4-5qW">
+                                <rect key="frame" x="51" y="28" width="272" height="244"/>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cok-F9-xiZ">
                                 <rect key="frame" x="20" y="305" width="335" height="40"/>
                                 <constraints>
@@ -193,13 +201,6 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Final NativX Logo" translatesAutoresizingMaskIntoConstraints="NO" id="zrB-P4-5qW">
-                                <rect key="frame" x="52" y="42" width="272" height="244"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lYh-ZA-67S">
-                                <rect key="frame" x="20" y="484" width="140" height="1"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -208,11 +209,9 @@
                             <constraint firstItem="tKQ-m7-6rS" firstAttribute="centerX" secondItem="Txp-un-0UB" secondAttribute="centerX" id="26g-Ip-l0B"/>
                             <constraint firstItem="EmC-kz-lGZ" firstAttribute="centerY" secondItem="b1S-f1-De0" secondAttribute="centerY" constant="1" id="2La-cG-eQr"/>
                             <constraint firstItem="xXJ-9O-mW8" firstAttribute="centerX" secondItem="cok-F9-xiZ" secondAttribute="centerX" id="5GU-Xn-3lZ"/>
+                            <constraint firstItem="zrB-P4-5qW" firstAttribute="centerX" secondItem="cok-F9-xiZ" secondAttribute="centerX" id="5Q2-Py-3EC"/>
                             <constraint firstItem="lYh-ZA-67S" firstAttribute="top" secondItem="b1S-f1-De0" secondAttribute="top" id="732-cz-W0m"/>
                             <constraint firstItem="lYh-ZA-67S" firstAttribute="leading" secondItem="Txp-un-0UB" secondAttribute="leadingMargin" id="AJ3-Ge-Cdb"/>
-                            <constraint firstItem="zrB-P4-5qW" firstAttribute="top" secondItem="udO-jX-GPG" secondAttribute="bottom" constant="22" id="Aya-7h-Prs"/>
-                            <constraint firstItem="cok-F9-xiZ" firstAttribute="top" secondItem="zrB-P4-5qW" secondAttribute="bottom" constant="19" id="B14-OS-zSH"/>
-                            <constraint firstItem="zrB-P4-5qW" firstAttribute="leading" secondItem="Txp-un-0UB" secondAttribute="leadingMargin" constant="32" id="Cum-zn-VIr"/>
                             <constraint firstItem="yew-jg-a5m" firstAttribute="centerX" secondItem="tKQ-m7-6rS" secondAttribute="centerX" id="Fxt-le-8uV"/>
                             <constraint firstItem="ZGx-tq-clL" firstAttribute="top" secondItem="ags-C7-gDp" secondAttribute="top" id="H2d-dF-WXF"/>
                             <constraint firstItem="b1S-f1-De0" firstAttribute="trailing" secondItem="ags-C7-gDp" secondAttribute="trailing" id="HPU-y1-m2Y"/>
@@ -220,6 +219,7 @@
                             <constraint firstItem="lYh-ZA-67S" firstAttribute="leading" secondItem="Txp-un-0UB" secondAttribute="leadingMargin" id="JHx-ne-feA"/>
                             <constraint firstItem="cok-F9-xiZ" firstAttribute="leading" secondItem="HIx-WI-vkc" secondAttribute="leading" id="LBX-Ui-A4e"/>
                             <constraint firstItem="HIx-WI-vkc" firstAttribute="leading" secondItem="yew-jg-a5m" secondAttribute="leading" id="Pmu-cj-qcm"/>
+                            <constraint firstItem="zrB-P4-5qW" firstAttribute="leading" secondItem="Txp-un-0UB" secondAttribute="leadingMargin" constant="35" id="QNr-Fi-f0v"/>
                             <constraint firstItem="EmC-kz-lGZ" firstAttribute="top" secondItem="yew-jg-a5m" secondAttribute="bottom" constant="26" id="QOe-ZL-Lzd"/>
                             <constraint firstItem="lYh-ZA-67S" firstAttribute="leading" secondItem="Txp-un-0UB" secondAttribute="leadingMargin" id="R3t-om-oyq"/>
                             <constraint firstItem="xXJ-9O-mW8" firstAttribute="top" secondItem="Txp-un-0UB" secondAttribute="top" constant="214" id="TAC-vc-jae"/>
@@ -231,7 +231,8 @@
                             <constraint firstItem="EmC-kz-lGZ" firstAttribute="centerX" secondItem="Txp-un-0UB" secondAttribute="centerX" id="icY-xO-5c2"/>
                             <constraint firstItem="ags-C7-gDp" firstAttribute="leading" secondItem="ZGx-tq-clL" secondAttribute="trailing" constant="15" id="jJy-C8-vew"/>
                             <constraint firstItem="HIx-WI-vkc" firstAttribute="top" secondItem="cok-F9-xiZ" secondAttribute="bottom" constant="8" id="jh8-fN-KC1"/>
-                            <constraint firstItem="zrB-P4-5qW" firstAttribute="centerX" secondItem="xXJ-9O-mW8" secondAttribute="centerX" id="lFD-Wm-bOs"/>
+                            <constraint firstItem="zrB-P4-5qW" firstAttribute="top" secondItem="udO-jX-GPG" secondAttribute="bottom" constant="8" symbolic="YES" id="mew-7C-cGQ"/>
+                            <constraint firstItem="cok-F9-xiZ" firstAttribute="top" secondItem="zrB-P4-5qW" secondAttribute="bottom" constant="33" id="na5-UZ-tYc"/>
                             <constraint firstItem="2Ka-4X-p5E" firstAttribute="top" secondItem="tKQ-m7-6rS" secondAttribute="bottom" constant="43" id="nge-Je-WDE"/>
                             <constraint firstItem="yew-jg-a5m" firstAttribute="trailing" secondItem="b1S-f1-De0" secondAttribute="trailing" id="vlG-Tg-q5x"/>
                             <constraint firstItem="yew-jg-a5m" firstAttribute="leading" secondItem="ZGx-tq-clL" secondAttribute="leading" id="wzF-4x-2t6"/>
@@ -511,6 +512,7 @@
             <objects>
                 <navigationController title="HomeNavController" automaticallyAdjustsScrollViewInsets="NO" id="d2V-qT-rPB" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VE0-ER-S3h">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -522,12 +524,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1sP-vE-KLS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="864" y="771"/>
+            <point key="canvasLocation" x="915" y="758"/>
         </scene>
     </scenes>
     <resources>
         <image name="FACEBOOK" width="64" height="64"/>
-        <image name="Final NativX Logo" width="300" height="267"/>
+        <image name="NativXMain" width="225" height="225"/>
         <image name="TWITTER" width="100" height="100"/>
         <image name="UserIcon" width="150" height="150"/>
     </resources>
