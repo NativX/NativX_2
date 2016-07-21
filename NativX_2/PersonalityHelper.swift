@@ -26,6 +26,7 @@ extension UIViewController {
         let text = text
         let failure = { (error: NSError) in print(error) }
         personalityInsights.getProfile(text: text!, failure: failure) { profile in
+            // TODO: Firebase Push
             print(profile)
         }
 

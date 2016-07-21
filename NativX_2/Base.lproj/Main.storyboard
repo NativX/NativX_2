@@ -107,20 +107,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yew-jg-a5m">
-                                <rect key="frame" x="20" y="399" width="335" height="50"/>
-                                <color key="backgroundColor" red="0.59215686274509804" green="0.89411764705882346" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="yI8-ol-Hp0"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                <state key="normal" title="Sign in">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="LoginTapped:" destination="R9B-f7-gby" eventType="touchUpInside" id="NdX-bx-IwR"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HIx-WI-vkc">
                                 <rect key="frame" x="20" y="353" width="335" height="40"/>
                                 <constraints>
@@ -190,9 +176,6 @@
                                     <action selector="twitterLoginTapped:" destination="R9B-f7-gby" eventType="touchUpInside" id="OrN-UY-pHd"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NativXMain" translatesAutoresizingMaskIntoConstraints="NO" id="zrB-P4-5qW">
-                                <rect key="frame" x="51" y="28" width="272" height="244"/>
-                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cok-F9-xiZ">
                                 <rect key="frame" x="20" y="305" width="335" height="40"/>
                                 <constraints>
@@ -201,6 +184,23 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NativXMain" translatesAutoresizingMaskIntoConstraints="NO" id="zrB-P4-5qW">
+                                <rect key="frame" x="51" y="28" width="272" height="244"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yew-jg-a5m">
+                                <rect key="frame" x="20" y="399" width="335" height="50"/>
+                                <color key="backgroundColor" red="0.59215686274509804" green="0.89411764705882346" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="yI8-ol-Hp0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="LoginTapped:" destination="R9B-f7-gby" eventType="touchUpInside" id="NdX-bx-IwR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -245,6 +245,7 @@
                         <outlet property="emailLoginText" destination="cok-F9-xiZ" id="w65-uP-kFd"/>
                         <outlet property="loginButton" destination="yew-jg-a5m" id="RAn-k7-wA3"/>
                         <outlet property="passwordLoginText" destination="HIx-WI-vkc" id="f2e-7R-UOt"/>
+                        <outlet property="registerButton" destination="tKQ-m7-6rS" id="Vat-0n-xxD"/>
                         <outlet property="twitterLogin" destination="ags-C7-gDp" id="HFM-xg-Bx6"/>
                         <segue destination="d2V-qT-rPB" kind="presentation" identifier="goToHome" id="gCq-MP-69X"/>
                     </connections>

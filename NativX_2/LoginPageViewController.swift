@@ -23,56 +23,33 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var FBloginButton: FBSDKLoginButton!
     @IBOutlet weak var twitterLogin: TWTRLogInButton!
     
+    @IBOutlet weak var registerButton: UIButton!
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // background 
         self.view.addBackground ("background1")
-        
         // get public profile, email, and user friends from Facebook
         self.FBloginButton.delegate = self
         self.FBloginButton.readPermissions = perm
-        
-        let textOutlineColor = UIColor.lightGrayColor()
-        
         // Sign in Button
         loginButton.layer.cornerRadius = 5
         loginButton.layer.borderWidth = 1
         loginButton.layer.borderColor = nativxGrey.CGColor
-        
         // Twitter Button
         twitterLogin.layer.borderWidth = 1
         twitterLogin.layer.borderColor = UIColor.darkGrayColor().CGColor
         twitterLogin.layer.cornerRadius = 5
         twitterLogin.frame.size.width = 50
-        
-        
         // Facebook Button
         FBloginButton.layer.cornerRadius = 5
-        
         // Email
-        
-        let padding: Int = 20
-        
-        emailLoginText.layer.borderWidth = 1
-        emailLoginText.layer.cornerRadius = 5
-        emailLoginText.layer.borderColor = textOutlineColor.CGColor
-        let imageView = UIImageView()
-        imageView.frame = CGRect(x: padding, y: 0, width: 30 , height: 30)
-        view.addSubview(imageView)
-        let emailImage = UIImage(named: "email")
-        imageView.image = emailImage
-        emailLoginText.leftViewMode = UITextFieldViewMode.Always
-        emailLoginText.leftView = imageView
-
-
+        textViewSetup (emailLoginText, pic: "email")
         // Password
-        passwordLoginText.layer.borderWidth = 1
-        passwordLoginText.layer.cornerRadius = 5
-        passwordLoginText.layer.borderColor = textOutlineColor.CGColor
-
-
+        textViewSetup (passwordLoginText, pic: "lock")
+        // Register
+        registerButton.setTitleColor(nativxColor, forState: .Normal)
     }
     
 
@@ -143,6 +120,5 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
         try! FIRAuth.auth()!.signOut()
         print("User Logged Out")
     }
-    
 }
 

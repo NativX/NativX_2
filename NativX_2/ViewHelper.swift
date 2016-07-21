@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import FBSDKLoginKit
 
 extension UIView {
     func addBackground(background : String) {
@@ -25,3 +26,29 @@ extension UIView {
         self.sendSubviewToBack(imageViewBackground)
     }
 }
+
+extension UIImageView {
+    func tintImageColor(color : UIColor) {
+        self.image = self.image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        self.tintColor = color
+    }
+}
+
+func textViewSetup (textField: UITextField, pic: String) {
+    let textOutlineColor = UIColor.lightGrayColor()
+    textField.layer.borderWidth = 1
+    textField.layer.cornerRadius = 5
+    textField.layer.borderColor = textOutlineColor.CGColor
+    let imageView = UIImageView()
+    let image = UIImage(named: pic)
+    imageView.frame = CGRect(x: 0, y: 0, width: 40 , height: 50)
+    imageView.contentMode = UIViewContentMode.Center
+    let view = UIViewController()
+    view.view.addSubview(imageView)
+    imageView.image = image
+    textField.leftViewMode = UITextFieldViewMode.Always
+    textField.leftView = imageView
+}
+
+
+    
