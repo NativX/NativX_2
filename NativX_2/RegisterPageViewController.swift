@@ -16,13 +16,20 @@ class RegisterPageViewController: UIViewController {
     @IBOutlet weak var textEmail: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
-    
+    @IBOutlet weak var registerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        self.view.addBackground ("background1")
         
+        // background view
+        registerView.layer.cornerRadius = 8.0
+        
+        // register
+        signUpButton.layer.cornerRadius = 5
+        signUpButton.layer.borderWidth = 1
+        signUpButton.layer.borderColor = nativxGrey.CGColor
     }
     
     @IBAction func signUp (sender: AnyObject) {

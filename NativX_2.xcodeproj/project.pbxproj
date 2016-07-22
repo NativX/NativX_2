@@ -34,6 +34,17 @@
 		F26881AF1CEF9D7200423597 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881AE1CEF9D7200423597 /* Constants.swift */; };
 		F26881B11CEF9D8300423597 /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881B01CEF9D8300423597 /* RegisterPageViewController.swift */; };
 		F26881B31CEF9D8F00423597 /* ProtectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881B21CEF9D8F00423597 /* ProtectedViewController.swift */; };
+		F26FEA411D42971A003CB704 /* AkiraTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26FEA351D42971A003CB704 /* AkiraTextField.swift */; };
+		F26FEA421D42971A003CB704 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26FEA361D42971A003CB704 /* HoshiTextField.swift */; };
+		F26FEA431D42971A003CB704 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F26FEA371D42971A003CB704 /* Info.plist */; };
+		F26FEA441D42971A003CB704 /* IsaoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26FEA381D42971A003CB704 /* IsaoTextField.swift */; };
+		F26FEA451D42971A003CB704 /* JiroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26FEA391D42971A003CB704 /* JiroTextField.swift */; };
+		F26FEA461D42971A003CB704 /* KaedeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26FEA3A1D42971A003CB704 /* KaedeTextField.swift */; };
+		F26FEA471D42971A003CB704 /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26FEA3B1D42971A003CB704 /* MadokaTextField.swift */; };
+		F26FEA481D42971A003CB704 /* MinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26FEA3C1D42971A003CB704 /* MinoruTextField.swift */; };
+		F26FEA491D42971A003CB704 /* TextFieldsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26FEA3E1D42971A003CB704 /* TextFieldsEffects.swift */; };
+		F26FEA4A1D42971A003CB704 /* YokoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26FEA3F1D42971A003CB704 /* YokoTextField.swift */; };
+		F26FEA4B1D42971A003CB704 /* YoshikoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26FEA401D42971A003CB704 /* YoshikoTextField.swift */; };
 		F276924E1CFE863B0039CEBE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F276924D1CFE863B0039CEBE /* HomeViewController.swift */; };
 		F27AD6EA1D303527006F6C44 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27AD6E91D303527006F6C44 /* DataHelper.swift */; };
 		F27AD6EC1D32BFB9006F6C44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F27AD6EB1D32BFB9006F6C44 /* Images.xcassets */; };
@@ -112,6 +123,18 @@
 		F26881AE1CEF9D7200423597 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F26881B01CEF9D8300423597 /* RegisterPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPageViewController.swift; sourceTree = "<group>"; };
 		F26881B21CEF9D8F00423597 /* ProtectedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectedViewController.swift; sourceTree = "<group>"; };
+		F26FEA351D42971A003CB704 /* AkiraTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AkiraTextField.swift; sourceTree = "<group>"; };
+		F26FEA361D42971A003CB704 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
+		F26FEA371D42971A003CB704 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F26FEA381D42971A003CB704 /* IsaoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsaoTextField.swift; sourceTree = "<group>"; };
+		F26FEA391D42971A003CB704 /* JiroTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JiroTextField.swift; sourceTree = "<group>"; };
+		F26FEA3A1D42971A003CB704 /* KaedeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KaedeTextField.swift; sourceTree = "<group>"; };
+		F26FEA3B1D42971A003CB704 /* MadokaTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadokaTextField.swift; sourceTree = "<group>"; };
+		F26FEA3C1D42971A003CB704 /* MinoruTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinoruTextField.swift; sourceTree = "<group>"; };
+		F26FEA3D1D42971A003CB704 /* TextFieldEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldEffects.h; sourceTree = "<group>"; };
+		F26FEA3E1D42971A003CB704 /* TextFieldsEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldsEffects.swift; sourceTree = "<group>"; };
+		F26FEA3F1D42971A003CB704 /* YokoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YokoTextField.swift; sourceTree = "<group>"; };
+		F26FEA401D42971A003CB704 /* YoshikoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoshikoTextField.swift; sourceTree = "<group>"; };
 		F276924D1CFE863B0039CEBE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F27AD6E91D303527006F6C44 /* DataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
 		F27AD6EB1D32BFB9006F6C44 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -256,6 +279,25 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		F26FEA4D1D429732003CB704 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				F26FEA351D42971A003CB704 /* AkiraTextField.swift */,
+				F26FEA361D42971A003CB704 /* HoshiTextField.swift */,
+				F26FEA371D42971A003CB704 /* Info.plist */,
+				F26FEA381D42971A003CB704 /* IsaoTextField.swift */,
+				F26FEA391D42971A003CB704 /* JiroTextField.swift */,
+				F26FEA3A1D42971A003CB704 /* KaedeTextField.swift */,
+				F26FEA3B1D42971A003CB704 /* MadokaTextField.swift */,
+				F26FEA3C1D42971A003CB704 /* MinoruTextField.swift */,
+				F26FEA3D1D42971A003CB704 /* TextFieldEffects.h */,
+				F26FEA3E1D42971A003CB704 /* TextFieldsEffects.swift */,
+				F26FEA3F1D42971A003CB704 /* YokoTextField.swift */,
+				F26FEA401D42971A003CB704 /* YoshikoTextField.swift */,
+			);
+			name = TextFields;
+			sourceTree = "<group>";
+		};
 		F28F00381D2D457200884C2E /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +319,7 @@
 		F2E9456E1CEBEC280021B899 = {
 			isa = PBXGroup;
 			children = (
+				F26FEA4D1D429732003CB704 /* TextFields */,
 				F20EF0751D3A175600BCB660 /* Cartfile */,
 				F2E5957F1CF4ED570092D47B /* Podfile */,
 				F2E945791CEBEC280021B899 /* NativX_2 */,
@@ -458,6 +501,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F26FEA431D42971A003CB704 /* Info.plist in Resources */,
 				F20EF0761D3A175600BCB660 /* Cartfile in Resources */,
 				F26035CB1D405153003EAE64 /* LaunchScreen.storyboard in Resources */,
 				F2E595801CF4ED570092D47B /* Podfile in Resources */,
@@ -627,21 +671,31 @@
 			files = (
 				F26881B11CEF9D8300423597 /* RegisterPageViewController.swift in Sources */,
 				F288390D1CEE720D007E90FE /* HomeNavViewController.swift in Sources */,
+				F26FEA461D42971A003CB704 /* KaedeTextField.swift in Sources */,
 				F20EF0901D3A2B9C00BCB660 /* TraitTreeNode.swift in Sources */,
 				F26881B31CEF9D8F00423597 /* ProtectedViewController.swift in Sources */,
 				F20EF08E1D3A2B4D00BCB660 /* Profile.swift in Sources */,
 				F26035C51D3FE258003EAE64 /* ViewHelper.swift in Sources */,
+				F26FEA471D42971A003CB704 /* MadokaTextField.swift in Sources */,
+				F26FEA411D42971A003CB704 /* AkiraTextField.swift in Sources */,
 				F276924E1CFE863B0039CEBE /* HomeViewController.swift in Sources */,
 				F20EF08C1D3A2B1A00BCB660 /* ContentItem.swift in Sources */,
+				F26FEA481D42971A003CB704 /* MinoruTextField.swift in Sources */,
 				F28F00431D2E91DC00884C2E /* LinkSocial.swift in Sources */,
 				F26881AF1CEF9D7200423597 /* Constants.swift in Sources */,
 				F26881AB1CEF9D4B00423597 /* AppDelegate.swift in Sources */,
+				F26FEA421D42971A003CB704 /* HoshiTextField.swift in Sources */,
 				F26881AD1CEF9D6400423597 /* ViewController.swift in Sources */,
 				F27AD6EA1D303527006F6C44 /* DataHelper.swift in Sources */,
 				F20EF0961D3A82E800BCB660 /* PersonalityHelper.swift in Sources */,
+				F26FEA4B1D42971A003CB704 /* YoshikoTextField.swift in Sources */,
+				F26FEA491D42971A003CB704 /* TextFieldsEffects.swift in Sources */,
 				F26881A91CEF9D4000423597 /* LoginPageViewController.swift in Sources */,
+				F26FEA4A1D42971A003CB704 /* YokoTextField.swift in Sources */,
 				F28F003C1D2D670800884C2E /* LoginHelper.swift in Sources */,
 				F20EF0891D3A2AD300BCB660 /* PersonalityInsights.swift in Sources */,
+				F26FEA441D42971A003CB704 /* IsaoTextField.swift in Sources */,
+				F26FEA451D42971A003CB704 /* JiroTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
