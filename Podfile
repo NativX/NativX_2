@@ -16,6 +16,12 @@ pod 'FBSDKLoginKit'
 pod 'GoogleSignIn'
 pod 'Fabric'
 pod 'TwitterKit'
+pod 'NVActivityIndicatorView'
+pod 'Koloda', '~> 3.1.1'
+pod 'UITextField+Shake', '~> 1.1'
+pod 'AZExpandableIconListView'
+pod 'WYMaterialButton'
+pod 'TextFieldEffects'
   # Pods for NativX_2
 
   target 'NativX_2Tests' do

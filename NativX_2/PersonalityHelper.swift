@@ -29,6 +29,5 @@ extension UIViewController {
             // TODO: Firebase Push
             print(profile)
         }
-
     }
 }

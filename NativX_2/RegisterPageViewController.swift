@@ -14,37 +14,28 @@ class RegisterPageViewController: UIViewController {
     @IBOutlet weak var textLastName: UITextField!
     @IBOutlet weak var textPassword: UITextField!
     @IBOutlet weak var textEmail: UITextField!
-    @IBOutlet weak var textConfirmPassword: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-   
     @IBAction func signUp (sender: AnyObject) {
             
         // Variables for reference + storage
         let email:NSString = textEmail.text!
         let password:NSString = textPassword.text!
-        let confirm_password:NSString = textConfirmPassword.text!
         let first:NSString = textFirstName.text!
         let last: NSString = textLastName.text!
         
         // empty fields
         if ( email.isEqualToString("") || password.isEqualToString("") || first.isEqualToString("") || last.isEqualToString("")) {
             alertUser ("Registration Failed", message: "You must have left something blank")
-        }
-                
-        // passwords do not match
-        else if ( !password.isEqual(confirm_password) ) {
-            alertUser("Registration Failed", message: "Passwords Do Not Match")
         }
         else {
             FIRAuth.auth()?.createUserWithEmail(textEmail.text!, password: textPassword.text!, completion: {
