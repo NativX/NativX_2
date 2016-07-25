@@ -77,17 +77,10 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
         }) { (error) in
             print(error.localizedDescription)
         }
-        
-        // TODO: add a listener?
-        let twitterUserID = Twitter.sharedInstance().sessionStore.session()?.userID
-        if twitterUserID != nil {
-            // User is signed in.
-            self.twitterLogin.setImage(UIImage(named: "ContentDeliveryCheckmark"), forState: UIControlState.Normal)
-        }
     }
 
     @IBAction func twitterLoginTapped(sender: UIButton) {
-        self.twitterLinkSocialController()
+        self.twitterLinkSocialController(twitterLogin)
     }
 
     
@@ -113,6 +106,7 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
                     self.FBloginButton.setImage(UIImage(named: "ContentDeliveryCheckmark"), forState: UIControlState.Normal)
                     
                     // Pull facebook data
+                    self.facebookPicture()
                     self.FBUserDataToFirbase()
                     self.getFBUserLikes ()
                     self.getFBUserPosts()

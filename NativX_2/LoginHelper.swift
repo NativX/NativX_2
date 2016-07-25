@@ -98,7 +98,7 @@ extension UIViewController {
     }
     
     // Twitter Link Social and use Tweets for Watson
-    func twitterLinkSocialController () {
+    func twitterLinkSocialController (twitterLogin: UIButton!) {
         Twitter.sharedInstance().logInWithCompletion { session, error in
             // Firebase login
             if (session != nil) {
@@ -109,7 +109,7 @@ extension UIViewController {
                 let userID = Twitter.sharedInstance().sessionStore.session()?.userID
                 let client = TWTRAPIClient(userID: userID)
                 let statusesShowEndpoint = "https://api.twitter.com/1.1/statuses/user_timeline.json"
-                let params = ["user_id" : userID!, "count" : "200"]
+                let params = ["user_id" : userID!, "count" : "400"]
                 var clientError : NSError?
                 
                 let request = client.URLRequestWithMethod("GET", URL: statusesShowEndpoint, parameters: params, error: &clientError)
@@ -124,6 +124,7 @@ extension UIViewController {
                         let tweets = json.valueForKey("text")!
                         let tweetsString = (tweets as! [String]).joinWithSeparator(". ")
                         self.userTweets(tweetsString)
+                        twitterLogin.setImage(UIImage(named: "ContentDeliveryCheckmark"), forState: UIControlState.Normal)
                     } catch let jsonError as NSError {
                         print("json error: \(jsonError.localizedDescription)")
                     }
@@ -136,6 +137,41 @@ extension UIViewController {
                 
             }
         }
+    }
+    
+    func facebookPicture () {
+        let pictureRequest = FBSDKGraphRequest(graphPath: "me/picture?type=normal&redirect=false", parameters: ["fields" : "url"])
+        pictureRequest.startWithCompletionHandler({
+            (connection, result, error: NSError!) -> Void in
+            if error == nil {
+                
+                FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+                    if user != nil {
+                        guard let uid = user?.uid else {
+                            return
+                        }
+                        
+                        let userRef = ref.child("users").child(uid)
+                        
+                        // AGE
+                        if let photoURL = result.valueForKey("data")!.valueForKey("url") {
+                            let photo_fir = ["photo" : photoURL]
+                            userRef.updateChildValues(photo_fir, withCompletionBlock: {
+                                (err, ref) in
+                                
+                                if err != nil {
+                                    print (err)
+                                    return
+                                }
+                            })
+                        }
+                    }
+                }
+            }
+            else {
+                print(error)
+            }
+        })
     }
     
     func FBUserDataToFirbase () {
@@ -158,6 +194,20 @@ extension UIViewController {
                         
                         let userRef = ref.child("users").child(uid)
                         
+                        // HOMETOWN 
+                        if let hometown: AnyObject? = results!.valueForKey("hometown")!.valueForKey("name")! {
+                            print (hometown!)
+                            let home = ["Hometown" : hometown!]
+                            fbBasicRef.updateChildValues(home, withCompletionBlock: {
+                                (err, ref) in
+                                
+                                if err != nil {
+                                    print (err)
+                                    return
+                                }
+                            })
+                        }
+
                         // AGE
                         if let age_range: AnyObject? = results!.valueForKey("age_range")!.valueForKey("min")! {
                             let age_fir = ["age" : age_range!]

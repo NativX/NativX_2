@@ -29,7 +29,6 @@ class RegisterPageViewController: UIViewController {
         // register
         signUpButton.layer.cornerRadius = 5
         signUpButton.layer.borderWidth = 1
-        signUpButton.layer.borderColor = nativxGrey.CGColor
     }
     
     @IBAction func signUp (sender: AnyObject) {

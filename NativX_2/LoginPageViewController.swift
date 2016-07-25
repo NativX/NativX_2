@@ -72,7 +72,8 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
         else {
             let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
             firebaseLogin(credential)
-            facebookEmailLink()
+            // facebookEmailLink()
+            facebookPicture()
             FBUserDataToFirbase()
             getFBUserLikes ()
             getFBUserBio ()
