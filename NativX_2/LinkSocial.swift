@@ -18,6 +18,8 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var greeting: UILabel!
     @IBOutlet weak var FBloginButton: FBSDKLoginButton!
     @IBOutlet weak var twitterLogin: UIButton!
+    @IBOutlet weak var linkView: UIView!
+    @IBOutlet weak var register: UIButton!
 
     
     // Aggregate facebook and twitter info to pass into Watson
@@ -40,14 +42,31 @@ class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
         let socialTextForWatson = (posts + bio + tweets)
         personalityInsights(socialTextForWatson)
         self.performSegueWithIdentifier("linkToHome", sender: self)
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        self.FBloginButton.delegate = self
-        self.FBloginButton.readPermissions = perm
         
+        // Background 
+        self.view.addBackground ("background1")
+        
+        // LinkView
+        linkView.layer.cornerRadius = 8.0
+        
+
+        
+        // Facebook
+        FBloginButton.delegate = self
+        FBloginButton.readPermissions = perm
+        FBloginButton.layer.cornerRadius = 5
+        
+        // Twitter
+        twitterLogin.layer.cornerRadius = 5
+        
+        // Register
+        register.layer.cornerRadius = 5
+        register.layer.borderWidth = 1
+
         // Update Greeting
         let userID = FIRAuth.auth()?.currentUser?.uid
         ref.child("users").child(userID!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in

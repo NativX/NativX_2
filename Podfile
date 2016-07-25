@@ -20,7 +20,6 @@ pod 'NVActivityIndicatorView'
 pod 'Koloda', '~> 3.1.1'
 pod 'UITextField+Shake', '~> 1.1'
 pod 'AZExpandableIconListView'
-pod 'WYMaterialButton'
 pod 'TextFieldEffects'
   # Pods for NativX_2
 
@@ -33,5 +32,9 @@ pod 'TextFieldEffects'
     inherit! :search_paths
     # Pods for testing
   end
+  
+  post_install do |installer|
+      `find Pods -regex 'Pods/pop.*\\.h' -print0 | xargs -0 sed -i '' 's/\\(<\\)pop\\/\\(.*\\)\\(>\\)/\\"\\2\\"/'`
+      end
 
 end
