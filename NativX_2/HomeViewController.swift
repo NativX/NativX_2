@@ -12,17 +12,21 @@ import FBSDKCoreKit
 import Fabric
 import TwitterKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController{
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var hometown: UILabel!
     @IBOutlet weak var travelLabel: UILabel!
     @IBOutlet weak var topUserView: UIView!
+    @IBOutlet weak var popDestinationsCollectionView: UICollectionView!
+    @IBOutlet weak var cityImageView: UIImageView!
     
+    private var popularCities = PopularCities.createCities ()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         personalInfo()
         navigationItem.title = "Home"
         
@@ -35,10 +39,6 @@ class HomeViewController: UIViewController {
         
         // Travel Label font adjust to Hometown
         travelLabel.font = hometown.font
-        
-        // top view
-        topUserView.layer.borderColor = UIColor.lightGrayColor().CGColor
-        topUserView.layer.borderWidth = 0.7
         
     }
 
@@ -106,5 +106,44 @@ class HomeViewController: UIViewController {
         }
         self.performSegueWithIdentifier("logOutToHome", sender: self)
     }
+    
+    private struct Storyboard {
+        static let CellIdentifier = "Popular Cities Cell"
+    }
 
 }
+
+// Extension for UICollectionView Functionality
+extension HomeViewController: UICollectionViewDataSource {
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return popularCities.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Storyboard.CellIdentifier, forIndexPath: indexPath) as! PopularCitiesCollectionViewCell
+        
+        cell.popularCities = self.popularCities[indexPath.item]
+        return cell
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
