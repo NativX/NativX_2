@@ -27,6 +27,8 @@ extension UIViewController {
         let failure = { (error: NSError) in print(error) }
         
         personalityInsights.getProfile(text: text!, failure: failure) { profile in
+            print(profile)
+            
             //get the user's id for adding to Firebase
             let userID = FIRAuth.auth()?.currentUser?.uid
             let userRef = ref.child(" ").child(userID!)
@@ -46,36 +48,56 @@ extension UIViewController {
                     }
             })
             
-            //get the parent node of the personality information, add to Firebase
-            let big5 = profile.tree.children![0]
-            let personalityMaster = big5.children![0]
-            userRef.updateChildValues([
-                personalityMaster.name : personalityMaster.percentage!
-                ],  withCompletionBlock: {
-                    (error, ref) in
-                    if error != nil {
-                        print(error)
-                    } else {
-                        print("parent personality data saved successfully!")
-                    }
-            })
+            for category in profile.tree.children! {
+                self.addCategory(userRef, group: category)
+            }
+
+        }
+    }
+    
+    
+    //function to add each master element (personality, needs, values) and its child values to the db
+    func addCategory(userRef: FIRDatabaseReference, group: TraitTreeNode) {
         
-            //get all other traits and add each to Firebase
-            let personalities = personalityMaster.children!
-            for trait in personalities {
-                //print(trait.name + " " + String(trait.percentage!) + " " + String(trait.samplingError!))
-                self.addTrait(userID!, trait: trait.name, percent: trait.percentage!, sampError: trait.samplingError!)
+        //create new child on the userRef
+        let groupRef = userRef.child(group.id)
+        
+        //get master trait
+        let master = group.children![0]
+        
+        //add info about the master trait to Firebase
+        groupRef.updateChildValues([
+            master.name : master.percentage!
+            ],  withCompletionBlock: {
+                (error, ref) in
+                if error != nil {
+                    print(error)
+                } else {
+                    print("parent of " + group.id + " data saved successfully!")
+                }
+        })
+        
+        //get all other traits and add each to Firebase
+        let children = master.children!
+        for trait in children {
+            //add main trait to the db
+            //print(trait.name + " " + String(trait.percentage!) + " " + String(trait.samplingError!))
+            self.addTrait(groupRef, trait: trait.name, percent: trait.percentage!, sampError: trait.samplingError!)
+            
+            //add subtraits if they exist
+            if trait.children != nil {
                 for subTrait in trait.children! {
                     //print(subTrait.name + " " + String(subTrait.percentage!) + " " + String(subTrait.samplingError!))
-                    self.addTrait(userID!, trait: subTrait.name, percent: subTrait.percentage!, sampError: subTrait.samplingError!)
+                    self.addTrait(groupRef, trait: subTrait.name, percent: subTrait.percentage!, sampError: subTrait.samplingError!)
                 }
             }
         }
     }
     
-    //outline for adding individual traits to Firebase for this user
-    func addTrait(uid: String, trait: String, percent: Double, sampError: Double) {
-        let traitRef = ref.child("users").child(uid).child(trait)
+    
+    //outline for adding individual traits with a percent and sample_error to Firebase 
+    func addTrait(groupRef: FIRDatabaseReference, trait: String, percent: Double, sampError: Double) {
+        let traitRef = groupRef.child(trait)
         traitRef.updateChildValues([
             "percentage": percent,
             "sampling error" : sampError

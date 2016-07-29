@@ -118,7 +118,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="250" height="280"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Denver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVk-Xs-llE">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Denver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVk-Xs-llE">
                                                     <rect key="frame" x="0.0" y="250" width="250" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="ZJ8-IT-Xdb"/>
@@ -128,7 +128,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="denver" translatesAutoresizingMaskIntoConstraints="NO" id="KB2-jk-9F8">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="denver" translatesAutoresizingMaskIntoConstraints="NO" id="KB2-jk-9F8">
                                                     <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="250" id="6Tu-kn-Ze3"/>
@@ -993,7 +993,7 @@
         <image name="userTab" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="sAz-f2-ibt"/>
         <segue reference="Kkl-Za-gfz"/>
-        <segue reference="gCq-MP-69X"/>
     </inferredMetricsTieBreakers>
 </document>
