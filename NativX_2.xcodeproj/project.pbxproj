@@ -34,7 +34,10 @@
 		F26881AF1CEF9D7200423597 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881AE1CEF9D7200423597 /* Constants.swift */; };
 		F26881B11CEF9D8300423597 /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881B01CEF9D8300423597 /* RegisterPageViewController.swift */; };
 		F26881B31CEF9D8F00423597 /* ProtectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26881B21CEF9D8F00423597 /* ProtectedViewController.swift */; };
+		F268D7631D46C8AB0069934D /* PopularCities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268D7621D46C8AB0069934D /* PopularCities.swift */; };
+		F268D7651D46D06C0069934D /* PopularCitiesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268D7641D46D06C0069934D /* PopularCitiesCollectionViewCell.swift */; };
 		F276924E1CFE863B0039CEBE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F276924D1CFE863B0039CEBE /* HomeViewController.swift */; };
+		F27A5F581D4964070087560A /* InterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27A5F571D4964060087560A /* InterestsViewController.swift */; };
 		F27AD6EA1D303527006F6C44 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27AD6E91D303527006F6C44 /* DataHelper.swift */; };
 		F27AD6EC1D32BFB9006F6C44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F27AD6EB1D32BFB9006F6C44 /* Images.xcassets */; };
 		F288390D1CEE720D007E90FE /* HomeNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F288390C1CEE720D007E90FE /* HomeNavViewController.swift */; };
@@ -112,7 +115,10 @@
 		F26881AE1CEF9D7200423597 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F26881B01CEF9D8300423597 /* RegisterPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPageViewController.swift; sourceTree = "<group>"; };
 		F26881B21CEF9D8F00423597 /* ProtectedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectedViewController.swift; sourceTree = "<group>"; };
+		F268D7621D46C8AB0069934D /* PopularCities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularCities.swift; sourceTree = "<group>"; };
+		F268D7641D46D06C0069934D /* PopularCitiesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularCitiesCollectionViewCell.swift; sourceTree = "<group>"; };
 		F276924D1CFE863B0039CEBE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F27A5F571D4964060087560A /* InterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
 		F27AD6E91D303527006F6C44 /* DataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
 		F27AD6EB1D32BFB9006F6C44 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F288390C1CEE720D007E90FE /* HomeNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +239,7 @@
 			children = (
 				F26881AE1CEF9D7200423597 /* Constants.swift */,
 				F27AD6E91D303527006F6C44 /* DataHelper.swift */,
+				F268D7621D46C8AB0069934D /* PopularCities.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -249,11 +256,20 @@
 		F20EF0941D3A7C9F00BCB660 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F27A5F591D4964150087560A /* Create */,
 				F26881AC1CEF9D6400423597 /* ViewController.swift */,
 				F2E945AC1CEBF86C0021B899 /* Login Controllers */,
 				F2E945BA1CEBF9DB0021B899 /* Home */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		F27A5F591D4964150087560A /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				F27A5F571D4964060087560A /* InterestsViewController.swift */,
+			);
+			name = Create;
 			sourceTree = "<group>";
 		};
 		F28F00381D2D457200884C2E /* App */ = {
@@ -340,6 +356,7 @@
 			children = (
 				F288390C1CEE720D007E90FE /* HomeNavViewController.swift */,
 				F276924D1CFE863B0039CEBE /* HomeViewController.swift */,
+				F268D7641D46D06C0069934D /* PopularCitiesCollectionViewCell.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -629,6 +646,9 @@
 				F288390D1CEE720D007E90FE /* HomeNavViewController.swift in Sources */,
 				F20EF0901D3A2B9C00BCB660 /* TraitTreeNode.swift in Sources */,
 				F26881B31CEF9D8F00423597 /* ProtectedViewController.swift in Sources */,
+				F27A5F581D4964070087560A /* InterestsViewController.swift in Sources */,
+				F268D7651D46D06C0069934D /* PopularCitiesCollectionViewCell.swift in Sources */,
+				F268D7631D46C8AB0069934D /* PopularCities.swift in Sources */,
 				F20EF08E1D3A2B4D00BCB660 /* Profile.swift in Sources */,
 				F26035C51D3FE258003EAE64 /* ViewHelper.swift in Sources */,
 				F276924E1CFE863B0039CEBE /* HomeViewController.swift in Sources */,
@@ -778,6 +798,7 @@
 			baseConfigurationReference = D7AD2CA32EAD6194826F9D9D /* Pods-NativX_2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -812,6 +833,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.NativX.NativX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -820,6 +842,7 @@
 			baseConfigurationReference = 2928EE2EBDFAEBC2E03F3727 /* Pods-NativX_2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

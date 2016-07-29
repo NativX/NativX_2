@@ -21,7 +21,7 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var passwordLoginText: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var FBloginButton: FBSDKLoginButton!
-    @IBOutlet weak var twitterLogin: TWTRLogInButton!
+    @IBOutlet weak var twitterLogin: UIButton!
     
     @IBOutlet weak var registerButton: UIButton!
         
@@ -54,7 +54,7 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
     
 
     // Twitter Login
-    @IBAction func twitterLoginTapped(sender: TWTRLogInButton) {
+    @IBAction func twitterLoginTapped(sender: UIButton) {
         twitterLoginController()
     }
     
@@ -111,6 +111,7 @@ class LoginPageViewController: UIViewController, FBSDKLoginButtonDelegate {
                 else {
                     // print(FIRAuth.fetchProvidersForEmail(email))
                     print("user logged in")
+                    self.performSegueWithIdentifier("goToHome", sender: self)
                     }
                 })
             }
