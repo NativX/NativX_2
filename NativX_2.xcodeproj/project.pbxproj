@@ -43,6 +43,8 @@
 		F288390D1CEE720D007E90FE /* HomeNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F288390C1CEE720D007E90FE /* HomeNavViewController.swift */; };
 		F28F003C1D2D670800884C2E /* LoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28F003B1D2D670800884C2E /* LoginHelper.swift */; };
 		F28F00431D2E91DC00884C2E /* LinkSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28F00421D2E91DC00884C2E /* LinkSocial.swift */; };
+		F294AC881D4A66F700F9D0E9 /* Interests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F294AC871D4A66F700F9D0E9 /* Interests.swift */; };
+		F294AC8A1D4A88C800F9D0E9 /* InterestsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F294AC891D4A88C800F9D0E9 /* InterestsCollectionViewCell.swift */; };
 		F2AFF8961CF0F27900391A18 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2AFF8951CF0F27900391A18 /* GoogleService-Info.plist */; };
 		F2B79CEB1CF019D300A74062 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B79CEA1CF019D300A74062 /* FBSDKCoreKit.framework */; };
 		F2E595801CF4ED570092D47B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F2E5957F1CF4ED570092D47B /* Podfile */; };
@@ -124,6 +126,8 @@
 		F288390C1CEE720D007E90FE /* HomeNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavViewController.swift; sourceTree = "<group>"; };
 		F28F003B1D2D670800884C2E /* LoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginHelper.swift; sourceTree = "<group>"; };
 		F28F00421D2E91DC00884C2E /* LinkSocial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkSocial.swift; sourceTree = "<group>"; };
+		F294AC871D4A66F700F9D0E9 /* Interests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interests.swift; sourceTree = "<group>"; };
+		F294AC891D4A88C800F9D0E9 /* InterestsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsCollectionViewCell.swift; sourceTree = "<group>"; };
 		F2AFF8951CF0F27900391A18 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2B79CEA1CF019D300A74062 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F2C380C31CF0089C00046869 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
@@ -240,6 +244,7 @@
 				F26881AE1CEF9D7200423597 /* Constants.swift */,
 				F27AD6E91D303527006F6C44 /* DataHelper.swift */,
 				F268D7621D46C8AB0069934D /* PopularCities.swift */,
+				F294AC871D4A66F700F9D0E9 /* Interests.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				F27A5F571D4964060087560A /* InterestsViewController.swift */,
+				F294AC891D4A88C800F9D0E9 /* InterestsCollectionViewCell.swift */,
 			);
 			name = Create;
 			sourceTree = "<group>";
@@ -647,6 +653,7 @@
 				F20EF0901D3A2B9C00BCB660 /* TraitTreeNode.swift in Sources */,
 				F26881B31CEF9D8F00423597 /* ProtectedViewController.swift in Sources */,
 				F27A5F581D4964070087560A /* InterestsViewController.swift in Sources */,
+				F294AC881D4A66F700F9D0E9 /* Interests.swift in Sources */,
 				F268D7651D46D06C0069934D /* PopularCitiesCollectionViewCell.swift in Sources */,
 				F268D7631D46C8AB0069934D /* PopularCities.swift in Sources */,
 				F20EF08E1D3A2B4D00BCB660 /* Profile.swift in Sources */,
@@ -657,6 +664,7 @@
 				F26881AF1CEF9D7200423597 /* Constants.swift in Sources */,
 				F26881AB1CEF9D4B00423597 /* AppDelegate.swift in Sources */,
 				F26881AD1CEF9D6400423597 /* ViewController.swift in Sources */,
+				F294AC8A1D4A88C800F9D0E9 /* InterestsCollectionViewCell.swift in Sources */,
 				F27AD6EA1D303527006F6C44 /* DataHelper.swift in Sources */,
 				F20EF0961D3A82E800BCB660 /* PersonalityHelper.swift in Sources */,
 				F26881A91CEF9D4000423597 /* LoginPageViewController.swift in Sources */,
