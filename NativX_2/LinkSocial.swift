@@ -13,6 +13,8 @@ import FBSDKCoreKit
 import TwitterKit
 import Fabric
 import FirebaseDatabase
+import Alamofire
+import AlamofireObjectMapper
 
 class LinkSocial: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var greeting: UILabel!

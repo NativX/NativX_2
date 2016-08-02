@@ -20,36 +20,35 @@ class Interests {
     }
     
     // EAT
-    func createEatInterests () -> [Interests] {
+    static func createEatInterests () -> [Interests] {
         return [
-            Interests(name: "Foodie", iconImage: UIImage(named: "denver")!),
-            Interests(name: "Water Bug", iconImage: UIImage(named: "austin")!),
-            Interests(name: "Outdoors", iconImage: UIImage(named: "london")!),
+            Interests(name: "Omnivore", iconImage: UIImage(named: "Foodie")!),
+            Interests(name: "Herbivore", iconImage: UIImage(named: "herbivore")!),
+            Interests(name: "Carnivore", iconImage: UIImage(named: "Carnivore")!),
         ]
     }
     
     // PLAY
     static func createPlayInterests () -> [Interests] {
         return [
-            Interests(name: "Foodie", iconImage: UIImage(named: "CitySlickerIcon")!),
-            Interests(name: "Water Bug", iconImage: UIImage(named: "beachIcon2")!),
-            Interests(name: "Outdoors", iconImage: UIImage(named: "mountainIcon")!),
-            Interests(name: "Artsy", iconImage: UIImage(named: "ArtsyIcon")!),
-            Interests(name: "Thrill Seeker", iconImage: UIImage(named: "thrillSeekerIcon")!),
-            Interests(name: "Brew Master", iconImage: UIImage(named: "MapIconLogo")!),
-            Interests(name: "Win-O", iconImage: UIImage(named: "suburbanIcon")!),
-            Interests(name: "Sporty", iconImage: UIImage(named: "beachIcon2")!),
-            Interests(name: "Social Butterfly", iconImage: UIImage(named: "socialButterflyIcon1")!),
-            Interests(name: "Shop-o-holic", iconImage: UIImage(named: "shopoholic1")!),
+            Interests(name: "Foodie", iconImage: UIImage(named: "Foodie")!),
+            Interests(name: "Water Bug", iconImage: UIImage(named: "Water Bug")!),
+            Interests(name: "Outdoorsy", iconImage: UIImage(named: "Outdoorsy")!),
+            Interests(name: "Artsy", iconImage: UIImage(named: "Artsy")!),
+            Interests(name: "Thrill Seeker", iconImage: UIImage(named: "Thrill Seeker")!),
+            Interests(name: "Brew Master", iconImage: UIImage(named: "Brew Master")!),
+            Interests(name: "Win-O", iconImage: UIImage(named: "Win-O")!),
+            Interests(name: "Sporty", iconImage: UIImage(named: "Sporty1")!),
+            Interests(name: "Social Butterfly", iconImage: UIImage(named: "Social Butterfly")!),
+            Interests(name: "Shop-o-holic", iconImage: UIImage(named: "Shop-o-holic")!),
         ]
     }
     // STAY
     static func createStayInterests () -> [Interests] {
         return [
-            Interests(name: "Denver", iconImage: UIImage(named: "denver")!),
-            Interests(name: "Austin", iconImage: UIImage(named: "austin")!),
-            Interests(name: "London", iconImage: UIImage(named: "london")!),
-            Interests(name: "Boston", iconImage: UIImage(named: "boston")!),
+            Interests(name: "City Slicker", iconImage: UIImage(named: "City Slicker")!),
+            Interests(name: "Rural", iconImage: UIImage(named: "rural")!),
+            Interests(name: "Suburban", iconImage: UIImage(named: "suburban")!),
         ]
     }
 }

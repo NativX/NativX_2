@@ -14,13 +14,16 @@ import FBSDKCoreKit
 import TwitterKit
 import Fabric
 import PersonalityInsightsV2
+import Alamofire
+import AlamofireObjectMapper
+
 
 extension UIViewController {
     
     
     // Personality insights
     func personalityInsights (text: String?) {
-
+        
         let personalityInsights = PersonalityInsights(username: ibmUsername, password: ibmPassword)
         
         let text = text
@@ -32,7 +35,7 @@ extension UIViewController {
             //get the user's id for adding to Firebase
             let userID = FIRAuth.auth()?.currentUser?.uid
             let userRef = ref.child(" ").child(userID!)
-
+            
             //get data about the input text, add to Firebase
             let words = profile.wordCount
             let wordMsg = profile.wordCountMessage!
@@ -51,7 +54,7 @@ extension UIViewController {
             for category in profile.tree.children! {
                 self.addCategory(userRef, group: category)
             }
-
+            
         }
     }
     
@@ -95,7 +98,7 @@ extension UIViewController {
     }
     
     
-    //outline for adding individual traits with a percent and sample_error to Firebase 
+    //outline for adding individual traits with a percent and sample_error to Firebase
     func addTrait(groupRef: FIRDatabaseReference, trait: String, percent: Double, sampError: Double) {
         let traitRef = groupRef.child(trait)
         traitRef.updateChildValues([

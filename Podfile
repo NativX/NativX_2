@@ -21,6 +21,8 @@ pod 'Koloda', '~> 3.1.1'
 pod 'UITextField+Shake', '~> 1.1'
 pod 'AZExpandableIconListView'
 pod 'TextFieldEffects'
+pod "GaugeKit"
+pod "IntervalSlider"
   # Pods for NativX_2
 
   target 'NativX_2Tests' do
