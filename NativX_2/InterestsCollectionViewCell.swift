@@ -14,13 +14,15 @@ class InterestsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var iconName: UILabel!
     
+    var counter: Int = 1
+    
     var interests: Interests! {
         didSet{
             updateUI()
         }
     }
     
-    private func updateUI () {
+    func updateUI () {
         iconName?.text! = interests.name
         iconImage?.setImage(interests.iconImage!, forState: UIControlState.Normal)
         
@@ -33,6 +35,13 @@ class InterestsCollectionViewCell: UICollectionViewCell {
     }
     @IBAction func interestButtonClicked(sender: AnyObject) {
         
-        iconImage.backgroundColor = nativxColor
+        counter = (counter + 1) % 2
+        
+        if counter == 0 {
+            iconImage.backgroundColor = nativxColor
+        }
+        else {
+            iconImage.backgroundColor = UIColor.clearColor()
+        }
     }
 }

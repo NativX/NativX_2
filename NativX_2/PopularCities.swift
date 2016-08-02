@@ -20,7 +20,7 @@ class PopularCities {
     
     static func createCities () -> [PopularCities] {
         return [
-            PopularCities(name: "Denver", featuredImage: UIImage(named: "denver")!),
+            PopularCities(name: "Denver", featuredImage: UIImage(named: "deverHomeScreen")!),
             PopularCities(name: "Austin", featuredImage: UIImage(named: "austin")!),
             PopularCities(name: "London", featuredImage: UIImage(named: "london")!),
             PopularCities(name: "Boston", featuredImage: UIImage(named: "boston")!),
