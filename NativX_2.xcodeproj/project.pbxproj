@@ -45,9 +45,9 @@
 		F28F00431D2E91DC00884C2E /* LinkSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28F00421D2E91DC00884C2E /* LinkSocial.swift */; };
 		F294AC881D4A66F700F9D0E9 /* Interests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F294AC871D4A66F700F9D0E9 /* Interests.swift */; };
 		F294AC8A1D4A88C800F9D0E9 /* InterestsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F294AC891D4A88C800F9D0E9 /* InterestsCollectionViewCell.swift */; };
-		F294AC941D4FAD4A00F9D0E9 /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F294AC931D4FAD4A00F9D0E9 /* SuggestionViewController.swift */; };
 		F294AC971D4FB8A700F9D0E9 /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F294AC991D4FB8A700F9D0E9 /* OverlayView.xib */; };
-		F294AC9B1D4FB96C00F9D0E9 /* ExampleOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F294AC9A1D4FB96C00F9D0E9 /* ExampleOverlayView.swift */; };
+		F294AC9D1D50E55700F9D0E9 /* ExampleOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F294AC9C1D50E55700F9D0E9 /* ExampleOverlayView.swift */; };
+		F294AC9F1D50E5E700F9D0E9 /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F294AC9E1D50E5E700F9D0E9 /* SuggestionViewController.swift */; };
 		F2AFF8961CF0F27900391A18 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2AFF8951CF0F27900391A18 /* GoogleService-Info.plist */; };
 		F2B79CEB1CF019D300A74062 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B79CEA1CF019D300A74062 /* FBSDKCoreKit.framework */; };
 		F2E595801CF4ED570092D47B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F2E5957F1CF4ED570092D47B /* Podfile */; };
@@ -131,9 +131,9 @@
 		F28F00421D2E91DC00884C2E /* LinkSocial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkSocial.swift; sourceTree = "<group>"; };
 		F294AC871D4A66F700F9D0E9 /* Interests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interests.swift; sourceTree = "<group>"; };
 		F294AC891D4A88C800F9D0E9 /* InterestsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsCollectionViewCell.swift; sourceTree = "<group>"; };
-		F294AC931D4FAD4A00F9D0E9 /* SuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuggestionViewController.swift; path = ../../../SuggestionViewController.swift; sourceTree = "<group>"; };
 		F294AC981D4FB8A700F9D0E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OverlayView.xib; sourceTree = "<group>"; };
-		F294AC9A1D4FB96C00F9D0E9 /* ExampleOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExampleOverlayView.swift; path = ../../../ExampleOverlayView.swift; sourceTree = "<group>"; };
+		F294AC9C1D50E55700F9D0E9 /* ExampleOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleOverlayView.swift; sourceTree = "<group>"; };
+		F294AC9E1D50E5E700F9D0E9 /* SuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
 		F2AFF8951CF0F27900391A18 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2B79CEA1CF019D300A74062 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F2C380C31CF0089C00046869 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
@@ -261,7 +261,7 @@
 				F294AC991D4FB8A700F9D0E9 /* OverlayView.xib */,
 				F2E9457E1CEBEC280021B899 /* Main.storyboard */,
 				F26035CA1D405153003EAE64 /* LaunchScreen.storyboard */,
-				F294AC9A1D4FB96C00F9D0E9 /* ExampleOverlayView.swift */,
+				F294AC9C1D50E55700F9D0E9 /* ExampleOverlayView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -280,9 +280,9 @@
 		F27A5F591D4964150087560A /* Create */ = {
 			isa = PBXGroup;
 			children = (
+				F294AC9E1D50E5E700F9D0E9 /* SuggestionViewController.swift */,
 				F294AC891D4A88C800F9D0E9 /* InterestsCollectionViewCell.swift */,
 				F27A5F571D4964060087560A /* InterestsViewController.swift */,
-				F294AC931D4FAD4A00F9D0E9 /* SuggestionViewController.swift */,
 			);
 			name = Create;
 			sourceTree = "<group>";
@@ -662,23 +662,23 @@
 				F288390D1CEE720D007E90FE /* HomeNavViewController.swift in Sources */,
 				F20EF0901D3A2B9C00BCB660 /* TraitTreeNode.swift in Sources */,
 				F26881B31CEF9D8F00423597 /* ProtectedViewController.swift in Sources */,
+				F294AC9F1D50E5E700F9D0E9 /* SuggestionViewController.swift in Sources */,
 				F27A5F581D4964070087560A /* InterestsViewController.swift in Sources */,
 				F294AC881D4A66F700F9D0E9 /* Interests.swift in Sources */,
 				F268D7651D46D06C0069934D /* PopularCitiesCollectionViewCell.swift in Sources */,
 				F268D7631D46C8AB0069934D /* PopularCities.swift in Sources */,
 				F20EF08E1D3A2B4D00BCB660 /* Profile.swift in Sources */,
-				F294AC941D4FAD4A00F9D0E9 /* SuggestionViewController.swift in Sources */,
 				F26035C51D3FE258003EAE64 /* ViewHelper.swift in Sources */,
 				F276924E1CFE863B0039CEBE /* HomeViewController.swift in Sources */,
 				F20EF08C1D3A2B1A00BCB660 /* ContentItem.swift in Sources */,
 				F28F00431D2E91DC00884C2E /* LinkSocial.swift in Sources */,
 				F26881AF1CEF9D7200423597 /* Constants.swift in Sources */,
 				F26881AB1CEF9D4B00423597 /* AppDelegate.swift in Sources */,
+				F294AC9D1D50E55700F9D0E9 /* ExampleOverlayView.swift in Sources */,
 				F26881AD1CEF9D6400423597 /* ViewController.swift in Sources */,
 				F294AC8A1D4A88C800F9D0E9 /* InterestsCollectionViewCell.swift in Sources */,
 				F27AD6EA1D303527006F6C44 /* DataHelper.swift in Sources */,
 				F20EF0961D3A82E800BCB660 /* PersonalityHelper.swift in Sources */,
-				F294AC9B1D4FB96C00F9D0E9 /* ExampleOverlayView.swift in Sources */,
 				F26881A91CEF9D4000423597 /* LoginPageViewController.swift in Sources */,
 				F28F003C1D2D670800884C2E /* LoginHelper.swift in Sources */,
 				F20EF0891D3A2AD300BCB660 /* PersonalityInsights.swift in Sources */,
