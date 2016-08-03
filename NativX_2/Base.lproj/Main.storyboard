@@ -885,7 +885,7 @@
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Interests Cell" id="yM2-X1-xZh" customClass="InterestsCollectionViewCell" customModule="NativX_2" customModuleProvider="target">
-                                                                <rect key="frame" x="20" y="2.5" width="120" height="120"/>
+                                                                <rect key="frame" x="20" y="3" width="120" height="120"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
@@ -1187,7 +1187,7 @@
         <image name="userTab" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="md0-wU-7qn"/>
         <segue reference="erN-az-ha1"/>
-        <segue reference="sAz-f2-ibt"/>
     </inferredMetricsTieBreakers>
 </document>

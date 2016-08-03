@@ -20,10 +20,7 @@ let ref = FIRDatabase.database().reference()
 
 // Personality Insights Username and Password
 let ibmUsername = "764ad7bc-5d1d-4e68-8969-37a4a43e3009"
-let ibmPassword = "sA6IrVsa6dgL"
-
-//let ibmUsername = "599d30f0-89e2-4d59-bd9b-11919b4b9ebc"
-//let ibmPassword = "LJwNxRuuBPlf"
+let ibmPassword = "sA6IrVsa6dgL" 
 
 let nativxColor = UIColor(red: 94/255 , green: 200/255, blue: 210/255, alpha: 1)
 

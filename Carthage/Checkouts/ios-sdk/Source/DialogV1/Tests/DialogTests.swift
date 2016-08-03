@@ -20,19 +20,17 @@ import DialogV1
 class DialogTests: XCTestCase {
 
     private var dialog: Dialog!
-    private let prefix = "swift-sdk-unit-test-"
-    private var dialogID: DialogID?
-    private var dialogName: String?
-    private let timeout: NSTimeInterval = 10.0
+    private let dialogNamePrefix = "swift-sdk-unit-test-"
+    private let timeout: NSTimeInterval = 15.0
 
     // MARK: - Test Configuration
 
-    /** Set up for each test by instantiating the service. */
+    /** Set up for each test by instantiating the service and deleting stale dialog applications. */
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
         instantiateDialog()
-        lookupDialog()
+        deleteStaleDialogs()
     }
 
     /** Instantiate Dialog. */
@@ -50,52 +48,16 @@ class DialogTests: XCTestCase {
         dialog = Dialog(username: username, password: password)
     }
 
-    /** Look up (or create) the test dialog application. */
-    func lookupDialog() {
-        let description = "Look up (or create) the test dialog application."
+    /** Delete any stale dialog applications previously created by unit tests. */
+    func deleteStaleDialogs() {
+        let description = "Delete any stale dialog applications previously created by unit tests."
         let expectation = expectationWithDescription(description)
-        
-        let failure = { (error: NSError) in
-            XCTFail("Failed to list the dialog applications.")
-        }
-        
-        dialog.getDialogs(failure) { dialogs in
+        dialog.getDialogs(failWithError) { dialogs in
             for dialog in dialogs {
-                if dialog.name.hasPrefix(self.prefix) {
-                    self.dialogID = dialog.dialogID
-                    self.dialogName = dialog.name
-                    expectation.fulfill()
-                    return
+                if dialog.name.hasPrefix(self.dialogNamePrefix) {
+                    self.dialog.deleteDialog(dialog.dialogID)
                 }
             }
-            expectation.fulfill()
-        }
-        waitForExpectations()
-        
-        if (self.dialogID == nil) || (self.dialogName == nil) {
-            createDialog()
-        }
-    }
-    
-    /** Create the test dialog application. */
-    func createDialog() {
-        let description = "Create the test dialog application."
-        let expectation = expectationWithDescription(description)
-        
-        let dialogName = createDialogName()
-        
-        guard let fileURL = loadDialogFile("pizza_sample", withExtension: "xml") else {
-            XCTFail("Failed to load dialog file.")
-            return
-        }
-        
-        let failure = { (error: NSError) in
-            XCTFail("Failed to create the test dialog application.")
-        }
-
-        dialog.createDialog(dialogName, fileURL: fileURL, failure: failure) { id in
-            self.dialogID = id
-            self.dialogName = dialogName
             expectation.fulfill()
         }
         waitForExpectations()
@@ -137,7 +99,7 @@ class DialogTests: XCTestCase {
 
     /** Generate the name for a dialog application. */
     func createDialogName() -> String {
-        return prefix + randomAlphaNumericString(5)
+        return dialogNamePrefix + randomAlphaNumericString(5)
     }
 
     /** Load a dialog file. */
@@ -149,104 +111,185 @@ class DialogTests: XCTestCase {
         return url
     }
 
+    /** Create a dialog application for testing. */
+    func createDialog(dialogName: String) -> DialogV1.DialogID? {
+        let description = "Create a dialog application for testing."
+        let expectation = expectationWithDescription(description)
+
+        guard let fileURL = loadDialogFile("pizza_sample", withExtension: "xml") else {
+            XCTFail("Failed to load dialog file.")
+            return nil
+        }
+
+        var dialogID: String?
+        dialog.createDialog(dialogName, fileURL: fileURL, failure: failWithError) { id in
+            dialogID = id
+            expectation.fulfill()
+        }
+        waitForExpectations()
+
+        return dialogID
+    }
+
+    /** Start a new conversation with the dialog application. */
+    func startConversation(dialogID: DialogV1.DialogID) -> DialogV1.ConversationResponse? {
+        let description = "Start a conversation with the dialog application."
+        let expectation = expectationWithDescription(description)
+
+        let expectedResponse = "Hi, I\'m Watson! I can help you order a pizza, " +
+                               "what size would you like?"
+
+        var conversationResponse: DialogV1.ConversationResponse?
+
+        dialog.converse(dialogID, failure: failWithError) { response in
+            XCTAssertEqual(response.response.last, expectedResponse)
+            conversationResponse = response
+            expectation.fulfill()
+        }
+        waitForExpectations()
+
+        return conversationResponse
+    }
+
+    /** Continue a conversation with the dialog application. */
+    func continueConversation(
+        dialogID: DialogV1.DialogID,
+        conversationID: Int,
+        clientID: Int,
+        input: String,
+        expectedResponse: String)
+        -> DialogV1.ConversationResponse?
+    {
+        let description = "Continue a conversation with the dialog application."
+        let expectation = expectationWithDescription(description)
+
+        var conversationResponse: DialogV1.ConversationResponse?
+
+        dialog.converse(
+            dialogID,
+            conversationID: conversationID,
+            clientID: clientID,
+            input: input,
+            failure: failWithError)
+        {
+            response in
+            XCTAssertEqual(response.response.last, expectedResponse)
+            conversationResponse = response
+            expectation.fulfill()
+        }
+        waitForExpectations()
+
+        return conversationResponse
+    }
+
+    /** Delete the dialog application used for testing. */
+    func deleteDialog(dialogID: DialogV1.DialogID) {
+        let description = "Deleting the dialog application used for testing."
+        let expectation = expectationWithDescription(description)
+
+        dialog.deleteDialog(dialogID, failure: failWithError) {
+            expectation.fulfill()
+        }
+        waitForExpectations()
+    }
+
     // MARK: - Positive Tests - Content Operations
 
     /** List the dialog applications associated with this service instance. */
     func testGetDialogs() {
+
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
+        }
+
         let description = "List the dialog applications associated with this service instance."
         let expectation = expectationWithDescription(description)
 
         dialog.getDialogs(failWithError) { dialogs in
             for dialog in dialogs {
-                let idMatch = (dialog.dialogID == self.dialogID)
-                let nameMatch = (dialog.name == self.dialogName)
-                if idMatch && nameMatch {
+                let nameMatch = (dialog.name == dialogName)
+                let idMatch = (dialog.dialogID == dialogID)
+                if nameMatch && idMatch {
                     expectation.fulfill()
                     return
                 }
             }
-            XCTFail("Could not retrieve the test dialog application.")
+            XCTFail("Could not retrieve the current dialog application used for testing.")
         }
         waitForExpectations()
+
+        deleteDialog(dialogID)
     }
 
     /** Create and delete a dialog application. */
     func testCreateDelete() {
-        let description1 = "Create a dialog application."
-        let expectation1 = expectationWithDescription(description1)
-        var dialogID: DialogID?
-        
+
         let dialogName = createDialogName()
-        guard let fileURL = loadDialogFile("pizza_sample", withExtension: "xml") else {
-            XCTFail("Failed to load dialog file.")
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
             return
         }
-        
-        dialog.createDialog(dialogName, fileURL: fileURL, failure: failWithError) { id in
-            dialogID = id
-            expectation1.fulfill()
-        }
-        waitForExpectations()
-        
-        let description2 = "Delete the dialog application."
-        let expectation2 = expectationWithDescription(description2)
-        
-        dialog.deleteDialog(dialogID!, failure: failWithError) {
-            expectation2.fulfill()
-        }
-        waitForExpectations()
+
+        deleteDialog(dialogID)
     }
 
-    /** Download the dialog file associated with the test application. */
+    /** Download the dialog file associated with this testing application. */
     func getDialogFile(format: DialogV1.Format? = nil) {
-        let description = "Download the dialog file associated with the test application."
+
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
+        }
+
+        let description = "Download the dialog file associated with this testing application."
         let expectation = expectationWithDescription(description)
-        
-        dialog.getDialogFile(dialogID!, format: format, failure: failWithError) { file in
-            let fileManager = NSFileManager.defaultManager()
-            XCTAssertTrue(fileManager.fileExistsAtPath(file.path!))
-            XCTAssertTrue(self.verifyFiletype(format, url: file))
-            try! fileManager.removeItemAtURL(file)
+
+        dialog.getDialogFile(dialogID, format: format, failure: failWithError) { file in
+            guard let path = file.path else {
+                XCTFail("Dialog file does not exist at the given path.")
+                return
+            }
+
+            XCTAssertTrue(NSFileManager().fileExistsAtPath(path))
             expectation.fulfill()
         }
         waitForExpectations()
-    }
-    
-    /** Verify the filetype (extension) of a downloaded dialog file. */
-    func verifyFiletype(format: DialogV1.Format?, url: NSURL) -> Bool {
-        var filetype = ".mct"
-        if let format = format {
-            switch format {
-            case .OctetStream: filetype = ".mct"
-            case .WDSJSON: filetype = ".json"
-            case .WDSXML: filetype = ".xml"
-            }
-        }
-        return url.path!.hasSuffix(filetype)
+
+        deleteDialog(dialogID)
     }
 
-    /** Download the dialog file associated with the test application. */
+    /** Download the dialog file associated with this testing application. */
     func testGetDialogFile() {
         getDialogFile()
     }
 
-    /** Download the dialog file associated with the test application in OctetStream format. */
+    /** Download the dialog file associated with this testing application in OctetStream format. */
     func testGetDialogFileOctetStream() {
         getDialogFile(.OctetStream)
     }
 
-    /** Download the dialog file associated with the test application in JSON format. */
+    /** Download the dialog file associated with this testing application in JSON format. */
     func testGetDialogFileJSON() {
         getDialogFile(.WDSJSON)
     }
 
-    /** Download the dialog file associated with the test application in XML format. */
+    /** Download the dialog file associated with this testing application in XML format. */
     func testGetDialogFileXML() {
         getDialogFile(.WDSXML)
     }
 
     /** Update the dialog application. */
     func testUpdateDialog() {
+
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
+        }
+
         let description = "Update the dialog application."
         let expectation = expectationWithDescription(description)
 
@@ -255,14 +298,23 @@ class DialogTests: XCTestCase {
             return
         }
 
-        dialog.updateDialog(dialogID!, fileURL: fileURL, failure: failWithError) {
+        dialog.updateDialog(dialogID, fileURL: fileURL, failure: failWithError) {
             expectation.fulfill()
         }
         waitForExpectations()
+
+        deleteDialog(dialogID)
     }
 
     /** Get the content for each node associated with the dialog application. */
     func testGetContent() {
+
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
+        }
+
         let description = "Get the content for each node."
         let expectation = expectationWithDescription(description)
 
@@ -270,7 +322,7 @@ class DialogTests: XCTestCase {
         let initialResponse = "Hi, I\'m Watson! I can help you order a pizza, " +
                               "what size would you like?"
 
-        dialog.getContent(dialogID!, failure: failWithError) { nodes in
+        dialog.getContent(dialogID, failure: failWithError) { nodes in
             for node in nodes {
                 let nodeMatch = (node.node == initialNode)
                 let contentMatch = (node.content == initialResponse)
@@ -282,10 +334,19 @@ class DialogTests: XCTestCase {
             XCTFail("Failed to find the expected initial node.")
         }
         waitForExpectations()
+
+        deleteDialog(dialogID)
     }
 
     /** Update the content for the initial node. */
     func testUpdateContent() {
+
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
+        }
+
         let description = "Update the content for the initial node."
         let expectation = expectationWithDescription(description)
 
@@ -295,164 +356,25 @@ class DialogTests: XCTestCase {
 
         let newNode = DialogV1.Node(content: newGreeting, node: initialNode)
 
-        dialog.updateContent(dialogID!, nodes: [newNode], failure: failWithError) {
+        dialog.updateContent(dialogID, nodes: [newNode], failure: failWithError) {
             expectation.fulfill()
         }
         waitForExpectations()
+
+        deleteDialog(dialogID)
     }
 
     // MARK: - Positive Tests - Conversation Operations
 
     /** Get conversation history. */
     func testGetConversationHistory() {
-        let description1 = "Start a conversation with the dialog application."
-        let expectation1 = expectationWithDescription(description1)
-        
-        let response1 = "Hi, I\'m Watson! I can help you order a pizza, what size would you like?"
-        let startTime = NSDate()
-        var conversationID: Int?
-        var clientID: Int?
 
-        dialog.converse(dialogID!, failure: failWithError) { response in
-            XCTAssertEqual(response.response.last, response1)
-            conversationID = response.conversationID
-            clientID = response.clientID
-            expectation1.fulfill()
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
         }
-        waitForExpectations()
 
-        let description2 = "Continue a conversation with the dialog application."
-        let expectation2 = expectationWithDescription(description2)
-
-        let response2 = "What toppings are you in the mood for? (Limit 4)"
-
-        dialog.converse(dialogID!, conversationID: conversationID!, clientID: clientID!, input: "large", failure: failWithError) {
-            response in
-            XCTAssertEqual(response.response.last, response2)
-            expectation2.fulfill()
-        }
-        waitForExpectations()
-
-        let description3 = "Get conversation history."
-        let expectation3 = expectationWithDescription(description3)
-
-        let bufferOffset = 10.0
-        let sydneyOffset = abs(NSTimeZone(name: "Australia/Sydney")!.secondsFromGMT)
-        let localOffset = abs(NSTimeZone.localTimeZone().secondsFromGMT)
-        let serverOffset = NSTimeInterval(sydneyOffset + localOffset)
-        let dateFrom = NSDate(timeInterval: serverOffset - bufferOffset, sinceDate: startTime)
-        let dateTo = NSDate(timeIntervalSinceNow: serverOffset + bufferOffset)
-
-        dialog.getConversationHistory(dialogID!, dateFrom: dateFrom, dateTo: dateTo, failure: failWithError) {
-            conversations in
-            XCTAssertGreaterThanOrEqual(conversations.count, 1)
-            XCTAssertEqual(conversations.last?.messages.count, 3)
-            XCTAssertEqual(conversations.last?.profile["size"], "Large")
-            expectation3.fulfill()
-        }
-        waitForExpectations()
-    }
-
-    /** Get conversation history with an offset. */
-    func testGetConversationHistoryWithOffset() {
-        let description1 = "Start a conversation with the dialog application."
-        let expectation1 = expectationWithDescription(description1)
-
-        let response1 = "Hi, I\'m Watson! I can help you order a pizza, what size would you like?"
-        let startTime = NSDate()
-        var conversationID: Int?
-        var clientID: Int?
-
-        dialog.converse(dialogID!, failure: failWithError) { response in
-            XCTAssertEqual(response.response.last, response1)
-            conversationID = response.conversationID
-            clientID = response.clientID
-            expectation1.fulfill()
-        }
-        waitForExpectations()
-
-        let description2 = "Continue a conversation with the dialog application."
-        let expectation2 = expectationWithDescription(description2)
-
-        let response2 = "What toppings are you in the mood for? (Limit 4)"
-
-        dialog.converse(dialogID!, conversationID: conversationID!, clientID: clientID!, input: "large", failure: failWithError) {
-            response in
-            XCTAssertEqual(response.response.last, response2)
-            expectation2.fulfill()
-        }
-        waitForExpectations()
-
-        let description3 = "Get conversation history with an offset."
-        let expectation3 = expectationWithDescription(description3)
-
-        let bufferOffset = 10.0
-        let sydneyOffset = abs(NSTimeZone(name: "Australia/Sydney")!.secondsFromGMT)
-        let localOffset = abs(NSTimeZone.localTimeZone().secondsFromGMT)
-        let serverOffset = NSTimeInterval(sydneyOffset + localOffset)
-        let dateFrom = NSDate(timeInterval: serverOffset - bufferOffset, sinceDate: startTime)
-        let dateTo = NSDate(timeIntervalSinceNow: serverOffset + bufferOffset)
-
-        let offset = 1000
-        dialog.getConversationHistory(dialogID!, dateFrom: dateFrom, dateTo: dateTo, offset: offset, failure: failWithError) {
-            conversations in
-            XCTAssertEqual(conversations.count, 0)
-            expectation3.fulfill()
-        }
-        waitForExpectations()
-    }
-
-    /** Get conversation history with a limit. */
-    func testGetConversationHistoryWithLimit() {
-        let description1 = "Start a conversation with the dialog application."
-        let expectation1 = expectationWithDescription(description1)
-
-        let response1 = "Hi, I\'m Watson! I can help you order a pizza, what size would you like?"
-        let startTime = NSDate()
-        var conversationID: Int?
-        var clientID: Int?
-
-        dialog.converse(dialogID!, failure: failWithError) { response in
-            XCTAssertEqual(response.response.last, response1)
-            conversationID = response.conversationID
-            clientID = response.clientID
-            expectation1.fulfill()
-        }
-        waitForExpectations()
-
-        let description2 = "Continue a conversation with the dialog application."
-        let expectation2 = expectationWithDescription(description2)
-
-        let response2 = "What toppings are you in the mood for? (Limit 4)"
-
-        dialog.converse(dialogID!, conversationID: conversationID!, clientID: clientID!, input: "large", failure: failWithError) {
-            response in
-            XCTAssertEqual(response.response.last, response2)
-            expectation2.fulfill()
-        }
-        waitForExpectations()
-
-        let description3 = "Get conversation history with a limit."
-        let expectation3 = expectationWithDescription(description3)
-
-        let bufferOffset = 10.0
-        let sydneyOffset = abs(NSTimeZone(name: "Australia/Sydney")!.secondsFromGMT)
-        let localOffset = abs(NSTimeZone.localTimeZone().secondsFromGMT)
-        let serverOffset = NSTimeInterval(sydneyOffset + localOffset)
-        let dateFrom = NSDate(timeInterval: serverOffset - bufferOffset, sinceDate: startTime)
-        let dateTo = NSDate(timeIntervalSinceNow: serverOffset + bufferOffset)
-
-        let limit = 0
-        dialog.getConversationHistory(dialogID!, dateFrom: dateFrom, dateTo: dateTo, limit: limit, failure: failWithError) {
-            conversations in
-            // XCTAssertEqual(conversations.count, 0)
-            expectation3.fulfill()
-        }
-        waitForExpectations()
-    }
-
-    /** Converse with the dialog application. */
-    func testConverse() {
         let description1 = "Start a conversation with the dialog application."
         let expectation1 = expectationWithDescription(description1)
 
@@ -460,7 +382,7 @@ class DialogTests: XCTestCase {
         var conversationID: Int?
         var clientID: Int?
 
-        dialog.converse(dialogID!, failure: failWithError) { response in
+        dialog.converse(dialogID, failure: failWithError) { response in
             XCTAssertEqual(response.response.last, response1)
             conversationID = response.conversationID
             clientID = response.clientID
@@ -474,7 +396,7 @@ class DialogTests: XCTestCase {
         let response2 = "What toppings are you in the mood for? (Limit 4)"
 
         dialog.converse(
-            dialogID!,
+            dialogID,
             conversationID: conversationID!,
             clientID: clientID!,
             input: "large",
@@ -485,19 +407,285 @@ class DialogTests: XCTestCase {
             expectation2.fulfill()
         }
         waitForExpectations()
+
+        let description3 = "Get conversation history."
+        let expectation3 = expectationWithDescription(description3)
+
+        let sydneyOffset = abs(NSTimeZone(name: "Australia/Sydney")!.secondsFromGMT)
+        let localOffset = abs(NSTimeZone.localTimeZone().secondsFromGMT)
+        let serverOffset = sydneyOffset + localOffset
+        let dateFromOffset: NSTimeInterval = -120.0 + Double(serverOffset)
+        let dateToOffset: NSTimeInterval = 120 + Double(serverOffset)
+        let dateFrom = NSDate(timeIntervalSinceNow: dateFromOffset)
+        let dateTo = NSDate(timeIntervalSinceNow: dateToOffset)
+
+        dialog.getConversationHistory(
+            dialogID,
+            dateFrom: dateFrom,
+            dateTo: dateTo,
+            failure: failWithError)
+        {
+            conversations in
+            XCTAssertEqual(conversations.count, 1)
+            XCTAssertEqual(conversations.first?.messages.count, 3)
+
+            let message0 = conversations.first?.messages[0]
+            XCTAssertEqual(message0?.fromClient, "false")
+            XCTAssertEqual(message0?.text, response1)
+
+            let message1 = conversations.first?.messages[1]
+            XCTAssertEqual(message1?.fromClient, "true")
+            XCTAssertEqual(message1?.text, "large")
+
+            let message2 = conversations.first?.messages[2]
+            XCTAssertEqual(message2?.fromClient, "false")
+            XCTAssertEqual(message2?.text, response2)
+
+            XCTAssertEqual(conversations.first?.profile["size"], "Large")
+
+            expectation3.fulfill()
+        }
+        waitForExpectations()
+
+        deleteDialog(dialogID)
+    }
+
+    /* Get conversation history with a date range that does not contain any history. */
+    func testGetConversationhistoryWithDates() {
+
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
+        }
+
+        let description = "Get conversation history with a date range."
+        let expectation = expectationWithDescription(description)
+
+        let sydneyOffset = abs(NSTimeZone(name: "Australia/Sydney")!.secondsFromGMT)
+        let localOffset = abs(NSTimeZone.localTimeZone().secondsFromGMT)
+        let serverOffset = sydneyOffset + localOffset
+        let dateFromOffset: NSTimeInterval = -120.0 + Double(serverOffset)
+        let dateToOffset: NSTimeInterval = 120 + Double(serverOffset)
+        let dateFrom = NSDate(timeIntervalSinceNow: dateFromOffset)
+        let dateTo = NSDate(timeIntervalSinceNow: dateToOffset)
+
+        dialog.getConversationHistory(
+            dialogID,
+            dateFrom: dateFrom,
+            dateTo: dateTo,
+            failure: failWithError)
+        {
+            conversations in
+            XCTAssertEqual(conversations.count, 0)
+            expectation.fulfill()
+        }
+        waitForExpectations()
+        
+        deleteDialog(dialogID)
+    }
+
+    /** Get conversation history with an offset. */
+    func testGetConversationHistoryWithOffset() {
+
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
+        }
+
+        let description1 = "Start a conversation with the dialog application."
+        let expectation1 = expectationWithDescription(description1)
+
+        let response1 = "Hi, I\'m Watson! I can help you order a pizza, what size would you like?"
+        var conversationID: Int?
+        var clientID: Int?
+
+        dialog.converse(dialogID, failure: failWithError) { response in
+            XCTAssertEqual(response.response.last, response1)
+            conversationID = response.conversationID
+            clientID = response.clientID
+            expectation1.fulfill()
+        }
+        waitForExpectations()
+
+        let description2 = "Continue a conversation with the dialog application."
+        let expectation2 = expectationWithDescription(description2)
+
+        let response2 = "What toppings are you in the mood for? (Limit 4)"
+
+        dialog.converse(
+            dialogID,
+            conversationID: conversationID!,
+            clientID: clientID!,
+            input: "large",
+            failure: failWithError)
+        {
+            response in
+            XCTAssertEqual(response.response.last, response2)
+            expectation2.fulfill()
+        }
+        waitForExpectations()
+
+        let description3 = "Get conversation history with an offset."
+        let expectation3 = expectationWithDescription(description3)
+
+        let sydneyOffset = abs(NSTimeZone(name: "Australia/Sydney")!.secondsFromGMT)
+        let localOffset = abs(NSTimeZone.localTimeZone().secondsFromGMT)
+        let serverOffset = sydneyOffset + localOffset
+        let dateFromOffset: NSTimeInterval = -120.0 + Double(serverOffset)
+        let dateToOffset: NSTimeInterval = 120 + Double(serverOffset)
+        let dateFrom = NSDate(timeIntervalSinceNow: dateFromOffset)
+        let dateTo = NSDate(timeIntervalSinceNow: dateToOffset)
+
+        dialog.getConversationHistory(
+            dialogID,
+            dateFrom: dateFrom,
+            dateTo: dateTo,
+            offset: 1,
+            failure: failWithError)
+        {
+            conversations in
+            XCTAssertEqual(conversations.count, 0)
+            expectation3.fulfill()
+        }
+        waitForExpectations()
+        
+        deleteDialog(dialogID)
+    }
+
+    /** Get conversation history with a limit. */
+    func testGetConversationHistoryWithLimit() {
+
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
+        }
+
+        let description1 = "Start a conversation with the dialog application."
+        let expectation1 = expectationWithDescription(description1)
+
+        let response1 = "Hi, I\'m Watson! I can help you order a pizza, what size would you like?"
+        var conversationID: Int?
+        var clientID: Int?
+
+        dialog.converse(dialogID, failure: failWithError) { response in
+            XCTAssertEqual(response.response.last, response1)
+            conversationID = response.conversationID
+            clientID = response.clientID
+            expectation1.fulfill()
+        }
+        waitForExpectations()
+
+        let description2 = "Continue a conversation with the dialog application."
+        let expectation2 = expectationWithDescription(description2)
+
+        let response2 = "What toppings are you in the mood for? (Limit 4)"
+
+        dialog.converse(
+            dialogID,
+            conversationID: conversationID!,
+            clientID: clientID!,
+            input: "large",
+            failure: failWithError)
+        {
+            response in
+            XCTAssertEqual(response.response.last, response2)
+            expectation2.fulfill()
+        }
+        waitForExpectations()
+
+        let description3 = "Get conversation history with a limit."
+        let expectation3 = expectationWithDescription(description3)
+
+        let sydneyOffset = abs(NSTimeZone(name: "Australia/Sydney")!.secondsFromGMT)
+        let localOffset = abs(NSTimeZone.localTimeZone().secondsFromGMT)
+        let serverOffset = sydneyOffset + localOffset
+        let dateFromOffset: NSTimeInterval = -120.0 + Double(serverOffset)
+        let dateToOffset: NSTimeInterval = 120 + Double(serverOffset)
+        let dateFrom = NSDate(timeIntervalSinceNow: dateFromOffset)
+        let dateTo = NSDate(timeIntervalSinceNow: dateToOffset)
+
+        dialog.getConversationHistory(
+            dialogID,
+            dateFrom: dateFrom,
+            dateTo: dateTo,
+            limit: 0,
+            failure: failWithError)
+        {
+            conversations in
+            XCTAssertEqual(conversations.count, 0)
+            expectation3.fulfill()
+        }
+        waitForExpectations()
+        
+        deleteDialog(dialogID)
+    }
+
+    /** Converse with the dialog application. */
+    func testConverse() {
+
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
+        }
+
+        let description1 = "Start a conversation with the dialog application."
+        let expectation1 = expectationWithDescription(description1)
+
+        let response1 = "Hi, I\'m Watson! I can help you order a pizza, what size would you like?"
+        var conversationID: Int?
+        var clientID: Int?
+
+        dialog.converse(dialogID, failure: failWithError) { response in
+            XCTAssertEqual(response.response.last, response1)
+            conversationID = response.conversationID
+            clientID = response.clientID
+            expectation1.fulfill()
+        }
+        waitForExpectations()
+
+        let description2 = "Continue a conversation with the dialog application."
+        let expectation2 = expectationWithDescription(description2)
+
+        let response2 = "What toppings are you in the mood for? (Limit 4)"
+
+        dialog.converse(
+            dialogID,
+            conversationID: conversationID!,
+            clientID: clientID!,
+            input: "large",
+            failure: failWithError)
+        {
+            response in
+            XCTAssertEqual(response.response.last, response2)
+            expectation2.fulfill()
+        }
+        waitForExpectations()
+
+        deleteDialog(dialogID)
     }
 
     // MARK: - Positive Tests - Profile Operations
 
     /** Retrieve a client's profile variables. */
     func testGetProfile() {
+
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
+        }
+
         let description1 = "Start a conversation with the dialog application."
         let expectation1 = expectationWithDescription(description1)
 
         var conversationID: Int?
         var clientID: Int?
 
-        dialog.converse(dialogID!, failure: failWithError) { response in
+        dialog.converse(dialogID, failure: failWithError) { response in
             conversationID = response.conversationID
             clientID = response.clientID
             expectation1.fulfill()
@@ -508,7 +696,7 @@ class DialogTests: XCTestCase {
         let expectation2 = expectationWithDescription(description2)
 
         dialog.converse(
-            dialogID!,
+            dialogID,
             conversationID: conversationID!,
             clientID: clientID!,
             input: "large",
@@ -522,34 +710,52 @@ class DialogTests: XCTestCase {
         let description3 = "Retrieve the client's profile variables."
         let expectation3 = expectationWithDescription(description3)
 
-        dialog.getProfile(dialogID!, clientID: clientID!, failure: failWithError) { profile in
+        dialog.getProfile(dialogID, clientID: clientID!, failure: failWithError) { profile in
             XCTAssertNil(profile.clientID)
             XCTAssertEqual(profile.parameters.first?.name, "size")
             XCTAssertEqual(profile.parameters.first?.value, "Large")
             expectation3.fulfill()
         }
         waitForExpectations()
+
+        deleteDialog(dialogID)
     }
 
     /** Update a new client's profile variables. */
     func testUpdateNewProfile() {
+
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
+        }
+
         let description = "Update a new client's profile variables."
         let expectation = expectationWithDescription(description)
 
-        dialog.updateProfile(dialogID!, parameters: ["size": "Large"], failure: failWithError) {
+        dialog.updateProfile(dialogID, parameters: ["size": "Large"], failure: failWithError) {
             expectation.fulfill()
         }
         waitForExpectations()
+
+        deleteDialog(dialogID)
     }
 
     /** Update an existing client's profile variables. */
     func testUpdateExistingProfile() {
+
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
+        }
+
         let description1 = "Start a conversation with the dialog application."
         let expectation1 = expectationWithDescription(description1)
 
         var clientID: Int?
 
-        dialog.converse(dialogID!, failure: failWithError) { response in
+        dialog.converse(dialogID, failure: failWithError) { response in
             clientID = response.clientID
             expectation1.fulfill()
         }
@@ -559,7 +765,7 @@ class DialogTests: XCTestCase {
         let expectation2 = expectationWithDescription(description2)
 
         dialog.updateProfile(
-            dialogID!,
+            dialogID,
             clientID: clientID!,
             parameters: ["size": "Large"],
             failure: failWithError)
@@ -567,12 +773,15 @@ class DialogTests: XCTestCase {
             expectation2.fulfill()
         }
         waitForExpectations()
+
+        deleteDialog(dialogID)
     }
 
     // MARK: - Negative Tests - Content Operations
 
     /** Create a dialog application with an invalid dialog file. */
     func testCreateDialogWithInvalidFile() {
+
         let description = "Create a dialog application with an invalid dialog file."
         let expectation = expectationWithDescription(description)
 
@@ -594,6 +803,13 @@ class DialogTests: XCTestCase {
 
     /** Create a dialog with a conflicting name. */
     func testCreateDialogWithConflictingName() {
+
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
+        }
+
         let description = "Create a dialog with a conflicting name."
         let expectation = expectationWithDescription(description)
 
@@ -607,12 +823,15 @@ class DialogTests: XCTestCase {
             expectation.fulfill()
         }
 
-        dialog.createDialog(dialogName!, fileURL: fileURL, failure: failure, success: failWithResult)
+        dialog.createDialog(dialogName, fileURL: fileURL, failure: failure, success: failWithResult)
         waitForExpectations()
+
+        deleteDialog(dialogID)
     }
 
     /** Create a dialog with a name that is too long. */
     func testCreateDialogWithLongName() {
+
         let description = "Create a dialog with a long name."
         let expectation = expectationWithDescription(description)
 
@@ -634,6 +853,7 @@ class DialogTests: XCTestCase {
 
     /** Create a dialog with a file that does not exist. */
     func testCreateDialogWithNonexistentFile() {
+
         let description = "Create a dialog with a file that does not exist."
         let expectation = expectationWithDescription(description)
 
@@ -652,6 +872,7 @@ class DialogTests: XCTestCase {
 
     /** Delete a dialog that doesn't exist. */
     func testDeleteInvalidDialogID() {
+
         let description = "Delete a dialog that doesn't exist."
         let expectation = expectationWithDescription(description)
 
@@ -667,12 +888,13 @@ class DialogTests: XCTestCase {
 
     /** Get the dialog file for a dialog that doesn't exist. */
     func testGetDialogFileForInvalidDialogID() {
+
         let description = "Get the dialog file for a dialog that doesn't exist."
         let expectation = expectationWithDescription(description)
 
         let invalidID = "this-id-does-not-exist"
         let failure = { (error: NSError) in
-            XCTAssertEqual(error.code, 404)
+            XCTAssertEqual(error.code, 516)
             expectation.fulfill()
         }
 
@@ -682,6 +904,13 @@ class DialogTests: XCTestCase {
 
     /** Upload an invalid dialog file. */
     func testUpdateDialogWithInvalidFile() {
+
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
+        }
+
         let description = "Upload an invalid dialog file."
         let expectation = expectationWithDescription(description)
 
@@ -695,12 +924,21 @@ class DialogTests: XCTestCase {
             expectation.fulfill()
         }
 
-        dialog.updateDialog(dialogID!, fileURL: fileURL, failure: failure, success: failWithResult)
+        dialog.updateDialog(dialogID, fileURL: fileURL, failure: failure, success: failWithResult)
         waitForExpectations()
+
+        deleteDialog(dialogID)
     }
 
     /** Update a dialog with a file that does not exist. */
     func testUpdateDialogWithNonexistentFile() {
+
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
+        }
+
         let description = "Update a dialog with a file that does not exist."
         let expectation = expectationWithDescription(description)
 
@@ -711,12 +949,15 @@ class DialogTests: XCTestCase {
             expectation.fulfill()
         }
 
-        dialog.updateDialog(dialogID!, fileURL: fileURL, failure: failure, success: failWithResult)
+        dialog.updateDialog(dialogID, fileURL: fileURL, failure: failure, success: failWithResult)
         waitForExpectations()
+
+        deleteDialog(dialogID)
     }
 
     /** Update a dialog that doesn't exist. */
     func testUpdateDialogForInvalidDialogID() {
+
         let description = "Update a dialog that doesn't exist."
         let expectation = expectationWithDescription(description)
 
@@ -738,6 +979,7 @@ class DialogTests: XCTestCase {
 
     /** Get the content for each node of a dialog application that doesn't exist. */
     func testGetContentForInvalidDialogID() {
+
         let description = "Retrieve the content from nodes "
         let expectation = expectationWithDescription(description)
 
@@ -754,6 +996,13 @@ class DialogTests: XCTestCase {
 
     /** Update invalid content for a node of the dialog application. */
     func testUpdateContentInvalid() {
+
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
+        }
+
         let description = "Update invalid content for a node of the dialog application."
         let expectation = expectationWithDescription(description)
 
@@ -764,12 +1013,15 @@ class DialogTests: XCTestCase {
             expectation.fulfill()
         }
 
-        dialog.updateContent(dialogID!, nodes: nodes, failure: failure, success: failWithResult)
+        dialog.updateContent(dialogID, nodes: nodes, failure: failure, success: failWithResult)
         waitForExpectations()
+
+        deleteDialog(dialogID)
     }
 
     /** Update content for a dialog that doesn't exist. */
     func testUpdateContentForInvalidDialogID() {
+
         let description = "Update content for a dialog that doesn't exist."
         let expectation = expectationWithDescription(description)
 
@@ -790,6 +1042,7 @@ class DialogTests: XCTestCase {
 
     /** Get conversation history for a dialog that doesn't exit. */
     func testGetConversationHistoryForInvalidDialogID() {
+
         let description = "Get the conversation history for a dialog that doesn't exist."
         let expectation = expectationWithDescription(description)
 
@@ -820,6 +1073,7 @@ class DialogTests: XCTestCase {
 
     /** Converse with a dialog application that doesn't exist.  */
     func testConverseWithInvalidDialogID() {
+
         let description = "Converse with a dialog application that doesn't exist."
         let expectation = expectationWithDescription(description)
 
@@ -836,6 +1090,13 @@ class DialogTests: XCTestCase {
 
     /** Converse with a dialog application using an invalid conversation id and client id. */
     func testConverseWithInvalidIDs() {
+
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
+        }
+
         let description = "Converse with a dialog application using invalid ids."
         let expectation = expectationWithDescription(description)
 
@@ -848,7 +1109,7 @@ class DialogTests: XCTestCase {
         }
 
         dialog.converse(
-            dialogID!,
+            dialogID,
             conversationID: invalidConversationID,
             clientID: invalidClientID,
             input: "large",
@@ -856,6 +1117,8 @@ class DialogTests: XCTestCase {
             success: failWithResult
         )
         waitForExpectations()
+
+        deleteDialog(dialogID)
     }
 
     // MARK: - Negative Tests - Profile Operations
@@ -884,6 +1147,13 @@ class DialogTests: XCTestCase {
 
     /** Retrieve a client's profile variables using an invalid client id. */
     func testGetProfileWithInvalidClientID() {
+
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
+        }
+
         let description = "Retrieve the client's profile variables using an invalid client id."
         let expectation = expectationWithDescription(description)
 
@@ -895,22 +1165,31 @@ class DialogTests: XCTestCase {
         }
 
         dialog.getProfile(
-            dialogID!,
+            dialogID,
             clientID: invalidClientID,
             failure: failure,
             success: failWithResult
         )
         waitForExpectations()
+        
+        deleteDialog(dialogID)
     }
 
     /** Retrieve a client's profile using invalid profile parameters. */
     func testGetProfileWithInvalidParameterNames() {
+
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
+        }
+
         let description1 = "Start a conversation with the dialog application."
         let expectation1 = expectationWithDescription(description1)
 
         var clientID: Int?
 
-        dialog.converse(dialogID!, failure: failWithError) { response in
+        dialog.converse(dialogID, failure: failWithError) { response in
             clientID = response.clientID
             expectation1.fulfill()
         }
@@ -927,17 +1206,20 @@ class DialogTests: XCTestCase {
         }
 
         dialog.getProfile(
-            dialogID!,
+            dialogID,
             clientID: clientID!,
             names: invalidParameters,
             failure: failure,
             success: failWithResult
         )
         waitForExpectations()
+
+        deleteDialog(dialogID)
     }
 
     /** Update a client's profile variables using an invalid dialog id. */
     func testUpdateProfileWithInvalidDialogID() {
+
         let description = "Update the client's profile variables using an invalid dialog id."
         let expectation = expectationWithDescription(description)
 
@@ -959,6 +1241,13 @@ class DialogTests: XCTestCase {
 
     /** Update a client's profile using an invalid client id. */
     func testUpdateProfileWithInvalidClientID() {
+
+        let dialogName = createDialogName()
+        guard let dialogID = createDialog(dialogName) else {
+            XCTFail("Failed to create a dialog application for testing.")
+            return
+        }
+
         let description = "Update a client's profile using an invalid client id."
         let expectation = expectationWithDescription(description)
 
@@ -970,12 +1259,14 @@ class DialogTests: XCTestCase {
         }
 
         dialog.updateProfile(
-            dialogID!,
+            dialogID,
             clientID: invalidID,
             parameters: ["size": "Large"],
             failure: failure,
             success: failWithResult
         )
         waitForExpectations()
+
+        deleteDialog(dialogID)
     }
 }

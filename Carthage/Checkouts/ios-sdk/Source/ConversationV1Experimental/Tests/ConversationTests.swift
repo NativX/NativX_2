@@ -37,8 +37,8 @@ class ConversationTests: XCTestCase {
         guard
             let file = bundle.pathForResource("Credentials", ofType: "plist"),
             let credentials = NSDictionary(contentsOfFile: file) as? [String: String],
-            let username = credentials["ConversationExperimentalUsername"],
-            let password = credentials["ConversationExperimentalPassword"]
+            let username = credentials["ConversationUsername"],
+            let password = credentials["ConversationPassword"]
             else {
                 XCTFail("Unable to read credentials.")
                 return

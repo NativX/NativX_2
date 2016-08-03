@@ -34,7 +34,7 @@ extension UIViewController {
             
             //get the user's id for adding to Firebase
             let userID = FIRAuth.auth()?.currentUser?.uid
-            let userRef = ref.child("users").child(userID!)
+            let userRef = ref.child(" ").child(userID!)
             
             //get data about the input text, add to Firebase
             let words = profile.wordCount
@@ -68,12 +68,9 @@ extension UIViewController {
         //get master trait
         let master = group.children![0]
         
-        //create parent entry
-        let entryName = "parent_" + master.name
-        
-        //add parent trait to Firebase
+        //add info about the master trait to Firebase
         groupRef.updateChildValues([
-             entryName : master.percentage!
+            master.name : master.percentage!
             ],  withCompletionBlock: {
                 (error, ref) in
                 if error != nil {

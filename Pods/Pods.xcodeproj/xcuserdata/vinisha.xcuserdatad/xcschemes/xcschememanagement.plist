@@ -29,21 +29,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>GaugeKit-GaugeKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>GaugeKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>IntervalSlider.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Koloda.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -87,12 +72,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>049B095F58F7ED7AF75DC677A2396330</key>
+		<key>03FC248C506BBA9ABB9AB70D3334B047</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0CC3AC85291D76DF4348A46011097C3C</key>
+		<key>0A55A0967DFA787E16E62E73664E9578</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -103,11 +88,6 @@
 			<true/>
 		</dict>
 		<key>0EB19C1377A747F81110D44E2D5FCF78</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>122253C62F330ED922A7C46D47CF8DC2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,11 +122,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>991C158D67B7651E0C8BEEE35B731673</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>9D0F2E5EA1B46A5D72FFD42B0B39DBBC</key>
 		<dict>
 			<key>primary</key>
@@ -157,12 +132,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C6FA216AC80E15475D3E38D12521D775</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E98BDCA33EE2AEB0D2E714DBE4FD8F48</key>
+		<key>FDC4337713C3665A4C7550FCC8A99B03</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -38,7 +38,6 @@ class TextToSpeechTests: XCTestCase {
         super.setUp()
         continueAfterFailure = false
         instantiateTextToSpeech()
-        deleteCustomizations()
     }
     
     /** Instantiate Text to Speech instance. */
@@ -54,20 +53,6 @@ class TextToSpeechTests: XCTestCase {
                 return
         }
         textToSpeech = TextToSpeech(username: username, password: password)
-    }
-    
-    /** Delete all customizations. */
-    func deleteCustomizations() {
-        let description = "Delete all customizations."
-        let expectation = expectationWithDescription(description)
-        
-        textToSpeech.getCustomizations(failure: failWithError) { customizations in
-            for customization in customizations {
-                self.textToSpeech.deleteCustomization(customization.customizationID)
-            }
-            expectation.fulfill()
-        }
-        waitForExpectations()
     }
     
     /** Fail false negatives. */
@@ -118,16 +103,14 @@ class TextToSpeechTests: XCTestCase {
         for voice in allVoices {
             let description = "Get the phonetic pronunciation of the given text."
             let expectation = expectationWithDescription(description)
-            
-            if case .JP_Emi = voice {
-                expectation.fulfill()
-                continue
-            }
-            
             textToSpeech.getPronunciation(text, voice: voice, format: .SPR, failure: failWithError) {
                 pronunciation in
-                XCTAssertGreaterThan(pronunciation.pronunciation.characters.count, 0)
-                expectation.fulfill()
+                if case .JP_Emi = voice {
+                    expectation.fulfill()
+                } else {
+                    XCTAssertGreaterThan(pronunciation.pronunciation.characters.count, 0)
+                    expectation.fulfill()
+                }
             }
             waitForExpectations()
         }
@@ -703,20 +686,6 @@ class TextToSpeechTests: XCTestCase {
         }
         
         textToSpeech.getVoice(voice, failure: failure, success: failWithResult)
-        waitForExpectations()
-    }
-    
-    /** Synthesize an empty string. */
-    func testSynthesizeEmptyString() {
-        let description = "Synthesize an empty string."
-        let expectation = expectationWithDescription(description)
-        
-        let failure = { (error: NSError) in
-            XCTAssertEqual(error.code, 400)
-            expectation.fulfill()
-        }
-        
-        textToSpeech.synthesize("", failure: failure, success: failWithResult)
         waitForExpectations()
     }
     

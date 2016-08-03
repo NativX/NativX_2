@@ -8,7 +8,6 @@ services=(
   AlchemyDataNewsV1
   AlchemyLanguageV1
   AlchemyVisionV1
-  ConversationV1
   ConversationV1Experimental
   DialogV1
   DocumentConversionV1
